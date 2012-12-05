@@ -3,7 +3,8 @@ $(document).ready(function(){
   // This is a list of the different kinds of dancers. Right now, 
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
-    makeBlinkyDancer: makeBlinkyDancer // found in blinkyDancer.js
+    makeBlinkyDancer: makeBlinkyDancer, // found in blinkyDancer.js
+    makeColorDancer: makeColorDancer // found in colorDancer.js
   };
   
   // This is a list of all the dancers that have been created.
@@ -13,17 +14,5 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
-
-
-
-
-
-
-  //Display info Box
-  $('#about').on('click', function (){ 
-    event.preventDefault();
-    $('#dialog').fadeIn();
-
-  }); 
 
 });
