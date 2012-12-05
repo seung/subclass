@@ -45,6 +45,16 @@ body, a:link, a:visited, a:active{
   border-radius: 30px;
 }
 
-.moonwalk {
-
+.triangle{
+  width: 0; 
+  height: 0; 
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid red;
+  position:absolute;
+  bottom: 0;
+  margin: auto;
+  bottom: 40px;
+  left: 40%;
+  right: 40%;
 }

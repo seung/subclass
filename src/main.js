@@ -26,15 +26,15 @@ $(document).ready(function(){
 
   //button to change a random dancer's color
   $('.outfit').on('click', function() {
-    //grab random index of dancer array
-    var randDancer = Math.floor(Math.random() * (window.dancers.length - 1));
-    //store the random dancer to change its color
-    var someDancer = window.dancers[randDancer]
-    changeDancerColor(someDancer);
-
-
+    if (window.dancers.length <= 0) {
+      alert("ADD SOME DANCERS FOOL!");
+    } else {
+      //grab random index of dancer array
+      var randDancer = Math.floor(Math.random() * (window.dancers.length - 1));
+      //store the random dancer to change its color
+      var someDancer = window.dancers[randDancer]
+      changeDancerColor(someDancer);
+    }
   });
 
 });
-
-
