@@ -25,3 +25,22 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.dancing-butt {
+  border: 10px solid green;
+  border-radius: 10px;
+  left: 5px;
+  position: relative;
+}
+
+.snow-man {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  border: 10px solid blue;
+  border-radius: 30px;
+}
+
+.moonwalk {
+
+}
