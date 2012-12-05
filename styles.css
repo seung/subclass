@@ -25,3 +25,29 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+@-webkit-keyframes slide {
+  0% {
+    left: 0%;
+  }
+ 
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+.moonwalk {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: slide;
+} 
+
+.backAndForther {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

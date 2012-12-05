@@ -5,7 +5,7 @@ var makeBlinkyDancer = function(left, top){
     left: left,
 
     // used in setInterval below
-    frequency: Math.random() * 2000,
+    frequency: Math.random() * 5000,
 
     // get dressed...
     moneyMaker: $("<span class='dancer'></span>"),
