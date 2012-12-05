@@ -15,10 +15,27 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
-
-  $(function() {
-    $('#instructions a').lightBox({fixedNavigation:true});
+  
+  //show instructions in centered lightbox
+  $('#instructions').click(function(e) {
+    $('.instructions').lightbox_me({
+        centered: true,
+        hidden: false
+        });
+    e.preventDefault();
   });
+
+  //button to change a random dancer's color
+  $('.outfit').on('click', function() {
+    //grab random index of dancer array
+    var randDancer = Math.floor(Math.random() * (window.dancers.length - 1));
+    //store the random dancer to change its color
+    var someDancer = window.dancers[randDancer]
+    changeDancerColor(someDancer);
+
+
+  });
+
 });
 
 

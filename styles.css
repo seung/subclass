@@ -3,7 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-color:lightgray;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -31,6 +31,10 @@ body, a:link, a:visited, a:active{
   border-radius: 10px;
   left: 5px;
   position: relative;
+}
+
+.instructions {
+  text-align: centered
 }
 
 .snow-man {

@@ -3,10 +3,8 @@
 <head>
   <title>Object Dance Party</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
-  <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.4.css" media="screen" />
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.lightbox-0.4.js"></script>
+  <script type="text/javascript" src="jquery.lightbox_me.js"></script>
   <script src="src/blinkyDancer.js"></script>
   <script src="src/makeBlinkyDancer1.js"></script>
   <script src="src/danceFloor.js"></script>
@@ -15,7 +13,8 @@
 </head>
 <body>
   <div class="topbar">
-    <span class='instructions'><a href="#">INSTRUCTIONS</a></span>
+    <a id='instructions' href="#">INSTRUCTIONS<div class='instructions' hidden=true>Click on links to make new dancers!
+      <br /> To use the color changer: Click "Outfit Changer" link to change a random dancer's outfit.</div></a>
     <span class="title">object dance party</span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
     <a href="#">make a dancer</a>
@@ -25,6 +24,9 @@
     </span>    
     <span class="clickable" data-dancer-creator="makeSnowManDancer">
     <a href="#">make a SnowManDancer</a>
+    </span>
+    <span class="outfit">
+    <a id="outfit" href="#">Outfit Changer</a>
     </span>
   </div>
   <div class="stage"></div>
