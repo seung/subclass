@@ -17,12 +17,11 @@ $(document).ready(function(){
   setupControls(danceFloor);
   
   //show instructions in centered lightbox
-  $('#instructions').click(function(e) {
+  $('#instructions').click(function() {
     $('.instructions').lightbox_me({
         centered: true,
         hidden: false
         });
-    e.preventDefault();
   });
 
   //button to change a random dancer's color
