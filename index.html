@@ -11,6 +11,7 @@
   <script src="src/transformDancer.js"></script> 
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
+  <script src="src/mixins.js"></script>
   <script src="src/main.js"></script>
 </head>
 <body>
@@ -30,8 +31,11 @@
     <span>
      <a href="#" id="about">About</a>
    </span>
-   <span class="clickable-mixin" data-dancer-mixin="makeZRotate">
+   <span class="clickable-mixin" data-dancer-mixin="addZRotation">
     <a href="#">rotate a dancer</a>
+  </span>
+  <span class="clickable-mixin" data-dancer-mixin="addRandomColor">
+    <a href="#">Randomize Colors!</a>
   </span>
   </div>
   <div id="dialog" title="About The Amazing Dance Party">

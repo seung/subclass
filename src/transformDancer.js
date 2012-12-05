@@ -10,8 +10,8 @@ var makeTransformDancer = function(left, top){
   	}
 
   var _random = function(){
-      var num = Math.random() * 9;
-      console.log (num);
+      var num = Math.random() * .5;
+      //console.log (num);
       return num;
     }
 

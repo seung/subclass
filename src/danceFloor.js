@@ -17,9 +17,11 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       dancers.push(d);
     },
     addMixin: function(mixinName){
-      var fn = window[settings.functionName];
-      window["mixin"]
-       mixinName();
+      mixit = makeMixinController();
+      mixit[mixinName]();  
+
+
+
 
      }
 
