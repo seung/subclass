@@ -13,4 +13,17 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
+
+
+
+
+
+
+  //Display info Box
+  $('#about').on('click', function (){ 
+    event.preventDefault();
+    $('#dialog').fadeIn();
+
+  }); 
+
 });

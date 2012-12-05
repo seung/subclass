@@ -25,3 +25,24 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+#about {
+
+}
+
+#dialog {
+  display: none;
+  background-color: #666666;
+  width: 200px;
+  height: 200px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2px;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+#titlebar{
+  text-align: right;
+}
