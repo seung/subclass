@@ -6,6 +6,7 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="src/blinkyDancer.js"></script>
+  <script src="src/otherDancers.js"></script>
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
@@ -16,6 +17,18 @@
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
       <a href="#">make a dancer</a>
     </span>
+    <span class="clickable" data-dancer-creator="makePoleDancer">
+      <a href="#">make a pole dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makeColoredDancer">
+      <a href="#">make a colored dancer</a>
+    </span>
+    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Dance floor description</a>
+    <div id="light" class="white_content">Click 'make a dancer' to display a flashing red dot.</br>
+      Click 'make a pole dancer to diplay a flashing green rod.</br>
+      Click 'make a colored dancer to display a flashing dot whose color has been randomly generated.<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></br></br>Close</a></div>
+    <div id="fade" class="black_overlay"></div>
+
   </div>
   <div class="stage"></div>
 </body>

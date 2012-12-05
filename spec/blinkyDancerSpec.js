@@ -1,28 +1,43 @@
 describe("blinkyDancer", function() {
   var blinkyDancer;
 
-  beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
+
+  describe ("blinkyDancer", function() {
+    beforeEach(function() {
+      blinkyDancer = makeBlinkyDancer(20, 10);
+    });
+
+    it("should have a left and top coordinate", function(){
+      expect(blinkyDancer.left).toBe(20);
+      expect(blinkyDancer.top).toBe(10);
+    });
+
+    it("should have a jQuery node object", function(){
+      expect(blinkyDancer.moneyMaker).toEqual(jasmine.any(jQuery));
+    });
+
+    it("should have a frequency", function(){
+      expect(blinkyDancer.frequency).toEqual(jasmine.any(Number));
+      expect(blinkyDancer.frequency).toBeGreaterThan(0);
+    });
+
+    it("should have a step function that shakes its moneyMaker", function() {
+      spyOn(blinkyDancer.moneyMaker, 'toggle');
+      blinkyDancer.step();
+      expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
+    });
   });
 
-  it("should have a left and top coordinate", function(){
-    expect(blinkyDancer.left).toBe(20);
-    expect(blinkyDancer.top).toBe(10);
-  });
+  describe ("other dancers", function() {
+    var poleDancer = makePoleDancer(20, 10);
+    it("pole dancer should change blinkyDancer's height", function() {
+      expect($('.dancer')[0].style.height).toEqual("30px");
+    });
 
-  it("should have a jQuery node object", function(){
-    expect(blinkyDancer.moneyMaker).toEqual(jasmine.any(jQuery));
-  });
+    var coloredDancer = makeColoredDancer(20, 10);
+    it("colored dancers should select a random color for each dancer", function() {
 
-  it("should have a frequency", function(){
-    expect(blinkyDancer.frequency).toEqual(jasmine.any(Number));
-    expect(blinkyDancer.frequency).toBeGreaterThan(0);
-  });
-
-  it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(blinkyDancer.moneyMaker, 'toggle');
-    blinkyDancer.step();
-    expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
+    });
   });
 
   describe("dance", function(){
