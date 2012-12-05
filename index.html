@@ -3,18 +3,35 @@
 <head>
   <title>Object Dance Party</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
-
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js">
+       </script>
   <script src="src/blinkyDancer.js"></script>
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
 </head>
 <body>
+  <div class="modal hide fade">
+
+
+
+  </div>
+
+
+
+
   <div class="topbar">
     <span class="title">object dance party</span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
       <a href="#">make a dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makeFadeyDancer">
+      <a href="#">make a fadey dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makeColorDancer">
+      <a href="#">make a color dancer</a>
     </span>
   </div>
   <div class="stage"></div>

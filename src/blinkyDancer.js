@@ -40,3 +40,39 @@ var makeBlinkyDancer = function(left, top){
 
   return dancer;
 };
+
+
+var makeFadeyDancer = function(left, top) {
+  var dancer = makeBlinkyDancer(left, top);
+  dancer.moneyMaker.css('border-color', 'purple');
+  dancer.blink = function () {
+    dancer.moneyMaker.fadeToggle();
+  };
+  return dancer;
+};
+
+var makeColorDancer = function(left, top) {
+  var dancer = makeBlinkyDancer(left, top);
+  dancer.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
+  dancer.blink = function () {
+    var number = Math.floor(Math.random()*5);
+    var randomcolor = this.colors[number];
+    dancer.moneyMaker.css('border-color',randomcolor);
+  };
+  return dancer;
+};
+
+var makeADancerAColorDancer = function(dancer){
+dancer.blink = function(){
+
+ dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
+}
+
+};
+
+
+
+
+
+
+
