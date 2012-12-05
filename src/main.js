@@ -15,4 +15,5 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
+
 });

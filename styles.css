@@ -57,3 +57,7 @@ body, a:link, a:visited, a:active{
 .white_content a {
   color: black;
 }
+
+.border-square {
+  border-radius: 0px;
+}

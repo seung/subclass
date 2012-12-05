@@ -29,15 +29,28 @@ describe("blinkyDancer", function() {
   });
 
   describe ("other dancers", function() {
-    var poleDancer = makePoleDancer(20, 10);
-    it("pole dancer should change blinkyDancer's height", function() {
-      expect($('.dancer')[0].style.height).toEqual("30px");
+
+    describe("pole dancer", function () {
+      it("should change blinkyDancer's height", function() {
+        var poleDancer = makePoleDancer(20, 10);
+        expect(poleDancer.height).toBeDefined();
+      });
+
+      it("should insert the new property into the DOM", function() {
+        var poleDancer = makePoleDancer(20, 10);
+        expect(poleDancer.moneyMaker.css("height")).toBeTruthy();
+      })
     });
 
-    var coloredDancer = makeColoredDancer(20, 10);
-    it("colored dancers should select a random color for each dancer", function() {
+    describe("colored dancer", function() {
 
+      it("colored dancer should change blinkyDancer's color to a random color", function() {
+        var coloredDancer = makeColoredDancer(20, 10);
+        testStr = coloredDancer.moneyMaker.css("border-color").slice(0,3);
+        expect(testStr).toEqual("rgb");
+      });
     });
+
   });
 
   describe("dance", function(){
@@ -70,4 +83,19 @@ describe("blinkyDancer", function() {
       $('.stage').remove();
     });
   });
+
+  describe("mixin", function() {
+    it("should add class 'border-square' to the dancer", function() {
+      var blinkyDancer = makeBlinkyDancer(10, 10);
+      mixinSquare(blinkyDancer);
+      expect(blinkyDancer.moneyMaker.hasClass("border-square")).toBeTruthy();
+    });
+  });
+
+
+
+
+
+
+
 });
