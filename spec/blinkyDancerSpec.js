@@ -1,5 +1,7 @@
 describe("blinkyDancer", function() {
   var blinkyDancer;
+  dancers=[];
+  bindListeners = function () {};
 
   beforeEach(function() {
     blinkyDancer = makeBlinkyDancer(20, 10);

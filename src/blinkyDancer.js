@@ -8,7 +8,7 @@ var makeBlinkyDancer = function(left, top){
     frequency: Math.random() * 2000,
 
     // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
+    moneyMaker: $("<span data-idnumber='"+ dancers.length +"'class='dancer'></span>"),
 
     dance: function(){
       // go out...
@@ -62,13 +62,23 @@ var makeColorDancer = function(left, top) {
   return dancer;
 };
 
-var makeADancerAColorDancer = function(dancer){
-dancer.blink = function(){
-
- dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
-}
-
+var makeADancerASizeDancer = function(dancer){
+  dancer.blink = function(){
+    dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
+  }
 };
+
+var makeShapeDancer = function (left, top) {
+  var dancer = makeBlinkyDancer(left, top);
+  dancer.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
+  dancer.blink = function () {
+    var number = Math.floor(Math.random()*5);
+    var randomshape = this.shapes[number];
+    dancer.moneyMaker.attr('id', randomshape);
+  };
+  return dancer;
+};
+
 
 
 
