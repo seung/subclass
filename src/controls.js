@@ -3,4 +3,10 @@ var setupControls = function(danceFloor){
     var dancerMakerName = $(this).data("dancer-creator");
     danceFloor.makeDancer(dancerMakerName);
   });
+  $("#lightSwitch").on("click", function(event){
+  	$("#lightBox").fadeIn();
+  });
+  $("#lightBox").on("click", function(event){
+  	$("#lightBox").fadeOut();
+  });
 }

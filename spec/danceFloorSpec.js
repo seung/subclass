@@ -37,6 +37,11 @@ describe("danceFloor", function() {
       expect(fakeDancer.dance).toHaveBeenCalled();
     });
 
+    it("should add an object fakeDancer to dancers", function(){
+      danceFloor.makeDancer("makeFakeDancer");
+      expect(dancers[0]).toBe(fakeDancer);
+    })
+
   });
 
 });

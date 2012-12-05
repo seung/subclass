@@ -1,8 +1,11 @@
 describe("blinkyDancer", function() {
   var blinkyDancer;
+  var raveDancer;
 
   beforeEach(function() {
     blinkyDancer = makeBlinkyDancer(20, 10);
+    raveDancer = makeRaveDancer(20, 10);
+    
   });
 
   it("should have a left and top coordinate", function(){
@@ -23,6 +26,14 @@ describe("blinkyDancer", function() {
     spyOn(blinkyDancer.moneyMaker, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
+  });
+
+  describe("raveDancer", function() {
+    it("should have a step function that changes the color of its moneyMaker", function() {
+      spyOn(raveDancer.moneyMaker, 'css');
+      raveDancer.step();
+      expect(raveDancer.moneyMaker.css).toHaveBeenCalled();
+    });
   });
 
   describe("dance", function(){
@@ -55,4 +66,5 @@ describe("blinkyDancer", function() {
       $('.stage').remove();
     });
   });
+
 });
