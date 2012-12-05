@@ -3,9 +3,17 @@ var setupControls = function(danceFloor){
     var dancerMakerName = $(this).data("dancer-creator");
     danceFloor.makeDancer(dancerMakerName);
   });
+
+	$("#lightboxButton").on("click", function(event) {
+		$("#lightbox").show();
+	});
+
+	$("#lightboxClose").on("click", function(event) {
+		$("#lightbox").hide();
+	});
+
 }
 
-// binding
 
 // var defaultThis = window;
 // var theObj = { a: 1 }

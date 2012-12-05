@@ -2,19 +2,20 @@
 <html>
 <head>
   <title>Object Dance Party</title>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="lib/ligthbox/jquery.lightbox-0.5.js"></script>
   <script src="src/blinkyDancer.js"></script>
   <script src="src/danceFloor.js"></script>
-  <script src="goldenDancer.js"></script>
-  <script src="backAndForther.js"></script>
+  <script src="src/goldenDancer.js"></script>
+  <script src="src/backAndForther.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/ligthbox/jquery.lightbox-0.5.css" media="screen" />
 </head>
 <body>
   <div class="topbar">
-    <span class="title">object dance party</span>
+    <a href="#"><span id="lightboxButton" class="title">object dance party</span></a href="#">
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
       <a href="#">make a dancer</a>
     </span>
@@ -24,6 +25,7 @@
     <span class="clickable" data-dancer-creator="backAndForther">
     <a href="#">backAndForther</a>
     </span>
+    <div id="lightbox">This program rules infinitely<br><a id="lightboxClose" href="#">close</a></div>
   </div>
   <div class="stage"></div>
 </body>
