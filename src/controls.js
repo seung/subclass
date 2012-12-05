@@ -4,6 +4,11 @@ var setupControls = function(danceFloor){
     danceFloor.makeDancer(dancerMakerName);
   });
 
+  $(".clickable-mixin").on("click", function(event){
+    var dancerMakerName = $(this).data("dancer-mixin");
+    danceFloor.addMixin(dancerMakerName);
+  });
+
 
   //Display info Box
   $('#about').on('click', function (){ 
@@ -11,3 +16,4 @@ var setupControls = function(danceFloor){
     $('#dialog').fadeIn();
   }); 
 }
+

@@ -7,8 +7,9 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="src/blinkyDancer.js"></script> 
-  <script src="src/colorDancer.js"></script> 
-   <script src="src/danceFloor.js"></script>
+  <script src="src/colorDancer.js"></script>
+  <script src="src/transformDancer.js"></script> 
+  <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
 </head>
@@ -17,8 +18,11 @@
    
 
     <span class="title">object dance party</span>
+     <span class="clickable" data-dancer-creator="makeTransformDancer">
+      <a href = "#">make a Transform dancer</a>
+    </span>
     <span class="clickable" data-dancer-creator="makeColorDancer">
-      <a href = "#">make a color dancer</a>
+      <a href = "#">make a Random Color dancer</a>
     </span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
       <a href="#">make a dancer</a>
@@ -26,6 +30,9 @@
     <span>
      <a href="#" id="about">About</a>
    </span>
+   <span class="clickable-mixin" data-dancer-mixin="makeZRotate">
+    <a href="#">rotate a dancer</a>
+  </span>
   </div>
   <div id="dialog" title="About The Amazing Dance Party">
     <div id="titlebar"> 

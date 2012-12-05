@@ -15,7 +15,16 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       
       d.dance();
       dancers.push(d);
-    }
+    },
+    addMixin: function(mixinName){
+      var fn = window[settings.functionName];
+      window["mixin"]
+       mixinName();
+
+     }
+
+
+    
   }
 
   return danceFloor;
