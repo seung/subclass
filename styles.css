@@ -27,7 +27,6 @@ body, a:link, a:visited, a:active{
 }
 .fadedindancer{
   border:30px solid yellow;
-  position:absolute;
   border-radius: 1px;
 }
 .monster{

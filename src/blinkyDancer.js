@@ -40,3 +40,4 @@ var makeBlinkyDancer = function(left, top){
 
   return dancer;
 };
+

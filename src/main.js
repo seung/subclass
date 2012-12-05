@@ -6,7 +6,7 @@ $(document).ready(function(){
     makeBlinkyDancer: makeBlinkyDancer,
     makeColorDancer: makeColorDancer,
     makeFadedInDancer: makeFadedInDancer,
-    makePicDancer: makePicDancer // found in blinkyDancer.js
+    // makePicDancer: makePicDancer // found in blinkyDancer.js
   };
   
   // This is a list of all the dancers that have been created.
