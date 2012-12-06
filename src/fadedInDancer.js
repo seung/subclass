@@ -6,9 +6,3 @@ var makeFadedInDancer = function (left, top) {
 	};
 	return fadedInDancer;
 }
-
-var makeBigger = function(){
-	for(var i = 0; i < window.dancers.length; i++){
-		window.dancers[i].moneyMaker.css({"border" : "40px solid white"});
-	}
-}
