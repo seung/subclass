@@ -92,10 +92,15 @@ describe("blinkyDancer", function() {
     });
   });
 
-
-
-
-
-
-
+  describe("emergent behavior", function() {
+    describe("Should dancer move", function() {
+      it("older dancer will move if newer dancer is within defined distance of it", function() {
+        var dancer1 = makeBlinkyDancer(10, 10);
+        var dancer2 = makeBlinkyDancer(10, 20);
+        window.dancers = [dancer1, dancer2];
+        shouldDancerMove();
+        expect(window.dancers[0].moneyMaker.css("top")).not.toEqual(10);
+      });
+    });
+  });
 });

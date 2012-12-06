@@ -8,7 +8,7 @@ var makeBlinkyDancer = function(left, top){
     frequency: Math.random() * 2000,
 
     // get dressed...
-    moneyMaker: $("<span class='dancer'><p></p></span>"),
+    moneyMaker: $("<span class='dancer'></span>"),
 
     dance: function(){
       // go out...
@@ -37,6 +37,7 @@ var makeBlinkyDancer = function(left, top){
   }; // dancer
   
   dancer.getInPosition();
+  // dancer.moneyMaker.text(window.dancers.length + 1);
 
   return dancer;
 };

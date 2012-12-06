@@ -24,6 +24,7 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  font-size: 10px;
 }
 
 .black_overlay{

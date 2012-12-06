@@ -3,9 +3,9 @@ var shouldDancerMove = function() {
 		var movingDancer = null;
 		var dancerPositions = [];
 		for (var i = 0; i < window.dancers.length; i += 1) {
-			var tempPosition = {};
-			tempPosition.top = window.dancers[i].top;
-			tempPosition.left = window.dancers[i].left;
+			var tempPosition = {"top": window.dancers[i].top, "left": window.dancers[i].left};
+			// tempPosition.top = window.dancers[i].top;
+			// tempPosition.left = window.dancers[i].left;
 			dancerPositions[i] = tempPosition;
 		};
 		for (var i = 0; i < dancerPositions.length; i += 1) {
@@ -14,13 +14,9 @@ var shouldDancerMove = function() {
 				if (distance(tempDancer, dancerPositions[j]) < 10000) {
 					tempDancer.top = Math.floor(Math.random() * $("body").height());
 					tempDancer.left = Math.floor(Math.random() * $("body").width());
-					// window.dancers[i].moneyMaker.css({top: tempDancer.top, left: tempDancer.left});
-					window.dancers[i].moneyMaker.css("top", tempDancer.top + "px");
-					window.dancers[i].moneyMaker.css("left", tempDancer.left + "px");
-					window.dancers[i].moneyMaker.text(i + ", " + tempDancer.top + ", " + tempDancer.left);
+					window.dancers[i].moneyMaker.css({"top": tempDancer.top + "px", "left": tempDancer.left + "px"});
 				}
 			}
-			window.dancers[i].moneyMaker.text(i + ", " + tempDancer.top + ", " + tempDancer.left);
 		}
 	}
 }
