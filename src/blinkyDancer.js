@@ -62,12 +62,6 @@ var makeColorDancer = function(left, top) {
   return dancer;
 };
 
-var makeADancerASizeDancer = function(dancer){
-  dancer.blink = function(){
-    dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
-  }
-};
-
 var makeShapeDancer = function (left, top) {
   var dancer = makeBlinkyDancer(left, top);
   dancer.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
@@ -78,6 +72,52 @@ var makeShapeDancer = function (left, top) {
   };
   return dancer;
 };
+
+//mix-ins
+var makeADancerASizeDancer = function(dancer){
+  dancer.blink = function(){
+    dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
+  }
+};
+
+var makeDancersMove = function(dancer){
+  dancer.move = function(){
+    var curtop= this.top-(Math.floor(Math.random()*20-(Math.random()*20) ));
+    var curleft= this.left-(Math.floor(Math.random()*20-(Math.random()*20) ));
+    this.top= curtop;
+    this.left= curleft;
+    dancer.moneyMaker.css('top', curtop);
+    dancer.moneyMaker.css('left', curleft);
+  }
+  
+  dancer.movement = function(){
+    dancer.move();
+  };
+
+  dancer.makemove = function(){
+    setInterval(dancer.movement, dancer.frequency);
+  };
+
+  dancer.makemove();
+};
+
+/*makeDancersMove = function () {
+  move = function(){
+    var curtop= this.top-(Math.floor(Math.random()*50-(Math.random()*50) ));
+    var curleft= this.left-(Math.floor(Math.random()*50-(Math.random()*50) ));
+    dancer.moneyMaker.css('top', curtop);
+    dancer.moneyMaker.css('left', curleft);
+  };
+  makemove= function(){
+    setInterval(move, this.frequency);
+  };
+  for (var i in dancers){
+    dancers[i].move=move;
+    dancers[i].makemove = makemove;
+    dancers[i].makemove();
+  }
+}; */
+
 
 
 

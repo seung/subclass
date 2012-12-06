@@ -11,6 +11,17 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
+      if(dancers[0]){
+        var numdancers= dancers.length-1;
+
+        while (Math.abs(w-dancers[numdancers].left) > 50 ){
+          var w = Math.random() * danceFloor.width;
+        }
+        while (Math.abs(h-dancers[numdancers].top) > 50 ){
+          var h = Math.random() * danceFloor.height;
+        }
+
+      }
       d = dancerMaker(w, h);
       //makeADancerAColorDancer(d);
       d.dance();
