@@ -4,7 +4,8 @@ $(document).ready(function(){
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
     makeBlinkyDancer: makeBlinkyDancer, // found in dancerTypes.js
-    makeRaveDancer: makeRaveDancer // found in dancerTypes.js
+    makeRaveDancer: makeRaveDancer, // found in dancerTypes.js
+    makeMoshPitDancer: makeMoshPitDancer // found in moshPitDancer.js
   };
   
   // This is a list of all the dancers that have been created.

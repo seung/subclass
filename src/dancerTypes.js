@@ -43,12 +43,15 @@ var makeBlinkyDancer = function(left, top){
 
 var makeRaveDancer = function(left, top) {
   var raveDancer = makeBlinkyDancer(left, top);
+  raveDancer.frequency = 70 ;
+  var raveColors = ['#FF00CC','#F7FF00','#5EFF00','#00FFF2'];
   raveDancer.danceMove = function(){
-    var randomColor = function() {
-      return Math.floor(Math.random()*205)+50;
+    var randomColorGen = function() {
+      return raveColors[Math.floor(Math.random() * raveColors.length)];
     };
-    raveDancer.moneyMaker.css("border-color", "rgb("+randomColor()+","+randomColor()+","+randomColor()+")");
-    raveDancer.frequency = 100;
+
+    var randomColor = randomColorGen(); 
+    raveDancer.moneyMaker.css("border-color", randomColor);
   };
   return raveDancer;
-}
+};

@@ -33,7 +33,14 @@ body, a:link, a:visited, a:active{
   font-family: sans-serif;
 
 }
-
+#moshPit {
+  position: absolute;
+  top:500px;
+  left: 500px;
+  height: 250px;
+  width: 250px;
+  background-color: transparent;
+}
 
 
 .topbar span{

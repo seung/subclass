@@ -9,12 +9,26 @@
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/mixIn.js"></script>
+  <script src="src/moshPitDancer.js"></script>
+
 </head>
 <body>
   <div id="lightBox">
     <div id="lightBoxContent">
-      <h1>This is the Title! Yay!</h1>
-      <p>This is how the site works. Yadda yadda.</p>
+      <h1>Bance Dattle!</h1>
+      <p>Clicking one of the buttons tells the dance floor to create the appropriate dancer on the stage. All dancers are created at random locations.</p>
+      <ul>
+        <li><b>Blinky Dancer:</b>
+          <ul>Uses a set interval to toggle visibility on and off.</ul>
+        </li>
+
+        <li><b>Rave Dancer:</b>
+          <ul>Cycles through an array of colors ('#FF00CC','#F7FF00','#5EFF00','#00FFF2') using Math.random and array.length.</ul>
+        </li>
+        <li><b>Mosh Pit Dancer:</b></li>
+          <ul>Mosh pit dancers are created in a separate div. This div is given a random position every interval, and modulus is used to keep it on the screen. The individual dancers are also each given a random position, mod 100 to keep them inside the div.</ul>
+      </ul>
     </div>
   </div>
   <div class="topbar">
@@ -25,10 +39,15 @@
     <span class="clickable" data-dancer-creator="makeRaveDancer">
       <a href="#">make a rave dancer</a>
     </span>
+    <span class="clickable" data-dancer-creator="makeMoshPitDancer">
+      <a href="#">make a mosh dancer</a>
+    </span>
     <span id="lightSwitch">
       <a href="#">How does this work?</a>
     </span>
   </div>
-  <div class="stage"></div>
+  <div class="stage">
+    <div id="moshPit"></div>
+  </div>
 </body>
 </html>
