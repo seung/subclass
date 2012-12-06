@@ -7,7 +7,7 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
 }
 .topbar span{
   padding:5px 12px;
@@ -26,22 +26,26 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
+li {
+  font-size: 2em;
+  list-style-type: none;
+  text-align: center;
+  padding-top: 20px;
+}
+
 @-webkit-keyframes slide {
   0% {
     left: 0%;
   }
  
-  50% {
+  100% {
     left: 100%;
   }
 
-  100% {
-    left: 0%;
-  }
 }
 
 .moonwalk {
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 1.5s;
   -webkit-animation-name: slide;
 } 
 
@@ -52,16 +56,86 @@ body, a:link, a:visited, a:active{
   animation-direction: alternate;
 }
 
+.stuff {
+  z-index: 1;
+}
+
 #lightbox {
-  background-color: black;
-  width: 20%;
-  height: 20%;
+  background-color: #999;
+  width: 50%;
+  height: 50%;
   position: absolute;
-  top: 40%;
-  left: 45%;
+  top: 20%;
+  left: 20%;
+  display: none;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 5px 3px 5px 6px #ccc;
+  box-shadow:         0px 0px 15px 10px #ccc;
+}
+
+#lightboxClose{
+  float: right;
+  padding-top: 19%;
+  padding-right: 1%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.p1 {
+  font-size: 5em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
+  text-decoration: none;
+}
+
+.p2 {
+  font-size: 5em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
   display: none;
 }
 
-#lightboxButton {
+.p3 {
+  font-size: 4em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
+}
 
+.p4 {
+  font-size: 4em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
+}
+
+.p5 {
+  font-size: 4em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
+}
+
+.p6 {
+  font-size: 4em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
+}
+
+.p7 {
+  font-size: 4em;
+  display: none;
+  text-align: center;
+  padding-top: 10%;
+  display: none;
 }
