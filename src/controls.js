@@ -2,6 +2,7 @@ var setupControls = function(danceFloor){
   $(".clickable").on("click", function(event){
     var dancerMakerName = $(this).data("dancer-creator");
     danceFloor.makeDancer(dancerMakerName);
+    shouldDancerMove();
   });
 
     // Border-square Mixin execution.
@@ -12,5 +13,6 @@ var setupControls = function(danceFloor){
   		}
   		// Math.random() > .9 ? mixinSquare(window.dancers[i]) : ;
   	}
+  	shouldDancerMove();
   });
 }

@@ -1,14 +1,14 @@
 var makeBlinkyDancer = function(left, top){
   var dancer = {
     // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+    top: Math.floor(top),
+    left: Math.floor(left),
 
     // used in setInterval below
     frequency: Math.random() * 2000,
 
     // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
+    moneyMaker: $("<span class='dancer'><p></p></span>"),
 
     dance: function(){
       // go out...
