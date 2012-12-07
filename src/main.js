@@ -4,7 +4,7 @@ $(document).ready(function(){
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
     makeBlinkyDancer: makeBlinkyDancer, // found in blinkyDancer.js
-    goldenDancer: goldenDancer
+    makeGoldenDancer: makeGoldenDancer
   };
   // This is a list of all the dancers that have been created.
   // * danceFloor.js will add to it when you click on stuff.

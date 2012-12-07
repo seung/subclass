@@ -21,7 +21,7 @@ describe("blinkyDancer", function() {
 
   it("should have a step function that shakes its moneyMaker", function() {
     spyOn(blinkyDancer.moneyMaker, 'toggle');
-    blinkyDancer.step();
+    blinkyDancer.blink();   
     expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
   });
 
