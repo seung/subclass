@@ -1,7 +1,11 @@
 //mixin to change a random dancer's color
 var changeDancerColor = function(dancer) {
-	var hue = 'rgb(' + (Math.floor((256-199)*Math.random()) + 200) + ','
-                     + (Math.floor((256-199)*Math.random()) + 200) + ','
-                     + (Math.floor((256-199)*Math.random()) + 200) + ')';
+	var randomNumber = function () {
+		return (Math.floor(Math.random()*(255))
+	}
+
+	var hue = 'rgb(' + randomNumber() + ','
+                     + randomNumber() + ','
+                     + randomNumber() + ')';
 	dancer.moneyMaker.css('border-color', hue);
 }
