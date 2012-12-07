@@ -5,6 +5,6 @@ var setupControls = function(danceFloor){
   });
    $(".clickhere").on("click", function(event){
     var trainingDancer = $(this).data("dancer-changer");
-    window[trainingDancer]();
+    dancerChanger(trainingDancer, window.dancers);
   });
 }
