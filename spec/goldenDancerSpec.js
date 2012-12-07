@@ -11,8 +11,33 @@ describe("goldenDancer", function() {
     expect(goldenDancer.moneyMaker.fadeToggle).toHaveBeenCalled();
   });
 
-  it("should set the frequency property to 1000" function() {
-    spyOn(goldenDancer, ''
+  it("should set frequency to 1000 milliseconds", function() {
+    expect(goldenDancer.frequency).toBe(1000);
   });
 
+  describe("addClass", function(){
+    beforeEach(function(){
+      $('<div class="stage"></div>').appendTo('body');
+    });
+
+    it("should add something to the stage", function(){
+      expect($(".stage").html()).toEqual('');
+      goldenDancer.dance();
+      expect($(".stage").html()).not.toEqual('');
+    });
+
+    it("should be called", function() {
+      spyOn(goldenDancer.moneyMaker, "addClass");
+      goldenDancer.moneyMaker.addClass();
+      expect(goldenDancer.moneyMaker.addClass).toHaveBeenCalled();
+    });
+
+    it("should create a moonwalk class", function() {
+      
+    });
+
+    afterEach(function(){
+      $('.stage').remove();
+    });
+  });
 });
