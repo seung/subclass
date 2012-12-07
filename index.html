@@ -13,6 +13,8 @@
   <script src="src/controls.js"></script>
   <script src="src/mixins.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/utils.js"></script>
+
 </head>
 <body>
   <div class="topbar">
@@ -45,7 +47,7 @@
         <a href=""> close</a>
       </span>
     </div>
-    <p>The blinky dancer allows you to randomly display dancers designed by the programmer by clicking a button</p>
+    <p>The Program starts in the main file which constructs a stage and calls the controls setup which links the buttons to make dancer.  When a make dancer is clicked the dancer is made by calling the appropriate makeDancer function and then use jQuery to append to the stage.   The mixins do not add new dancers; they simply select a random dancer that has already been created and changes their properties.</p>
   </div>
   <div class="stage"></div>
 </body>

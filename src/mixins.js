@@ -18,16 +18,6 @@ var makeMixinController = function(){
 		addRandomColor: function(){
 		  var aDancer = this.selectRandomDancer();
 		  aDancer.blink = function(){
-		  	var _randomColor = function(){
-
-			  	var _random = function(){
-			  		return Math.floor(Math.random() * 255)
-			  	}
-
-
-		  	  var newRGB =  "rgb("+_random()+","+_random()+ ","+_random()+")";
-		  	  return newRGB;
-		    }
 		  
 		  	aDancer.moneyMaker.css("border-color", _randomColor())
 		  	aDancer.moneyMaker.toggle();
