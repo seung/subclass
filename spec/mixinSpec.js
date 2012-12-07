@@ -21,4 +21,22 @@ describe("Mixins", function(){
         expect(testDancer.blink).toEqual(jasmine.any(Function));
       });
     });
+
+	describe("addZRotation", function(){
+		it("should add transfrom to Dancer", function() {
+			//debugger;
+			window.dancers.forEach(function (theDancer){
+				expect(theDancer.moneyMaker.css('transform')).toBeFalsy();
+			});
+
+			for(var i = 0; i < 30; i ++){
+			  mixinController.addZRotation();
+			}
+			window.dancers.forEach(function (theDancer){
+				theDancer.blink();
+				expect(theDancer.moneyMaker.css('transform')).toBeTruthy();
+			});
+		});
+
+	});
 });
