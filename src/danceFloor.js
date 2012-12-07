@@ -27,9 +27,11 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       d.dance();
       dancers.push(d);
       bindListeners();
-
+      console.log(bindListeners);
     }
   }
+  console.log(danceFloor);
 
   return danceFloor;
 }
+

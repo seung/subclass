@@ -14,7 +14,23 @@
 </head>
 <body>
   <div class="modal hide fade">
-    <p>Makes dancers!!</p>
+    <p>Hello there wandering programmer!
+      Welcome to our dancing program. We create 'dancer' objects which are drawn on the screen with a 'moneymaker' span tag. The tag has a small size but large colorful borders, which is most of what you see on the screen. We have functions that make different kinds of dancers, and also mixins which modify existing dancers to behave differently. 
+
+      -BREAKDOWN-
+      1. On the page load, we load in our custom styles, bootstrap, and jquery from their respective CDNs.
+      2. We load the definitions for all of the functions. 
+      3. We load in main.js. It creates a kindsOfDancers object which contains all of the functions that create new dancers. Then it defines the dancers variable, which starts as an empty array. 
+      4. We called the makeDanceFloor function and we pass in the kindsOfDancers object so that the dancerFloor object can call the functions that make dancers and we pass in the dancers array so that we can push new dancers into the array. 
+      5. The makeDanceFloor function returns a danceFloor object which has a makeDancer method. It also has width and height properties, which are just the width and height of the browser window. The danceFloor is persistant and is what actually creates all the dancers. 
+        5a. The makeDancer method takes in a string parameter, then it uses that string as a key to find the corresponding function in the kindsOfDancers object and assigns it to a variable called dancerMaker. 
+        5b. All of the functions that make dancers take in two arguements (left, top) which determines their position on the danceFloor. When each dancer is made, those two arguments are generated randomly.
+        5c. If there are dancers on the floor the next dancer created will be placed within 50px of the last dancer created. The two arguments are still generated randomly, but there are while loops in place to ensure that they are within 50px.
+      6. 
+
+
+
+    </p>
   </div>
 
 
@@ -34,6 +50,9 @@
     </span>
     <span class="clickable" data-dancer-creator="makeShapeDancer">
       <a href="#">make a shape dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makeStarDancer">
+      <a href="#">make a star dancer</a>
     </span>
   </div>
   <div class="stage"></div>

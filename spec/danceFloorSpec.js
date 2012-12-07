@@ -5,6 +5,8 @@ describe("danceFloor", function() {
   var fakeDancer;
 
   beforeEach(function() {
+    bindListeners= function(){};
+
     // Set up spies
     fakeDancer = {
       dance: jasmine.createSpy()

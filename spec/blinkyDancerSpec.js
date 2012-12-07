@@ -53,8 +53,42 @@ describe("blinkyDancer", function() {
       expect(blinkyDancer.step.callCount).toBe(2);
     });
 
+
+
     afterEach(function(){
       $('.stage').remove();
     });
   });
+
+describe("makeFadeyDancer", function() {
+  beforeEach(function() {
+    dancer = makeFadeyDancer(20, 10);
+  });
+
+  it("should change the opacity", function() {
+      var opacitybefore = dancer.moneyMaker.css('opacity');
+      dancer.blink();
+      expect(opacitybefore).not.toEqual(dancer.moneyMaker.css('opacity'));
+  });
+});  
+
+describe("makeDancersMove", function() {
+  beforeEach(function() {
+    dancer = makeBlinkyDancer(20, 10);
+  });
+
+  it("should change the position top and left", function() {
+      var leftbefore = dancer.moneyMaker.css('left');
+      makeDancersMove(dancer);
+      dancer.movement();
+      expect(leftbefore).not.toEqual(dancer.moneyMaker.css('left'));
+  });
+}); 
+
+
+
+
+
+
+
 });

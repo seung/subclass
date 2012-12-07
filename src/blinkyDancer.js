@@ -1,3 +1,4 @@
+// ORIGINAL DANCER
 var makeBlinkyDancer = function(left, top){
   var dancer = {
     // we'll use top and left to set the position of this dancer
@@ -41,7 +42,7 @@ var makeBlinkyDancer = function(left, top){
   return dancer;
 };
 
-
+// TYPES OF DANCERS (inherits from makeBlinkyDancer)
 var makeFadeyDancer = function(left, top) {
   var dancer = makeBlinkyDancer(left, top);
   dancer.moneyMaker.css('border-color', 'purple');
@@ -73,13 +74,19 @@ var makeShapeDancer = function (left, top) {
   return dancer;
 };
 
-//mix-ins
+var makeStarDancer = function (left, top) {
+  var dancer = makeBlinkyDancer(left, top);
+  // dancer.moneyMaker.css('border-color', 'black');
+  dancer.moneyMaker.attr('id', 'star-five');
+  return dancer;
+};
+
+//MIX-INS
 var makeADancerASizeDancer = function(dancer){
   dancer.blink = function(){
     dancer.moneyMaker.css('border-width',Math.floor(Math.random()*50));
   }
 };
-
 var makeDancersMove = function(dancer){
   dancer.move = function(){
     var curtop= this.top-(Math.floor(Math.random()*20-(Math.random()*20) ));
@@ -101,22 +108,8 @@ var makeDancersMove = function(dancer){
   dancer.makemove();
 };
 
-/*makeDancersMove = function () {
-  move = function(){
-    var curtop= this.top-(Math.floor(Math.random()*50-(Math.random()*50) ));
-    var curleft= this.left-(Math.floor(Math.random()*50-(Math.random()*50) ));
-    dancer.moneyMaker.css('top', curtop);
-    dancer.moneyMaker.css('left', curleft);
-  };
-  makemove= function(){
-    setInterval(move, this.frequency);
-  };
-  for (var i in dancers){
-    dancers[i].move=move;
-    dancers[i].makemove = makemove;
-    dancers[i].makemove();
-  }
-}; */
+
+
 
 
 

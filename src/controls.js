@@ -12,6 +12,7 @@ var setupControls = function(danceFloor){
   });
 
 
+
 };
 
 
@@ -19,6 +20,6 @@ var bindListeners = function(){
   $('span.dancer').on("click", function(event){
     var dancerid = $(this).data("idnumber");
     var chosendancer= dancers[dancerid];
-    makeDancersMove(chosendancer);
+    makeADancerASizeDancer(chosendancer);
   });
 };
