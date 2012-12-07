@@ -25,6 +25,10 @@ describe("colorDancer", function() {
     expect(colorDancer.moneyMaker.toggle).toHaveBeenCalled();
   });
 
+  it("should have a different color than blinky dancer", function (){
+    expect(colorDancer.moneyMaker.css("border-color")).toNotBe("red");
+  })
+
   describe("dance", function(){
     beforeEach(function(){
       $('<div class="stage"></div>').appendTo('body');
