@@ -16,7 +16,7 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       d.dance();
       dancers.push(d);
     }
-  }
+  };
 
   return danceFloor;
-}
+};
