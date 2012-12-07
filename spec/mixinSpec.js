@@ -37,6 +37,5 @@ describe("Mixins", function(){
 				expect(theDancer.moneyMaker.css('transform')).toBeTruthy();
 			});
 		});
-
 	});
 });
