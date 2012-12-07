@@ -44,10 +44,10 @@ var makeBlinkyDancer = function(left, top){
 var makeRaveDancer = function(left, top) {
   var raveDancer = makeBlinkyDancer(left, top);
   raveDancer.frequency = 70 ;
-  var raveColors = ['#FF00CC','#F7FF00','#5EFF00','#00FFF2'];
+  raveDancer.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
   raveDancer.danceMove = function(){
     var randomColorGen = function() {
-      return raveColors[Math.floor(Math.random() * raveColors.length)];
+      return raveDancer.raveColors[Math.floor(Math.random() * raveDancer.raveColors.length)];
     };
 
     var randomColor = randomColorGen(); 
