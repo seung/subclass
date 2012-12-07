@@ -37,7 +37,6 @@ var makeBlinkyDancer = function(left, top){
   }; // dancer
   
   dancer.getInPosition();
-  // dancer.moneyMaker.text(window.dancers.length + 1);
 
   return dancer;
 };

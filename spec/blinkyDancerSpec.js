@@ -1,4 +1,4 @@
-describe("blinkyDancer", function() {
+describe("allDancers", function() {
   var blinkyDancer;
 
 
@@ -26,31 +26,6 @@ describe("blinkyDancer", function() {
       blinkyDancer.step();
       expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
     });
-  });
-
-  describe ("other dancers", function() {
-
-    describe("pole dancer", function () {
-      it("should change blinkyDancer's height", function() {
-        var poleDancer = makePoleDancer(20, 10);
-        expect(poleDancer.height).toBeDefined();
-      });
-
-      it("should insert the new property into the DOM", function() {
-        var poleDancer = makePoleDancer(20, 10);
-        expect(poleDancer.moneyMaker.css("height")).toBeTruthy();
-      })
-    });
-
-    describe("colored dancer", function() {
-
-      it("colored dancer should change blinkyDancer's color to a random color", function() {
-        var coloredDancer = makeColoredDancer(20, 10);
-        testStr = coloredDancer.moneyMaker.css("border-color").slice(0,3);
-        expect(testStr).toEqual("rgb");
-      });
-    });
-
   });
 
   describe("dance", function(){
@@ -84,6 +59,31 @@ describe("blinkyDancer", function() {
     });
   });
 
+  describe ("other dancers", function() {
+
+    describe("pole dancer", function () {
+      it("should change blinkyDancer's height", function() {
+        var poleDancer = makePoleDancer(20, 10);
+        expect(poleDancer.height).toBeDefined();
+      });
+
+      it("should insert the new property into the DOM", function() {
+        var poleDancer = makePoleDancer(20, 10);
+        expect(poleDancer.moneyMaker.css("height")).toEqual('30px');
+      })
+    });
+
+    describe("colored dancer", function() {
+
+      it("colored dancer should change blinkyDancer's color to a random color", function() {
+        var coloredDancer = makeColoredDancer(20, 10);
+        testStr = coloredDancer.moneyMaker.css("border-color").slice(0,3);
+        expect(testStr).toEqual("rgb");
+      });
+    });
+
+  });
+
   describe("mixin", function() {
     it("should add class 'border-square' to the dancer", function() {
       var blinkyDancer = makeBlinkyDancer(10, 10);
@@ -101,6 +101,10 @@ describe("blinkyDancer", function() {
         shouldDancerMove();
         expect(window.dancers[0].moneyMaker.css("top")).not.toEqual(10);
       });
+    });
+
+    it("function distance should return the distance between two points.", function() {
+      expect(distance({left: 0, top: 0}, {left: 3, top: 4})).toEqual(5);
     });
   });
 });

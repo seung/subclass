@@ -4,8 +4,6 @@ var shouldDancerMove = function() {
 		var dancerPositions = [];
 		for (var i = 0; i < window.dancers.length; i += 1) {
 			var tempPosition = {"top": window.dancers[i].top, "left": window.dancers[i].left};
-			// tempPosition.top = window.dancers[i].top;
-			// tempPosition.left = window.dancers[i].left;
 			dancerPositions[i] = tempPosition;
 		};
 		for (var i = 0; i < dancerPositions.length; i += 1) {

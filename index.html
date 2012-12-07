@@ -29,10 +29,15 @@
       <a href="#">change a property in random dancers</a>
     </span>
     <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Dance floor description</a>
-    <div id="light" class="white_content">Click 'make a dancer' to display a flashing red dot.</br>
-      Click 'make a pole dancer to diplay a flashing green rod.</br>
-      Click 'make a colored dancer to display a flashing dot whose color has been randomly generated.</br>
-      Click 'change a property in random dancers' to give each dancer a 10% chance of changing its border-radius to 0.<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></br></br>Close</a></div>
+    <div id="light" class="white_content">
+      The bare dancefloor is created when the page is loaded, where the types of dancers is passed to the 'makeDanceFloor' function and the dancefloor is, in turn, passed to the 'setupControls' function. Upon clicking a link to create a dancer, the attached jQuery function passes the dancer type to the 'makeDanceFloor.makeDancer' function. This function creates the dancer, appends/draws it to the screen and pushes the dancer to the 'window.dancers' array.</br></br>
+      The base dancer is 'blinkyDancer'.</br></br>
+      A poleDancer inherits from blinkyDancer and adds a CSS property of "height: 30px", and changed the 'border-color' to green and 'border-width' to 3px.</br></br>
+      A coloredDancer inherits from blinkyDancer and changes the CSS property of 'border-color' to a randomly generated RGB value.</br></br>
+      The mixin 'makeSquareDancer' loops through the dancer array and if the randomly generated number is greater than 0.9, the function changes the 'border-radius' of the currently selected dancer to 0px, thus making the border square.</br></br>
+      emergentBehavior.js loops through all the currently displayed dancers and changes their position if they are within 10000px of any dancer that comes after them in the dancers array.
+      <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></br></br>
+        Close</a></div>
     <div id="fade" class="black_overlay"></div>
 
   </div>
