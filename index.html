@@ -14,8 +14,9 @@
 </head>
 <body>
   <div class="topbar">
-    <a id='instructions' href="#">INSTRUCTIONS<div class='instructions' hidden=true>Click on links to make new dancers!
-      <br /> To use the color changer: Click "Outfit Changer" link to change a random dancer's outfit.</div></a>
+    <a id='instructions' href="#">INSTRUCTIONS</a>
+    <div class='instructions' hidden=true><p>Starting in main.js,
+We are creating an object with each property pointing to each make*Dancer(fn), then initializing an empty array to hold each new dancer that will be created by danceFloor.js. In danceFloor.js we pass in the objects from main.js and randomly put them on the stage div. Then the controls are setup, inside controls.js we use jquery to capture clicks on any anchor with a 'clickable' class. on "click" we capture the data-dance-creator attribute and pass it back to danceFloor.makeDancer, which uses the passed in value to add a new dancer{object} to the dancer[array] in main.js, and adds a dancer to a random spot on the "stage" div. Multiple types of dancers can be created, including blinkyDancer, snowManDancer, &amp; buttShakingDancer. The last two inherit blinkyDancer's properties.  These dancers are found inside otherDancers.js which adds properties of their own to make them slightly different css-wise.  The program contains one mixin, found in dancerMixins.js, which changes the color of a random dancer on the stage.</p></div>
     <span class="title">object dance party</span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
     <a href="#">make a dancer</a>
@@ -38,3 +39,5 @@
 
 </body>
 </html>
+
+

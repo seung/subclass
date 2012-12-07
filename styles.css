@@ -34,7 +34,8 @@ body, a:link, a:visited, a:active{
 }
 
 .instructions {
-  text-align: centered
+  text-align: center;
+  width: 40%;
 }
 
 .snow-man {
