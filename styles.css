@@ -1,27 +1,67 @@
-body, html{
+body, html {
   height:100%;
 }
-body{
-  margin: 0px;
+body {
+  margin:0px;
   background-color:#444;
-  font-size: 18px;
+  font-size:18px;
 }
-body, a:link, a:visited, a:active{
+body, a:link, a:visited, a:active {
   color: lightblue;
 }
-.topbar span{
+.topbar span {
   padding:5px 12px;
   float:right;
 }
-.topbar{
+.topbar {
   height:32px;
-  background-color: #555;
+  background-color:#555;
 }
-.title{
-  background-color: #777;
+.title {
+  background-color:#777;
 }
-.dancer{
+.dancer {
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+
+/* Lightbox styles */
+
+.toggleLightbox {
+  float:left !important;
+}
+
+.lightbox {
+  display:none;
+  z-index:1;
+}
+
+.lightbox-outer {
+  position:absolute;
+  top:0%;
+  left:0%;
+  height:100%;
+  width:100%;
+  padding-top:100px;
+  background-color:rgba(0,0,0,0.50);
+  z-index:2;
+}
+
+.lightbox-inner {
+  width:380px;
+  min-height:380px;
+  max-height:500px;
+  margin:0 auto;
+  padding:10px;
+  overflow:auto;
+  border:1px solid gray;
+  background-color:#333;
+  z-index:3;
+}
+
+/* Reusable classes */
+.center {
+  text-align:center;
 }
