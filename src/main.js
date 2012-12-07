@@ -11,7 +11,7 @@ $(document).ready(function(){
   // This is a list of all the dancers that have been created.
   // * danceFloor.js will add to it when you click on stuff.
   // * When you're writing mixins that affect existing dancers, you'll use it.
-  window.dancers = [];
+  var dancers = [];
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
@@ -26,13 +26,13 @@ $(document).ready(function(){
 
   //button to change a random dancer's color
   $('.outfit').on('click', function() {
-    if (window.dancers.length <= 0) {
+    if (dancers.length <= 0) {
       alert("ADD SOME DANCERS FOOL!");
     } else {
       //grab random index of dancer array
-      var randDancer = Math.floor(Math.random() * (window.dancers.length - 1));
+      var randDancer = Math.floor(Math.random() * (dancers.length - 1));
       //store the random dancer to change its color
-      var someDancer = window.dancers[randDancer]
+      var someDancer = dancers[randDancer]
       changeDancerColor(someDancer);
     }
   });
