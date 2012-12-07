@@ -1,7 +1,7 @@
 var shootBullet = function(left) {
 	var newBullet = {
-		aBullet: $('<span class="bulletParticle></span>').css('aBullet'),
-		startPos: shootBullet.aBullet.css('left', left),
+		aBullet: $('<span class="bulletParticle></span>'),
+		startPos: aBullet.css('left', left),
 		shoot: function() {
 			newBullet.aBullet.appendTo('.stage');
 		}
@@ -12,8 +12,8 @@ var shootBullet = function(left) {
 };
 
 var triCoords = $('.triangle');
-
-var newBullet = shootBullet(triCoords.position.left);
+var pos = triCoords.position();
+var newBullet = shootBullet();
 // newBullet.shoot();
 
 

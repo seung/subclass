@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
 
   // This is a list of the different kinds of dancers. Right now, 
   // there's just one, but eventually, you'll want to add more.
