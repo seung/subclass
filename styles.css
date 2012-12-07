@@ -46,10 +46,6 @@ a:link, a:visited, a:active{
   -webkit-transition: all 5s linear;
 }
 
-.spin{
-  border-color: green;
-}
-
 .magic{
   width:150px;
   float:right;
@@ -99,6 +95,10 @@ li:hover{
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
+}
+
+.ghost{
+  opacity: 0.4;
 }
 
 

@@ -3,27 +3,23 @@ $(document).ready(function(){
   // This is a list of the different kinds of dancers. Right now, 
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
-    beachBall: function (w, h) {
+    BeachBall_Dancer: function (w, h) {
       var o = makeBlinkyDancer(w, h);
       o.moneyMaker.html("<img src='pinwheel.png' height=75px width=75px>");
       o.moneyMaker.css("border", "none");
       return o;
     }, // found in blinkyDancer.js
-    Spinny_Dancer: function (w, h) {
+    Grinchy_Dancer: function (w, h) {
       var o = makeBlinkyDancer(w, h);
-      o.moneyMaker.css('border-color','pink');
+      o.moneyMaker.html("<img src='grinchface.png' height=200px width=160px>");
+      o.moneyMaker.css("border", "none");
       return o;
     },
     Tiny_Dancer: function (w, h) {
       var o = makeBlinkyDancer(w, h);
       o.moneyMaker.css("transition","border-width 10s linear ");
       o.moneyMaker.css("border-width","5px")
-      return o;
-    },
-    Shrinky_Dancer: function (w, h) {
-      var o = makeBlinkyDancer(w, h);
-      o.moneyMaker.css("transition","border-width linear 1s");
-      o.moneyMaker.css("border-width","100px")
+      o.moneyMaker.css("border-color", randomColor());
       return o;
     },
     Cat_Dancer: function (w, h) {
@@ -34,19 +30,14 @@ $(document).ready(function(){
     }
   };
 
-
-function creepIn(i, a) { return '' +  parseInt(a) * 10 + 'px' } 
-function creepOut(i, a) { return '' +  parseInt(a) / 10 + 'px' }
-
   var danceMixins = {
     grow: function (node) { 
-      node = node.children()
-      .attr({'height': creepIn, width:creepIn });
-
- setTimeout(function () {node.attr({'height': creepOut, width:creepOut }) }, 4000)
-       } ,
+      node = node.children().attr({'height': creepIn, width:creepIn});
+      setTimeout(function () {node.attr({'height': creepOut, width:creepOut }) }, 4000);
+   },
     spin: function (node) { node.addClass("spin")} ,
     death: function (node) { node.remove() } ,
+    ghostyness: function (node) { node.addClass("ghost") }
   }
 window.currentMagic = danceMixins.spin;
 
@@ -56,7 +47,7 @@ window.currentMagic = danceMixins.spin;
       $(this).attr('id','selected')
       window.currentMagic = danceMixins[mixin]
    })
-  })
+  });
 
   var hex = '0123456789ABCDEF'.split('');
   function rand(n) { return ~~ (Math.random() * n)}
@@ -89,8 +80,10 @@ window.currentMagic = danceMixins.spin;
   $('ul').css('left', window.innerWidth - 125);
 
 });
+  function creepIn(i, oldAttrValue) { return '' +  parseInt(oldAttrValue) * 10 + 'px' } 
+  function creepOut(i, oldAttrValue) { return '' +  parseInt(oldAttrValue) / 10 + 'px' }
 
-})
+})  
 
 function k(w, h) {
    var o = makeBlinkyDancer(w, h);

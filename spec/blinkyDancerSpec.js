@@ -20,9 +20,20 @@ describe("blinkyDancer", function() {
   });
 
   it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(blinkyDancer.moneyMaker, 'toggle');
-    blinkyDancer.step();
-    expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
+    //spyOn(blinkyDancer.dance);
+    left = blinkyDancer.left;
+    top = blinkyDancer.top;
+    console.log(left + " " + top);
+
+    jasmine.Clock.useMock(); 
+    jasmine.Clock.tick(blinkyDancer.frequency + 10);
+
+    newLeft = blinkyDancer.left;
+    newTop = blinkyDancer.top;
+    console.log(newLeft + " " + newTop);
+
+    expect(left).not.ToEqual(newLeft);
+    expect(right).not.ToEqual(newRight);
   });
 
   describe("dance", function(){
