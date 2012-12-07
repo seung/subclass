@@ -6,9 +6,28 @@ body{
   background-color:#444;
   font-size: 18px;
 }
-body, a:link, a:visited, a:active{
-  color: lightblue;
+
+.stage {
+
+-webkit-transition:background-color 0.1s linear;
+
 }
+
+img {
+
+-webkit-transition: all 1s ease-in;
+
+}
+a:link, a:visited, a:active{
+  color: lightblue;
+  padding-left:25px;
+  margin-top:-20px;
+}
+
+.stageimg{
+  margin:5% 0 5% 25%;
+}
+
 .topbar span{
   padding:5px 12px;
   float:right;
@@ -21,7 +40,66 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border:100px solid red;
+  border-radius: 50%;
   position:absolute;
+  -webkit-transition: all 5s linear;
 }
+
+.spin{
+  border-color: green;
+}
+
+.magic{
+  width:150px;
+  float:right;
+  height:25px;
+  color:#fff;
+}
+
+#dropdown{
+  width:150px;
+  background-color:#ccc;
+  color:#555;
+  z-index:100000000;
+  position:absolute;
+  list-style-type: none;
+  margin-left:-25px;
+  margin-top:0;
+  padding-left:0;
+}
+
+li{
+  padding:5px;
+  margin-left:0;
+}
+
+li:hover{
+  background:#777;
+  color:#fff;
+}
+
+#selected {
+  background:red;
+  color:#fff;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.spin {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+
+

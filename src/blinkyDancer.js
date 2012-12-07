@@ -1,42 +1,24 @@
 var makeBlinkyDancer = function(left, top){
+  function dispatch() { window.currentMagic($(this), dancer) }
   var dancer = {
-    // we'll use top and left to set the position of this dancer
     top: top,
-    left: left,
-
-    // used in setInterval below
+    left: left, 
     frequency: Math.random() * 2000,
-
-    // get dressed...
     moneyMaker: $("<span class='dancer'></span>"),
-
-    dance: function(){
-      // go out...
-      dancer.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
+    dance: function(){ 
+      this.moneyMaker.appendTo(".stage").on('mouseover', dispatch)
+      var self = this;
+      function move() { 
+        self.getInPosition(Math.random() * window.innerHeight,
+        Math.random() * window.innerWidth)
+      }
+      this.getInPosition(-200, Math.random() * window.innerWidth);
+      setInterval(move, this.frequency)
     },
+    getInPosition: function(t, l){ return dancer.moneyMaker.css({top: t, left:l }) },
+    step: function(){ dancer.getInPosition() },
+    blink: function(){ this.moneyMaker.toggle() }
+  }; 
 
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
-
-    getInPosition: function(){
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.moneyMaker.css(styleObj);
-    },
-
-    blink: function(){
-      dancer.moneyMaker.toggle();
-    }
-
-  }; // dancer
-  
-  dancer.getInPosition();
-
-  return dancer;
+  return dancer.getInPosition(dancer.top, dancer.left) && dancer;
 };
