@@ -10,14 +10,6 @@ var Dancer = function(left, top){
     // get dressed...
     this.moneyMaker = $("<span data-idnumber='"+ dancers.length +"'class='dancer'></span>");
 
-    this.dance = function(){
-      // go out...
-      this.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      var tempThis = this;
-      setInterval(function() { tempThis.step() }, this.frequency);
-    };
-
     this.step = function(){
       this.getInPosition();
       this.blink();
@@ -35,12 +27,20 @@ var Dancer = function(left, top){
 
     };
 
+    this.dance = function(){
+      // go out...
+      this.moneyMaker.appendTo(".stage");
+      // ...and do those sexy moves
+      var tempThis = this;
+      setInterval(function() { tempThis.step() }, this.frequency);
+    };
+
   this.getInPosition();
 
 };
 
 var BlinkyDancer = function(left, top) {
-  this.__proto__ = new Dancer(left, top);
+  Dancer.apply(this,[left,top]);
   this.blink = function (){
     this.moneyMaker.toggle();
   };
