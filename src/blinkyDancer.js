@@ -1,42 +1,40 @@
-var makeBlinkyDancer = function(left, top){
-  var dancer = {
-    // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
-
-    // used in setInterval below
-    frequency: Math.random() * 2000,
-
-    // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
-
-    dance: function(){
-      // go out...
-      dancer.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
-    },
-
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
-
-    getInPosition: function(){
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.moneyMaker.css(styleObj);
-    },
-
-    blink: function(){
-      dancer.moneyMaker.toggle();
-    }
-
-  }; // dancer
-  
-  dancer.getInPosition();
-
-  return dancer;
+var BlinkyDancer = function(left, top){
+  var self = this;
+  // we'll use top and left to set the position of this dancer
+  self.top = top;
+  self.left = left;
+  self.getInPosition();
 };
+
+BlinkyDancer.prototype.blink = function(){
+  this.moneyMaker.toggle();
+}; 
+
+// used in setInterval below
+BlinkyDancer.prototype.frequency = Math.random() * 2000;
+
+// get dressed...
+BlinkyDancer.prototype.moneyMaker = $("<span class='dancer'></span>");
+
+BlinkyDancer.prototype.getInPosition = function(){
+    var styleObj = {
+      top: this.top,
+      left: this.left
+    };
+    this.moneyMaker.css(styleObj);
+  };
+
+BlinkyDancer.prototype.dance = function(){
+    // go out...
+    this.moneyMaker.appendTo(".stage");
+    // ...and do those sexy moves
+    var self = this;
+
+    setInterval(function(){self.step();}, this.frequency);
+  };
+
+BlinkyDancer.prototype.step = function(){
+  this.getInPosition();
+  // this.blink();
+};
+  

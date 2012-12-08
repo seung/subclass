@@ -3,9 +3,9 @@ $(document).ready(function(){
   // This is a list of the different kinds of dancers. Right now, 
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
-    makeBlinkyDancer: makeBlinkyDancer, // found in blinkyDancer.js
-    makeButtShakingDancer: makeButtShakingDancer,
-    makeSnowManDancer: makeSnowManDancer
+    makeBlinkyDancer: BlinkyDancer, // found in blinkyDancer.js
+    makeButtShakingDancer: ButtShakingDancer,
+    makeSnowManDancer: SnowManDancer
   };
   
   // This is a list of all the dancers that have been created.
