@@ -1,4 +1,4 @@
-var Dancer = function(left, top){
+var Sprite = function(left, top){
 
     this.top = top;
     this.left = left;
