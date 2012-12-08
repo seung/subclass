@@ -9,6 +9,9 @@ body {
 body, a:link, a:visited, a:active {
   color: lightblue;
 }
+h4 {
+  margin:0;
+}
 .topbar span {
   padding:5px 12px;
   float:right;
@@ -26,6 +29,27 @@ body, a:link, a:visited, a:active {
   position:absolute;
 }
 
+/* Bears */
+.pBear {
+  background:url('img/cb-purple.gif') no-repeat;
+  border:none;
+  width:229px;
+  height:350px;
+}
+
+.oBear {
+  background:url('img/cb-orange.gif') no-repeat;
+  border:none;
+  width:279px;
+  height:341px;
+}
+
+.gBear {
+  background:url('img/cb-green.gif') no-repeat;
+  border:none;
+  width:318px;
+  height:400px;
+}
 
 /* Lightbox styles */
 

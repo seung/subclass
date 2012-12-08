@@ -7,11 +7,10 @@ var makeDancer = function(left, top){
     // get dressed...
     moneyMaker: $("<span class='dancer'></span>"),
 
-    dance: function(moves){
+    dance: function(){
       // go out...
       dancer.moneyMaker.appendTo(".stage");
       // ...and do those sexy moves
-      moves;
     },
 
     step: function(){

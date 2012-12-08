@@ -4,7 +4,10 @@ $(document).ready(function(){
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
     makeDancer: makeDancer, // found in blinkyDancer.js
-    //makeBlinkyDancer: makeBlinkyDancer
+    blinkyDancer: blinkyDancer,
+    pCareBear: pCareBear,
+    oCareBear: oCareBear,
+    gCareBear: gCareBear
   };
   
   // This is a list of all the dancers that have been created.
@@ -14,4 +17,7 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
+
+  // Set up the lightbox toggle controls
+  lightbox.toggle();
 });

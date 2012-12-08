@@ -1,28 +1,9 @@
 describe("blinkyDancer", function() {
   var blinkyDancer;
 
-  beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
-  });
-
-  it("should have a left and top coordinate", function(){
-    expect(blinkyDancer.left).toBe(20);
-    expect(blinkyDancer.top).toBe(10);
-  });
-
-  it("should have a jQuery node object", function(){
-    expect(blinkyDancer.moneyMaker).toEqual(jasmine.any(jQuery));
-  });
-
   it("should have a frequency", function(){
     expect(blinkyDancer.frequency).toEqual(jasmine.any(Number));
     expect(blinkyDancer.frequency).toBeGreaterThan(0);
-  });
-
-  it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(blinkyDancer.moneyMaker, 'toggle');
-    blinkyDancer.step();
-    expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
   });
 
   describe("dance", function(){
