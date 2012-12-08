@@ -1,27 +1,29 @@
-var makeMoshPitDancer = function(left, top) {
-  var moshPitDancer = makeBlinkyDancer(left, top);
-  moshPitDancer.moshPit = $('#moshPit');
-  moshPitDancer.frequency = 500 ;
-  moshPitDancer.getInPosition();
-  moshPitDancer.moshPitPos = 200;
-  moshPitDancer.dance = function(){
-    moshPitDancer.moneyMaker.appendTo("#moshPit");
-    setInterval(moshPitDancer.step, moshPitDancer.frequency);
+var MoshPitDancer = function(left, top) {
+  Dancer.apply(this, [left, top]);
+  var self = this;
+  this.moshPit = $('#moshPit');
+  this.frequency = 500 ;
+  // this.getInPosition();
+  this.moshPitPos = 200;
+  this.dance = function(){
+    self.moneyMaker.appendTo("#moshPit");
+    setInterval(self.step, self.frequency);
   },
-  moshPitDancer.step = function(){
-    moshPitDancer.danceMove();
+  this.step = function(){
+    self.danceMove();
   },
-  moshPitDancer.danceMove = function(){
-    var newMoshTop = moshPitDancer.randomPos(moshPitDancer.moshPitPos, 1000, 200);
-    var newMoshLeft = moshPitDancer.randomPos(moshPitDancer.moshPitPos, 2000, 1000);
-    var newTop = moshPitDancer.randomPos(moshPitDancer.moshPitPos, 100, 100);
-    var newLeft = moshPitDancer.randomPos(moshPitDancer.moshPitPos, 100, 100);
-    moshPitDancer.moshPit.animate({top: newMoshTop, left: newMoshLeft});
-    moshPitDancer.moneyMaker.animate({top: newTop, left: newLeft});
+  this.danceMove = function(){
+    var newMoshTop = this.randomPos(this.moshPitPos, 1000, 200);
+    var newMoshLeft = this.randomPos(this.moshPitPos, 2000, 1000);
+    var newTop = this.randomPos(this.moshPitPos, 100, 100);
+    var newLeft = this.randomPos(this.moshPitPos, 100, 100);
+    this.moshPit.animate({top: newMoshTop, left: newMoshLeft});
+    this.moneyMaker.animate({top: newTop, left: newLeft});
   };
   
-  moshPitDancer.randomPos = function(original, max, maxChange){
+  this.randomPos = function(original, max, maxChange){
      return original%max+Math.random()*maxChange;
   };
-  return moshPitDancer;
 };
+
+MoshPitDancer.prototype = new Dancer();

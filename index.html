@@ -5,12 +5,14 @@
   <link rel="stylesheet" type="text/css" href="styles.css" />
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="src/dancerTypes.js"></script>
+  <script src="src/dancerPrototype.js"></script>
+  <script src="src/moshPitDancer.js"></script>
+  <script src="src/raveDancer.js"></script>
+  <script src="src/blinkyDancer.js"></script>
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
-  <script src="src/mixIn.js"></script>
-  <script src="src/moshPitDancer.js"></script>
+  <!-- <script src="src/mixIn.js"></script> -->
 
 </head>
 <body>
@@ -33,13 +35,13 @@
   </div>
   <div class="topbar">
     <span class="title">object dance party</span>
-    <span class="clickable" data-dancer-creator="makeBlinkyDancer">
+    <span class="clickable" data-dancer-creator="BlinkyDancer">
       <a href="#">make a dancer</a>
     </span>
-    <span class="clickable" data-dancer-creator="makeRaveDancer">
+    <span class="clickable" data-dancer-creator="RaveDancer">
       <a href="#">make a rave dancer</a>
     </span>
-    <span class="clickable" data-dancer-creator="makeMoshPitDancer">
+    <span class="clickable" data-dancer-creator="MoshPitDancer">
       <a href="#">make a mosh dancer</a>
     </span>
     <span class="lightSwitch">
