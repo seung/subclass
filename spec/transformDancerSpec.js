@@ -2,7 +2,7 @@ describe("transformDancer", function(){
   var transformDancer;
 
   beforeEach(function() {
-    transformDancer = makeTransformDancer(20,20);
+    transformDancer = new TransformDancer(20,20);
   });
 
   it("The Blink Method should modify the css value to have a transform value of scale:(X,X", function () {

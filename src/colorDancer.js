@@ -1,21 +1,24 @@
-var makeColorDancer = function(left, top){
-  var colorDancer = makeBlinkyDancer(left, top);
+var ColorDancer = function(left, top){
+  
+  this.left = left;
+  this.top = top;
+
   //colorDancer.moneyMaker.css("{border: 40px solid goldenrod}");
-  colorDancer.moneyMaker.addClass("colorDancer");
+  this.moneyMaker.addClass("colorDancer");
 
-  colorDancer.blink = function(){
-
-  	colorDancer.moneyMaker.css("border-color", _randomColor())
-  	colorDancer.moneyMaker.toggle();
+  this.blink = function(){
+  	this.moneyMaker.css("border-color", _randomColor())
+  	this.moneyMaker.toggle();
   	}
-  var _randomColor = function(){
+};
 
-  	var _random = function(){
-  		return Math.floor(Math.random() * 255)
-  	}
-  	var newRGB =  "rgb("+_random()+","+_random()+ ","+_random()+")";
-  	return newRGB;
-  }
+ColorDancer.prototype = new BlinkyDancer();
 
-  return colorDancer;
-}
+var _randomColor = function(){
+
+	var _random = function(){
+		return Math.floor(Math.random() * 255)
+	};
+	var newRGB =  "rgb("+_random()+","+_random()+ ","+_random()+")";
+	return newRGB;
+};

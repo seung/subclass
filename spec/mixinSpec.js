@@ -1,12 +1,12 @@
 describe("Mixins", function(){
-	var colorDancer;
+	var colorDancer, colorDancer2, colorDancer3;
 	window.dancers = [];
 	var mixinController;
 
 	beforeEach(function(){
-		colorDancer = makeColorDancer(20,20);
-		colorDancer2 = makeColorDancer(20,20);
-		colorDancer3 = makeColorDancer(20,20);
+		colorDancer = new ColorDancer(20,20);
+		colorDancer2 = new ColorDancer(20,20);
+		colorDancer3 = new ColorDancer(20,20);
 		window.dancers = [colorDancer, colorDancer2, colorDancer3];
 		mixinController = makeMixinController();
 	});
