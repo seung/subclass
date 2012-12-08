@@ -1,5 +1,4 @@
-
-var makeDanceFloor = function(kindsOfDancers, dancers){
+var makeDanceFloor = function(){
 
   var danceFloor = {
     width: $(".stage").width(),
