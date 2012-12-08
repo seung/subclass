@@ -2,7 +2,7 @@ describe("goldenDancer", function() {
   var goldenDancer;
 
   beforeEach(function() {
-    goldenDancer = makeGoldenDancer(20, 10);
+    goldenDancer = new GoldenDancer(20, 10);
   });
 
   it("should call fadeToggle", function() {
