@@ -2,7 +2,7 @@ describe("moshPitDancer", function() {
 	var moshPitDancer;
 
 	beforeEach(function() {
-		moshPitDancer = makeMoshPitDancer(20,10);
+		moshPitDancer = new MoshPitDancer(20,10);
 	});
 
 	it("should have a method randomPos that returns a value less than the max plus maxChange", function(){

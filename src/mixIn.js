@@ -1,9 +1,9 @@
 var mixIn = function() {
 
-	var $allDancers = $(".dancer");
-	$allDancers.map(function(i,e) {
-		$('e').step = function(){
-      dancer.getInPosition();
-  	};
-	})
+	for(dancer in window.dancers){
+		dancer.step = function(){
+			dancer.getInPosition();
+		}
+	}
+
 };

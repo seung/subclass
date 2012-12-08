@@ -1,57 +1,57 @@
-var makeBlinkyDancer = function(left, top){
-  var dancer = {
-    // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+var BlinkyDancer = function(left, top){
+  // I hate javascript
+  var self = this;
+  // we'll use top and left to set the position of this this
+  this.top = top;
+  this.left = left;
 
-    // used in setInterval below
-    frequency: Math.random() * 2000,
+  // used in setInterval below
+  this.frequency = Math.random() * 2000;
 
-    // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
+  // get dressed...
+  this.moneyMaker = $("<span class='dancer'></span>");
 
-    dance: function(){
-      // go out...
-      dancer.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
-    },
+  this.dance = function(){
+    // go out...
+    this.moneyMaker.appendTo(".stage");
+    // ...and do those sexy moves
+    setInterval(this.step, this.frequency);
+  }
 
-    step: function(){
-      dancer.getInPosition();
-      dancer.danceMove();
-    },
+  this.step = function(){
+    self.getInPosition();
+    self.danceMove();
+  }
 
-    getInPosition: function(){
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.moneyMaker.css(styleObj);
-    },
-
-    danceMove: function(){
-      dancer.moneyMaker.toggle();
-    }
-
-  }; // dancer
-  
-  dancer.getInPosition();
-
-  return dancer;
-};
-
-var makeRaveDancer = function(left, top) {
-  var raveDancer = makeBlinkyDancer(left, top);
-  raveDancer.frequency = 70 ;
-  raveDancer.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
-  raveDancer.danceMove = function(){
-    var randomColorGen = function() {
-      return raveDancer.raveColors[Math.floor(Math.random() * raveDancer.raveColors.length)];
+  this.getInPosition = function(){
+    var styleObj = {
+      top: self.top,
+      left: self.left
     };
+    self.moneyMaker.css(styleObj);
+  }
 
-    var randomColor = randomColorGen(); 
-    raveDancer.moneyMaker.css("border-color", randomColor);
-  };
-  return raveDancer;
+  this.danceMove = function(){
+    self.moneyMaker.toggle();
+  }
+
+  this.getInPosition();
 };
+
+
+
+var RaveDancer = function(left, top) {
+  // I still hate js
+  var self = this;
+  this.frequency = 70;
+  this.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
+  this.danceMove = function(){
+    var randomColorGen = function() {
+      return self.raveColors[Math.floor(Math.random() * self.raveColors.length)];
+    };
+    var randomColor = randomColorGen(); 
+    this.moneyMaker.css("border-color", randomColor);
+  };
+};
+
+RaveDancer.prototype = new BlinkyDancer();

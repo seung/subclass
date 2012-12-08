@@ -3,8 +3,8 @@ describe("blinkyDancer", function() {
   var raveDancer;
 
   beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
-    raveDancer = makeRaveDancer(20, 10);
+    blinkyDancer = new BlinkyDancer(20, 10);
+    raveDancer = new RaveDancer(20, 10);
     
   });
 
