@@ -1,19 +1,22 @@
-var blinkyDancer = function(left, top) {
-  var blinkyDancer = makeDancer(left, top);
-  blinkyDancer.frequency = Math.random() * 2000;
-  blinkyDancer.dance = function() {
+var BlinkyDancer = function(left, top) {
+  Dancer.apply(this, [left, top]);
+  var self = this;
+
+  this.frequency = Math.random() * 2000;
+  this.dance = function() {
     // go out...
-    blinkyDancer.moneyMaker.appendTo(".stage");
+    this.moneyMaker.appendTo(".stage");
     // ...and do those sexy moves
-    setInterval(blinkyDancer.step, blinkyDancer.frequency);
+    setInterval(self.step, self.frequency);
   };
-  blinkyDancer.step = function() {
-      blinkyDancer.getInPosition();
-      blinkyDancer.blink();
+  this.step = function() {
+      self.getInPosition();
+      self.blink();
   };
-  blinkyDancer.blink = function() {
-      blinkyDancer.moneyMaker.toggle();
+  this.blink = function() {
+      this.moneyMaker.toggle();
   };
-  blinkyDancer.moneyMaker.css({border: '11px solid green'});
-  return blinkyDancer;
+  this.moneyMaker.css({border: '11px solid green'});
 };
+
+BlinkyDancer.prototype = new Dancer();

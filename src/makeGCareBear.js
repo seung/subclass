@@ -1,6 +1,7 @@
-var gCareBear = function(left, top) {
-  var gCareBear = makeDancer(left, top);
+var GCareBear = function(left, top) {
+  Dancer.apply(this, [left, top]);
 
-  gCareBear.moneyMaker.addClass('gBear');
-  return gCareBear;
+  this.moneyMaker.addClass('gBear');
 };
+
+GCareBear.prototype = new Dancer();

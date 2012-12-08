@@ -1,33 +1,29 @@
-var makeDancer = function(left, top){
-  var dancer = {
+var Dancer = function(left, top){
     // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+
+    this.top = top;
+    this.left = left;
 
     // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
+    this.moneyMaker = $("<span class='dancer'></span>");
 
-    dance: function(){
+    this.dance = function(){
       // go out...
-      dancer.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-    },
+      this.moneyMaker.appendTo(".stage");
+    };
 
-    step: function(){
-      dancer.getInPosition();
-    },
+    this.step = function(){
+      this.getInPosition();
+    };
 
-    getInPosition: function(){
+    this.getInPosition = function(){
       var styleObj = {
-        top: dancer.top,
-        left: dancer.left
+        top: this.top,
+        left: this.left
       };
-      dancer.moneyMaker.css(styleObj);
-    }
-
-  }; // dancer
+      this.moneyMaker.css(styleObj);
+    };
   
-  dancer.getInPosition();
+  this.getInPosition();
 
-  return dancer;
 };
