@@ -9,7 +9,6 @@ var setupControls = function(danceFloor){
     danceFloor.addMixin(dancerMakerName);
   });
 
-
   //Display info Box
   $('#about').on('click', function (){ 
     event.preventDefault();

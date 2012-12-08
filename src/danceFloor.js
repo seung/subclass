@@ -11,22 +11,16 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
-      var d = dancerMaker(w, h);
+      var d = new dancerMaker(w, h);
       
       d.dance();
       dancers.push(d);
     },
     addMixin: function(mixinName){
-      mixit = makeMixinController();
+      mixit = new MixinController();
       mixit[mixinName]();  
 
-
-
-
      }
-
-
-    
   }
 
   return danceFloor;

@@ -1,26 +1,24 @@
-var makeTransformDancer = function(left, top){
-  var transformDancer = makeBlinkyDancer(left, top);
-  //colorDancer.moneyMaker.css("{border: 40px solid goldenrod}");
-  transformDancer.moneyMaker.addClass("transFormDancer");
+var TransformDancer = function(left, top){
 
-  transformDancer.blink = function(){
+  Dancer.apply(this, [left, top]);
 
-  	transformDancer.moneyMaker.css("transform", _randomTransform());
-    transformDancer.moneyMaker.toggle();
-  	}
+  this.moneyMaker.addClass("transFormDancer");
+
+  this.blink = function(){
+  	this.moneyMaker.css("transform", _randomTransform());
+    this.moneyMaker.toggle();
+  	};
 
   var _random = function(){
       var num = Math.random() * .5;
-      //console.log (num);
       return num;
-    }
+    };
 
   var _randomTransform = function(){
-    
   	var newScale =  "scale("+_random()+", "+_random()+")";
   	return newScale;
-  }
-  return transformDancer;
+  };
 
+};
 
-}
+TransformDancer.prototype = new Dancer();
