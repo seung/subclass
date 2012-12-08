@@ -1,8 +1,8 @@
-describe("blinkyDancer", function() {
+describe("BlinkyDancer", function() {
   var blinkyDancer;
 
   beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
+    blinkyDancer = new BlinkyDancer(20, 10);
   });
 
   it("should have a left and top coordinate", function(){

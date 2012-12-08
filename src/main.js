@@ -3,9 +3,9 @@ $(document).ready(function(){
   // This is a list of the different kinds of dancers. Right now, 
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
-    makeBlinkyDancer: makeBlinkyDancer,
-    makeColorDancer: makeColorDancer,
-    makeFadedInDancer: makeFadedInDancer,
+    blinkyDancer: BlinkyDancer,
+    colorDancer: ColorDancer
+    // makeFadedInDancer: makeFadedInDancer,
   };
   
   // This is a list of all the dancers that have been created.
