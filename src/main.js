@@ -4,8 +4,8 @@ $(document).ready(function(){
   // there's just one, but eventually, you'll want to add more.
   var kindsOfDancers = {
     blinkyDancer: BlinkyDancer,
-    colorDancer: ColorDancer
-    // makeFadedInDancer: makeFadedInDancer,
+    colorDancer: ColorDancer,
+    fadedInDancer: FadedInDancer
   };
   
   // This is a list of all the dancers that have been created.

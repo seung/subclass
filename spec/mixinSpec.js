@@ -3,7 +3,7 @@ describe("picDancer", function() {
   var picChanger;
 
   beforeEach(function() {
-    fakePicDancer = makeBlinkyDancer(10,20);
+    fakePicDancer = new BlinkyDancer(10,20);
     picChanger = makePicture(window.dancers);
   });
 

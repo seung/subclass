@@ -2,7 +2,7 @@ describe("fadedInDancer", function() {
   var fadedInDancer;
 
   beforeEach(function() {
-    fadedInDancer = makeFadedInDancer(20, 10);
+    fadedInDancer = new FadedInDancer(20, 10);
   });
 
   it("should have a left and top coordinate", function(){

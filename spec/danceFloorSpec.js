@@ -1,23 +1,27 @@
 describe("danceFloor", function() {
   var danceFloor;
   var dancers; // object that the dance floor modifies
-  var makeFakeDancer;
-  var fakeDancer;
+  var fakeDancerContainer;
+  var danceSpy;
 
   beforeEach(function() {
-    // Set up spies
-    fakeDancer = {
-      dance: jasmine.createSpy()
+    // make a spy constructor 
+    danceSpy = jasmine.createSpy();
+    fakeDancerContainer = {
+      FakeDancer: function(){
+        this.dance = danceSpy;
+      }
     };
-    makeFakeDancer = jasmine.createSpy().andReturn(fakeDancer);
+    spyOn(fakeDancerContainer, 'FakeDancer').andCallThrough();
 
     // Set up the arguments that makeDanceFloor requires.
     var kindsOfDancers = {
-      makeFakeDancer: makeFakeDancer
+      fakeDancer: fakeDancerContainer.FakeDancer
     };
     dancers = [];
 
     danceFloor = makeDanceFloor(kindsOfDancers, dancers);
+
   });
 
   it("should have width and height properties", function(){
@@ -28,13 +32,13 @@ describe("danceFloor", function() {
   describe("makeDancer", function(){
 
     it("should make a dancer of the specified type", function(){
-      danceFloor.makeDancer("makeFakeDancer");
-      expect(makeFakeDancer).toHaveBeenCalled();
+      danceFloor.makeDancer("fakeDancer");
+      expect(fakeDancerContainer.FakeDancer).toHaveBeenCalled();
     });
 
     it("should call 'dance' on the created dancer", function(){
-      danceFloor.makeDancer("makeFakeDancer");
-      expect(fakeDancer.dance).toHaveBeenCalled();
+      danceFloor.makeDancer("fakeDancer");
+      expect(danceSpy).toHaveBeenCalled();
     });
 
   });

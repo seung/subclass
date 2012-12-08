@@ -38,3 +38,4 @@ var BlinkyDancer = function(left, top){
 
   this.getInPosition();
 }; // this
+

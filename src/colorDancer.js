@@ -1,7 +1,6 @@
 var ColorDancer = function(left, top) {
-	this.top = top;
-  this.left = left;
-	var randomColorGenerator = ["blue","green","yellow","orange","brown"]
+	BlinkyDancer.call(this, left, top);
+	var randomColorGenerator = ["blue","green","yellow","orange","brown"];
 	this.moneyMaker.css({"border-color" : randomColorGenerator[Math.floor(Math.random()*5)]});
 };	
 
