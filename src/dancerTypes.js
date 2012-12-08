@@ -40,7 +40,7 @@ var BlinkyDancer = function(left, top){
 
 
 var makeRaveDancer = function(left, top) {
-  var raveDancer = makeBlinkyDancer(left, top);
+  var raveDancer = new BlinkyDancer(left, top);
   raveDancer.frequency = 70 ;
   raveDancer.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
   raveDancer.danceMove = function(){
