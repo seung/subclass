@@ -1,57 +1,62 @@
-var makeBlinkyDancer = function(left, top){
-  var dancer = {
+var BlinkyDancer = function(left, top){
     // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+    this.top = top,
+    this.left =  left,
 
     // used in setInterval below
-    frequency: Math.random() * 2000,
+    this.frequency = Math.random() * 2000,
 
     // get dressed...
-    moneyMaker: $("<span class='dancer'></span>"),
+    this.moneyMaker = $("<span class='dancer'></span>")
+   // dancer
 
-    dance: function(){
-      // go out...
-      dancer.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
-    },
-
-    step: function(){
-      dancer.getInPosition();
-      dancer.danceMove();
-    },
-
-    getInPosition: function(){
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.moneyMaker.css(styleObj);
-    },
-
-    danceMove: function(){
-      dancer.moneyMaker.toggle();
-    }
-
-  }; // dancer
-  
-  dancer.getInPosition();
-
-  return dancer;
 };
-
-var makeRaveDancer = function(left, top) {
-  var raveDancer = makeBlinkyDancer(left, top);
-  raveDancer.frequency = 70 ;
-  raveDancer.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
-  raveDancer.danceMove = function(){
-    var randomColorGen = function() {
-      return raveDancer.raveColors[Math.floor(Math.random() * raveDancer.raveColors.length)];
+   
+    BlinkyDancer.prototype.getInPosition = function(){
+      var styleObj = {
+        top: this.top,
+        left: this.left
+      };
+      this.moneyMaker.css(styleObj);
     };
 
-    var randomColor = randomColorGen(); 
-    raveDancer.moneyMaker.css("border-color", randomColor);
-  };
-  return raveDancer;
-};
+    BlinkyDancer.prototype.danceMove = function(){
+      console.log(12312)
+      this.moneyMaker.toggle();
+    };
+
+    BlinkyDancer.prototype.step = function () {
+         console.log('sted')
+      this.getInPosition(this);
+      this.danceMove();
+    };
+     BlinkyDancer.prototype.dance = function(){
+         console.log('dance')
+    // go out...
+    this.moneyMaker.appendTo(".stage");
+    // ...and do those sexy moves
+    var self = this;
+    setInterval(function () { self.step() }, this.frequency);
+    }
+   
+var RaveDancer = function (left, top) {
+    this.top = top;
+    this.left =  left;
+    this.frequency = 70 ;
+    this.raveColors = ['rgb(255, 0, 204)','rgb(247, 255, 0)','rgb(94, 255, 0)','rgb(0, 255, 242)'];
+ this.moneyMaker = $("<span class='dancer'></span>")
+
+}
+  RaveDancer.prototype = new BlinkyDancer();
+  RaveDancer.prototype.danceMove = function(){
+    var randomColor = this.raveColors[Math.floor(Math.random() * this.raveColors.length)];
+    this.moneyMaker.css("border-color", randomColor);
+  }; 
+
+  BlinkyDancer.prototype.dance = function(){
+    // go out...
+    this.moneyMaker.appendTo(".stage");
+    // ...and do those sexy moves
+    var self = this;
+    setInterval(function () { self.danceMove() }, this.frequency);
+    }

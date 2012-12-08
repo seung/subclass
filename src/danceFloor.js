@@ -4,15 +4,16 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
     width: $("body").width(),
     height: $("body").height(),
 
-    makeDancer: function(dancerMakerName){
+    makeDancer: function(dancerName){
       // get the kind of dancer we're supposed to make
-      var dancerMaker = kindsOfDancers[dancerMakerName];
+      var dancer = kindsOfDancers[dancerName];
 
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
-      var d = dancerMaker(w, h);
-      
+      var d =  new dancer(w, h);
+      console.log(d)
+      d.getInPosition();
       d.dance();
       dancers.push(d);
     }
