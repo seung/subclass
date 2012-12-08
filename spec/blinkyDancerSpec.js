@@ -4,7 +4,7 @@ describe("allDancers", function() {
 
   describe ("blinkyDancer", function() {
     beforeEach(function() {
-      blinkyDancer = makeBlinkyDancer(20, 10);
+      blinkyDancer = new BlinkyDancer(20, 10);
     });
 
     it("should have a left and top coordinate", function(){
@@ -63,12 +63,12 @@ describe("allDancers", function() {
 
     describe("pole dancer", function () {
       it("should change blinkyDancer's height", function() {
-        var poleDancer = makePoleDancer(20, 10);
+        var poleDancer = new PoleDancer(20, 10);
         expect(poleDancer.height).toBeDefined();
       });
 
       it("should insert the new property into the DOM", function() {
-        var poleDancer = makePoleDancer(20, 10);
+        var poleDancer = new PoleDancer(20, 10);
         expect(poleDancer.moneyMaker.css("height")).toEqual('30px');
       })
     });
@@ -76,7 +76,7 @@ describe("allDancers", function() {
     describe("colored dancer", function() {
 
       it("colored dancer should change blinkyDancer's color to a random color", function() {
-        var coloredDancer = makeColoredDancer(20, 10);
+        var coloredDancer = new ColoredDancer(20, 10);
         testStr = coloredDancer.moneyMaker.css("border-color").slice(0,3);
         expect(testStr).toEqual("rgb");
       });
@@ -86,7 +86,7 @@ describe("allDancers", function() {
 
   describe("mixin", function() {
     it("should add class 'border-square' to the dancer", function() {
-      var blinkyDancer = makeBlinkyDancer(10, 10);
+      var blinkyDancer = new BlinkyDancer(10, 10);
       mixinSquare(blinkyDancer);
       expect(blinkyDancer.moneyMaker.hasClass("border-square")).toBeTruthy();
     });
@@ -95,8 +95,8 @@ describe("allDancers", function() {
   describe("emergent behavior", function() {
     describe("Should dancer move", function() {
       it("older dancer will move if newer dancer is within defined distance of it", function() {
-        var dancer1 = makeBlinkyDancer(10, 10);
-        var dancer2 = makeBlinkyDancer(10, 20);
+        var dancer1 = new BlinkyDancer(10, 10);
+        var dancer2 = new BlinkyDancer(10, 20);
         window.dancers = [dancer1, dancer2];
         shouldDancerMove();
         expect(window.dancers[0].moneyMaker.css("top")).not.toEqual(10);
