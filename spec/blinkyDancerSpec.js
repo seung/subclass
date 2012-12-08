@@ -4,7 +4,7 @@ describe("blinkyDancer", function() {
   bindListeners = function () {};
 
   beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
+    blinkyDancer = new BlinkyDancer(20, 10);
   });
 
   it("should have a left and top coordinate", function(){
@@ -62,7 +62,7 @@ describe("blinkyDancer", function() {
 
 describe("makeFadeyDancer", function() {
   beforeEach(function() {
-    dancer = makeFadeyDancer(20, 10);
+    dancer = new FadeyDancer(20, 10);
   });
 
   it("should change the opacity", function() {
@@ -74,7 +74,7 @@ describe("makeFadeyDancer", function() {
 
 describe("makeDancersMove", function() {
   beforeEach(function() {
-    dancer = makeBlinkyDancer(20, 10);
+    dancer = new BlinkyDancer(20, 10);
   });
 
   it("should change the position top and left", function() {

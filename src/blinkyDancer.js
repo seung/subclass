@@ -48,7 +48,7 @@ var BlinkyDancer = function(left, top) {
 
 // TYPES OF DANCERS (inherits from Dancer)
 var FadeyDancer = function(left, top) {
-  this.__proto__ = new Dancer(left, top);
+  Dancer.apply(this,[left,top]);
   this.moneyMaker.css('border-color', 'purple');
   this.blink = function () {
     this.moneyMaker.fadeToggle();
@@ -56,7 +56,7 @@ var FadeyDancer = function(left, top) {
 }
 
 var ColorDancer = function(left, top) {
-  this.__proto__ = new Dancer(left, top);
+  Dancer.apply(this,[left,top]);
   this.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
   this.blink = function () {
     var number = Math.floor(Math.random()*5);
@@ -66,7 +66,7 @@ var ColorDancer = function(left, top) {
 };
 
 var ShapeDancer = function (left, top) {
-  this.__proto__ = new Dancer(left, top);
+  Dancer.apply(this,[left,top]);
   this.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
   this.blink = function () {
     var number = Math.floor(Math.random()*5);
@@ -76,7 +76,7 @@ var ShapeDancer = function (left, top) {
 };
 
 var StarDancer = function (left, top) {
-  this.__proto__ = new Dancer(left, top);
+  Dancer.apply(this,[left,top]);
   // dancer.moneyMaker.css('border-color', 'black');
   this.moneyMaker.attr('id', 'star-five');
 };
