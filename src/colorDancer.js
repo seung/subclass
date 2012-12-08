@@ -1,7 +1,5 @@
 var ColorDancer = function(left, top){
-  
-  this.left = left;
-  this.top = top;
+  BlinkyDancer.apply(this, [left, top]);
 
   //colorDancer.moneyMaker.css("{border: 40px solid goldenrod}");
   this.moneyMaker.addClass("colorDancer");
@@ -13,6 +11,7 @@ var ColorDancer = function(left, top){
 };
 
 ColorDancer.prototype = new BlinkyDancer();
+ColorDancer.prototype.constructor = ColorDancer;
 
 var _randomColor = function(){
 
