@@ -1,16 +1,13 @@
-var makeButtShakingDancer = function(left, top) {
-	
-	var ButtShakingDancer = makeBlinkyDancer(left,top);
-	ButtShakingDancer.moneyMaker.addClass('dancing-butt');
-
-	return ButtShakingDancer;
+var ButtShakingDancer = function(left, top) {
+	this.moneyMaker.addClass('dancing-butt')
 }
 
-var makeSnowManDancer = function(left, top) {
-	
-	var SnowManDancer = makeBlinkyDancer(left,top);
-	SnowManDancer.moneyMaker.addClass('snow-man');
+ButtShakingDancer.prototype = new BlinkyDancer();
 
-	return SnowManDancer;
-}
 
+
+var SnowManDancer = function(left, top) {
+	this.moneyMaker.addClass('snow-man');
+};
+
+SnowManDancer.prototype = new BlinkyDancer();

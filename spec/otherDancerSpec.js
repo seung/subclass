@@ -2,7 +2,7 @@ describe("Buttshaking Dancer", function() {
   var dancerTest;
 
   beforeEach(function() {
-    dancerTest = makeButtShakingDancer(20, 10);
+    dancerTest = new ButtShakingDancer(20, 10);
   });
 
   it('should have a "dancing-butt" class', function() {
@@ -14,7 +14,7 @@ describe("SnowMan Dancer", function() {
   var dancerTest;
 
   beforeEach(function() {
-    dancerTest = makeSnowManDancer(20, 10);
+    dancerTest = new SnowManDancer(20, 10);
   });
 
   it('should have a "snow-man" class', function() {

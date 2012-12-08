@@ -16,6 +16,7 @@ var BlinkyDancer = function(left, top){
       // ...and do those sexy moves
       setInterval(this.step, this.frequency);
     };
+    // console.log(this);
 
 // created a variable to store the "this" before the dot so it won't refer to the 
 //Window 
