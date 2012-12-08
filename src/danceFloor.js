@@ -22,7 +22,7 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
         }
 
       }
-      d = dancerMaker(w, h);
+      d = new dancerMaker(w, h);
       //makeADancerAColorDancer(d);
       d.dance();
       dancers.push(d);

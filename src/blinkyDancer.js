@@ -1,84 +1,84 @@
 // ORIGINAL DANCER
-var makeBlinkyDancer = function(left, top){
-  var dancer = {
+var Dancer = function(left, top){
     // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+    this.top = top;
+    this.left = left;
 
     // used in setInterval below
-    frequency: Math.random() * 2000,
+    this.frequency = Math.random() * 2000;
 
     // get dressed...
-    moneyMaker: $("<span data-idnumber='"+ dancers.length +"'class='dancer'></span>"),
+    this.moneyMaker = $("<span data-idnumber='"+ dancers.length +"'class='dancer'></span>");
 
-    dance: function(){
+    this.dance = function(){
       // go out...
-      dancer.moneyMaker.appendTo(".stage");
+      this.moneyMaker.appendTo(".stage");
       // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
-    },
+      var tempThis = this;
+      setInterval(function() { tempThis.step() }, this.frequency);
+    };
 
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
+    this.step = function(){
+      this.getInPosition();
+      this.blink();
+    };
 
-    getInPosition: function(){
+    this.getInPosition = function(){
       var styleObj = {
-        top: dancer.top,
-        left: dancer.left
+        top: this.top,
+        left: this.left
       };
-      dancer.moneyMaker.css(styleObj);
-    },
+      this.moneyMaker.css(styleObj);
+    };
 
-    blink: function(){
-      dancer.moneyMaker.toggle();
-    }
+    this.blink = function(){
 
-  }; // dancer
-  
-  dancer.getInPosition();
+    };
 
-  return dancer;
+  this.getInPosition();
+
 };
 
-// TYPES OF DANCERS (inherits from makeBlinkyDancer)
-var makeFadeyDancer = function(left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.moneyMaker.css('border-color', 'purple');
-  dancer.blink = function () {
-    dancer.moneyMaker.fadeToggle();
+var BlinkyDancer = function(left, top) {
+  this.__proto__ = new Dancer(left, top);
+  this.blink = function (){
+    this.moneyMaker.toggle();
   };
-  return dancer;
 };
 
-var makeColorDancer = function(left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
-  dancer.blink = function () {
+// TYPES OF DANCERS (inherits from Dancer)
+var FadeyDancer = function(left, top) {
+  this.__proto__ = new Dancer(left, top);
+  this.moneyMaker.css('border-color', 'purple');
+  this.blink = function () {
+    this.moneyMaker.fadeToggle();
+  };
+}
+
+var ColorDancer = function(left, top) {
+  this.__proto__ = new Dancer(left, top);
+  this.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
+  this.blink = function () {
     var number = Math.floor(Math.random()*5);
     var randomcolor = this.colors[number];
-    dancer.moneyMaker.css('border-color',randomcolor);
+    this.moneyMaker.css('border-color',randomcolor);
   };
-  return dancer;
 };
 
-var makeShapeDancer = function (left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
-  dancer.blink = function () {
+var ShapeDancer = function (left, top) {
+  this.__proto__ = new Dancer(left, top);
+  this.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
+  this.blink = function () {
     var number = Math.floor(Math.random()*5);
     var randomshape = this.shapes[number];
-    dancer.moneyMaker.attr('id', randomshape);
+    this.moneyMaker.attr('id', randomshape);
   };
-  return dancer;
 };
 
-var makeStarDancer = function (left, top) {
-  var dancer = makeBlinkyDancer(left, top);
+var StarDancer = function (left, top) {
+  this.__proto__ = new Dancer(left, top);
   // dancer.moneyMaker.css('border-color', 'black');
-  dancer.moneyMaker.attr('id', 'star-five');
-  return dancer;
+  this.moneyMaker.attr('id', 'star-five');
 };
 
 //MIX-INS
