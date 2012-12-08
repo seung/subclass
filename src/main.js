@@ -5,7 +5,7 @@ $(document).ready(function(){
   var kindsOfDancers = {
     BlinkyDancer: BlinkyDancer, // found in blinkyDancer.js
     PoleDancer: PoleDancer, // found in otherDancers.js
-    makeColoredDancer: ColoredDancer // found in otherDancers.js
+    ColoredDancer: ColoredDancer // found in otherDancers.js
   };
   
   // This is a list of all the dancers that have been created.
