@@ -1,5 +1,5 @@
 var makeMoshPitDancer = function(left, top) {
-  var moshPitDancer = makeBlinkyDancer(left, top);
+  var moshPitDancer = BlinkyDancer(left, top);
   moshPitDancer.moshPit = $('#moshPit');
   moshPitDancer.frequency = 500 ;
   moshPitDancer.getInPosition();
