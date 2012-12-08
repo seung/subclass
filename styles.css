@@ -44,16 +44,25 @@ body, a:link, a:visited, a:active{
   height: 60px;
   border: 10px solid blue;
   border-radius: 30px;
+  position:absolute;  
+}
+
+.dj {
+  font-size: 12;
+  bottom: 40px;
+  left: 40%;
+  right: 40%;
+  text-align: center;
+  position: fixed;
 }
 
 .triangle{
   width: 0; 
   height: 0; 
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid red;
-  position:absolute;
-  bottom: 0;
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+  border-bottom: 55px solid red;
+  position:fixed;
   margin: auto;
   bottom: 40px;
   left: 40%;

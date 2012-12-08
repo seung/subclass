@@ -1,15 +1,11 @@
 var ButtShakingDancer = function(left, top) {
-	this.moneyMaker.addClass('dancing-butt');
-	this.left = left;
-	this.top = top;
-  	this.getInPosition();
+	BlinkyDancer.apply(this, [left, top, 'dancing-butt']);
+	// self.moneyMaker.addClass('dancing-butt');
 }
 
 var SnowManDancer = function(left, top) {
-	this.moneyMaker.addClass('snow-man');
-	this.left = left;
-	this.top = top;
-  	this.getInPosition();
+	BlinkyDancer.apply(this, [left, top, 'snow-man']);
+	// self.moneyMaker.addClass('');
 }
 
 ButtShakingDancer.prototype = new BlinkyDancer();
