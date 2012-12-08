@@ -1,10 +1,13 @@
-var makeGoldenDancer = function(left, top) {
-	var goldenDancer = makeBlinkyDancer(left, top);
-	goldenDancer.blink = function() {
-		goldenDancer.moneyMaker.fadeToggle()
+var GoldenDancer = function(left, top) {
+	this.left =left;
+	this.top = top;
+	self = this;
+	this.blink = function() {
+		self.moneyMaker.fadeToggle()
 	};
-	goldenDancer.frequency = 1000;
-	goldenDancer.moneyMaker.addClass('moonwalk');
-	goldenDancer.moneyMaker.css({border: "10px solid goldenrod"});
-	return goldenDancer;
+	this.frequency = 1000;
+	this.moneyMaker.addClass('moonwalk');
+	this.moneyMaker.css({border: "10px solid goldenrod"});	
 };
+  
+   GoldenDancer.prototype = new Dancer();

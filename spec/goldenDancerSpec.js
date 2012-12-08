@@ -33,7 +33,7 @@ describe("goldenDancer", function() {
     });
 
     it("should create a moonwalk class", function() {
-      
+
     });
 
     afterEach(function(){
@@ -41,3 +41,5 @@ describe("goldenDancer", function() {
     });
   });
 });
+
+
