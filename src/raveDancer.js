@@ -12,4 +12,4 @@ var RaveDancer = function(left, top) {
   };
 };
 
-RaveDancer.prototype = new Dancer();
+RaveDancer.prototype = Object.create(Dancer.prototype);

@@ -26,4 +26,4 @@ var MoshPitDancer = function(left, top) {
   };
 };
 
-MoshPitDancer.prototype = new Dancer();
+MoshPitDancer.prototype = Object.create(Dancer.prototype);
