@@ -10,40 +10,51 @@ var BlinkyDancer = function(left, top){
     // get dressed...
     this.moneyMaker = $("<span class='dancer'></span>");
 
-    this.dance = function(){
-      // go out...
-      this.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      setInterval(this.step, this.frequency);
-    };
-    // console.log(this);
 
-// created a variable to store the "this" before the dot so it won't refer to the 
-//Window 
-    var correctThis = this;
-
-
-    this.step = function(){
-      correctThis.getInPosition();
-      correctThis.blink();
-    };
-
-    this.getInPosition = function(){
-      var styleObj = {
-        top: this.top,
-        left: this.left
-      };
-      this.moneyMaker.css(styleObj);
-    };
-
-    this.blink = function(){
-      this.moneyMaker.toggle();
-    };
   
   this.getInPosition();
 };
 
+BlinkyDancer.prototype = {
+dance: function(){
+  // go out...
+  this.moneyMaker.appendTo(".stage");
+  // ...and do those sexy moves
+  var self = this;
+  var stepfunc = function () {
+    self.step();
+  };
+  setInterval(stepfunc, this.frequency);
+  },
+  // console.log(this);
 
+// created a variable to store the "this" before the dot so it won't refer to the 
+//Window. below was when it was in BlinkyDancer properties above
+
+    // var correctThis = this;
+
+
+    // this.step = function(){
+    //   correctThis.getInPosition();
+    //   correctThis.blink();
+    // };    
+  step: function(){
+    this.getInPosition();
+    this.blink();
+   },
+
+  getInPosition: function(){
+    var styleObj = {
+      top: this.top,
+      left: this.left
+    };
+    this.moneyMaker.css(styleObj);
+  },
+
+  blink: function(){
+    this.moneyMaker.toggle();
+  }
+};
 
 // var MyConstructor = function() {
 //   this.doThing = function() {
