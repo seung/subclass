@@ -16,12 +16,7 @@ var BlinkyDancer = function(left, top){
       // ...and do those sexy moves
       setInterval(function(){
         self.step(); 
-      }, self.frequency);
-    };
-
-    this.step =  function(){
-      this.getInPosition();
-      this.blink();
+      }, this.frequency);
     };
 
     this.getInPosition =  function(){
@@ -32,9 +27,14 @@ var BlinkyDancer = function(left, top){
       this.moneyMaker.css(styleObj);
     };
 
-    this.blink =  function(){
-      this.moneyMaker.toggle();
-    }
-  
   this.getInPosition();
+};
+
+BlinkyDancer.prototype.step =  function(){
+  this.getInPosition();
+  this.blink();
+};
+
+BlinkyDancer.prototype.blink =  function(){
+  this.moneyMaker.toggle();
 };
