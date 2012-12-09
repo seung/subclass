@@ -15,6 +15,9 @@
 </head>
 <body>
   <div class="topbar">
+    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Click here to learn about the Object Dance Party</a>
+    <div id="light" class="white_content">Welcome to the Object Dance Party!<br>On this dance floor, all dancers take their cues from the O.G. Blinky Dancer.  Not wanting to bite on Blinky's style, each dancer has their own look [read: object inheritance].  Check out the funky colored dancers and look out for the faded ones!  Here on the Object Dance Floor, dancers like to groove [read: mixins!].  Play puppetmaster and mix in some awesome moves - make the dancers turn into to pictures, dance in boxes, flip it or go into full on Swan Lake mode.
+      <br><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Cool, thanks, I'm done!</a></div><div id="fade" class="black_overlay"></div>
     <span class="title">object dance party</span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
       <a href="#">make a blinky dancer</a>
@@ -25,9 +28,6 @@
     <span class="clickable" data-dancer-creator="makeFadedInDancer">
       <a href="#">make a dancer fade in</a>
     </span>
-<!--     <span class="clickable" data-dancer-creator="makePicDancer">
-      <a href="#">make a Picture dancer</a>
-    </span> -->
     <span class="clickhere" data-dancer-changer="makePicture">
       <a href="#">turn dancers into pictures</a>
     </span>

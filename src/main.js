@@ -1,3 +1,4 @@
+document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block';
 $(document).ready(function(){
 
   // This is a list of the different kinds of dancers. Right now, 
