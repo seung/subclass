@@ -7,12 +7,11 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
     makeDancer: function(dancerMakerName){
       // get the kind of dancer we're supposed to make
       var dancerMaker = kindsOfDancers[dancerMakerName];
-
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
-      var d = dancerMaker(w, h);
-      
+      var d = new dancerMaker(w, h);
+
       d.dance();
       dancers.push(d);
     }
