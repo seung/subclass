@@ -3,18 +3,72 @@
 <head>
   <title>Data Structure Visualizations</title>
   <link rel="stylesheet"type="text/css" href="css/styles.css" />
+  <script type="text/javascript" src="d3/d3.v2.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="src/Sprite.js"></script>
   <script src="src/spriteCircle.js"></script>    
-  <script src="src/canvas.js"></script>
+  <script src="src/makeCanvas.js"></script>
   <script src="src/controls.js"></script> 
+  <script src="data/data.js"></script>
   <script src="src/main.js"></script>
+
+ 
+  <script type="text/javascript" src="d3/d3.v2.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <!-- <title>OMG Particles!</title> -->
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.25.0"></script>
+    <style type="text/css"></style>
+<!-- 
+    <script type="text/javascript">
+    d3.select("body").data(dataset).enter().append("img").attr("src", function(d){
+      return d.pic_small;
+    });
+    </script>
+
+ -->
+  <script type="text/javascript"> // from http://bl.ocks.org/1062544
+
+
+// var w = $("body").width(),
+//     h = $("body").height(),
+//     z = d3.scale.category20c(),
+//     i = 0;
+
+// var svg = d3.select("body").append("svg:svg")
+//     .attr("width", w)
+//     .attr("height", h)
+//     .style("pointer-events", "all")
+//     .on("mousemove", particle);
+
+// function particle() {
+//   var m = d3.svg.mouse(this);
+
+//   svg.append("svg:circle")
+//       .attr("cx", m[0])
+//       .attr("cy", m[1])
+//       .attr("r", 1e-6)
+//       .style("stroke", z(++i))
+//       .style("stroke-opacity", 1)
+//     .transition()
+//       .duration(2000)
+//       .ease(Math.sqrt)
+//       .attr("r", 100)
+//       .style("stroke-opacity", 1e-6)
+//       .remove();
+// }
+
+</script>
 </head>
 <body>
-  <div class="topbar">
-    <span class="clickable" data-dancer-creator="spriteCircle"><a href="#">Circle Sprite</a><span>
+<!--   <div class="topbar">
+    <span class="clickable" data-sprite-button="spriteCircle"><a href="#">Circle Sprite</a><span>
     <span><a href="#">Data Structure Visualizations</a></span>
-  </div>
-  <div class="stage"></div>
-</body>
-</html>
+  </div> -->
+<!-- 
+  <div class="stage">
+  <script type="text/javascript">
+    d3.select("body").append("p").text("New paragraph!");
+  </script>
+ -->
+

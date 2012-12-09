@@ -10,6 +10,7 @@ body, a:link, a:visited, a:active{
   color: white;
 }
 .topbar span{
+  position:absolute;top:0px;
   padding:5px 12px;
   float:right;
 }
@@ -24,6 +25,16 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+body {
+  background: #222;
+}
+
+circle {
+  fill: none;
+  stroke-width: 1v5px;
+  opacityElement: .9;
 }
 
 /*

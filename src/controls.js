@@ -1,6 +1,6 @@
-var setupControls = function(danceFloor){
+var setupControls = function(canvas){
   $(".clickable").on("click", function(event){
-    var dancerMakerName = $(this).data("dancer-creator");
-    danceFloor.makeDancer(dancerMakerName);
+    var spriteToMake = $(this).data("sprite-button");
+    canvas.makeDancer(spriteToMake);
   });
 }
