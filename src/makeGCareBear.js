@@ -4,4 +4,5 @@ var GCareBear = function(left, top) {
   this.moneyMaker.addClass('gBear');
 };
 
-GCareBear.prototype = new Dancer();
+GCareBear.prototype = Object.create(Dancer.prototype);
+GCareBear.prototype.constructor = GCareBear;

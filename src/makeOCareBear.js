@@ -4,4 +4,5 @@ var OCareBear = function(left, top) {
   this.moneyMaker.addClass('oBear');
 };
 
-OCareBear.prototype = new Dancer();
+OCareBear.prototype = Object.create(Dancer.prototype);
+OCareBear.prototype.constructor = OCareBear;
