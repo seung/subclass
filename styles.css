@@ -1,6 +1,7 @@
 body, html{
   height:100%;
   font-family: 'Lucida Sans Unicode';
+  text-transform: lowercase;
 }
 body{
   margin: 0px;
@@ -14,6 +15,7 @@ body, a:link, a:visited, a:active{
 .topbar span{
   padding:5px 12px;
   float:right;
+  color: orange;
 }
 .topbar{
   height:32px;
@@ -106,5 +108,46 @@ body, a:link, a:visited, a:active{
     perspective: 300;
   -webkit-transform: rotateY(180deg);  -webkit-transform-style: preserve-3d;
     transform: rotateY(180deg);          transform-style: preserve-3d;
+}
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+}
+ 
+.white_content {
+  color: orange;
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 16px;
+  border: 16px solid orange;
+  background-color: white;
+  z-index:1002;
+  overflow: auto;
+}
+
+.exit {
+  color: orange;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+  border-radius: 1px;
 }
 

@@ -5,7 +5,8 @@ $(document).ready(function(){
   var kindsOfDancers = {
     blinkyDancer: BlinkyDancer,
     colorDancer: ColorDancer,
-    fadedInDancer: FadedInDancer
+    fadedInDancer: FadedInDancer,
+    triangleDancer: TriangleDancer
   };
   
   // This is a list of all the dancers that have been created.

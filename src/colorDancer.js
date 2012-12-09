@@ -5,3 +5,4 @@ var ColorDancer = function(left, top) {
 };	
 
 ColorDancer.prototype = new BlinkyDancer();
+ColorDancer.prototype.constructor = ColorDancer;

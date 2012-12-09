@@ -20,7 +20,7 @@ describe("fadedInDancer", function() {
   });
 
   it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(fadedInDancer.moneyMaker, 'fadeOut');
+    spyOn (fadedInDancer.moneyMaker, 'fadeOut');
     fadedInDancer.step();
     expect(fadedInDancer.moneyMaker.fadeIn().delay().fadeOut).toHaveBeenCalled();
   });
