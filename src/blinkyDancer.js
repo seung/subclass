@@ -1,76 +1,114 @@
-var makeBlinkyDancer = function(left, top){
+  var BlinkyDancer = function(left, top){
 
     // we'll use top and left to set the position of this dancer
-    top = top,
-    left = left,
+    this.top = top;
+    this.left = left;
 
     // used in setInterval below
-    frequency = Math.random() * 2000,
+    this.frequency = Math.random() * 2000;
 
     // get dressed...
-    moneyMaker = $("<span data-idnumber='"+ dancers.length +"'class='dancer'></span>"),
+    this.moneyMaker = $("<span data-idnumber='"+ this.length +"'class='dancer'></span>");
+    
+    this.getInPosition();
 
-    dance = function(){
+  
+};
+
+//don't need "this". Keep it mind BlinkyDancer.prototype is an object
+BlinkyDancer.prototype = {
+    dance: function(){
       // go out...
-      dancer.moneyMaker.appendTo(".stage");
+      this.moneyMaker.appendTo(".stage");
       // ...and do those sexy moves
-      setInterval(dancer.step, dancer.frequency);
-    },
-
-    step = function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
-
-    getInPosition = function(){
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
+      
+      var self = this;
+      var stepfn = function(){
+        this.step();
       };
-      dancer.moneyMaker.css(styleObj);
+
+      setInterval(stepfn, this.frequency);
+    },
+
+    step: function(){
+      this.getInPosition();
+      this.blink();
+    },
+
+    getInPosition: function(){
+      var styleObj = {
+        top: this.top,
+        left: this.left
+      };
+      this.moneyMaker.css(styleObj);
     },
 
     blink: function(){
-      dancer.moneyMaker.toggle();
+      this.moneyMaker.toggle();
     }
-
-  }; // dancer
-  
-  dancer.getInPosition();
-
-  
 };
 
+//in the above function this.dance = function()....
+//it is written the same as below
+// BlinkyDancer.prototype.dance = function(){
+//   
+//      this.moneyMaker.appendTo(".stage");
+     
+ //     setInterval(this.step, this.frequency);
+ //   };
 
-var makeFadeyDancer = function(left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.moneyMaker.css('border-color', 'purple');
-  dancer.blink = function () {
-    dancer.moneyMaker.fadeToggle();
+//simply delete function this.dance = function()...
+//and replace it with the .prototype.dance...
+//The differences mean that any prototype pointed to a factory
+//that points to BlinkyDancer factory will go up the delegation chain
+// if the function this.blink = function()... was already in BlinkyDancer
+//then any prototypes pointing to the factory that points to Blinky Dancer
+//will automatically have the stuff BlinkyDancer has
+//example is in blinkyDancerSpec.js
+//bob = new FadeyDancer(30,40)
+//bob is a prototype(pointing to) FadeyDancer Factory. While the FadeyDancer 
+//factory is pointing to the main factory BlinkyDancer because of the code
+//BlinkyDancer.apply
+//bob will automatically contain all the stuff in BlinkyDancer, but 
+//if there is a BlinkyDancer.prototype.dance....then bob will not
+//automatically have the property dance since FadeyDancer doesn't have a dance function
+
+
+var FadeyDancer = function(left, top) {
+  BlinkyDancer.apply(this, [left, top]);
+  this.moneyMaker.css('border-color', 'purple');
+  this.blink = function () {
+    this.moneyMaker.fadeToggle();
   };
-  return dancer;
 };
 
-var makeColorDancer = function(left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
-  dancer.blink = function () {
+  makeFadeyDancer.prototype = new BlinkyDancer();
+  
+
+var ColorDancer = function(left, top) {
+  BlinkyDancer.apply(this, [left, top]);
+  this.colors = ['green','orange','blue','goldenrod','cyan','yellow'];
+  this.blink = function () {
     var number = Math.floor(Math.random()*5);
     var randomcolor = this.colors[number];
-    dancer.moneyMaker.css('border-color',randomcolor);
+    this.moneyMaker.css('border-color',randomcolor);
   };
-  return dancer;
+
+  ColorDancer.prototype = new BlinkyDancer();
 };
 
-var makeShapeDancer = function (left, top) {
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
-  dancer.blink = function () {
+var ShapeDancer = function (left, top) {
+  BlinkyDancer.apply(this, [left, top]);
+  this.shapes = ['heart', 'space-invader', 'yin-yang', 'pacman','infinity'];
+  this.blink = function () {
     var number = Math.floor(Math.random()*5);
     var randomshape = this.shapes[number];
-    dancer.moneyMaker.attr('id', randomshape);
+    this.moneyMaker.attr('id', randomshape);
   };
-  return dancer;
+
+
+  ShapeDancer.prototype = new BlinkyDancer();
+
 };
 
 //mix-ins
@@ -117,12 +155,3 @@ var makeDancersMove = function(dancer){
     dancers[i].makemove();
   }
 }; */
-
-
-
-
-
-
-
-
-

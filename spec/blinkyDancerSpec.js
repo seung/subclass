@@ -4,7 +4,7 @@ describe("blinkyDancer", function() {
   bindListeners = function () {};
 
   beforeEach(function() {
-    blinkyDancer = makeBlinkyDancer(20, 10);
+    blinkyDancer = new BlinkyDancer(20, 10);
   });
 
   it("should have a left and top coordinate", function(){
