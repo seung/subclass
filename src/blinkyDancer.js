@@ -9,31 +9,32 @@ var BlinkyDancer = function(left, top){
     // get dressed...
     this.moneyMaker = $("<span class='dancer'></span>");
 
-    this.dance = function(){
-      // go out...
-      this.moneyMaker.appendTo(".stage");
-      // ...and do those sexy moves
-      var that=this;
-      setInterval(function(){that.step();}, this.frequency);
-    };
-
-    this.step = function(){
-      this.getInPosition();
-      this.blink();
-    };
-
-    this.getInPosition = function(){
-      var styleObj = {
-        top: this.top,
-        left: this.left
-      };
-      this.moneyMaker.css(styleObj);
-    };
-
-    this.blink = function(){
-      this.moneyMaker.toggle();
-    };
-
-  
   this.getInPosition();
 };
+
+
+BlinkyDancer.prototype.dance = function(){
+  // go out...
+  this.moneyMaker.appendTo(".stage");
+  // ...and do those sexy moves
+  var that=this;
+  setInterval(function(){that.step();}, this.frequency);
+};
+
+BlinkyDancer.prototype.step = function(){
+  this.getInPosition();
+  this.blink();
+};
+
+BlinkyDancer.prototype.getInPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.moneyMaker.css(styleObj);
+};
+
+BlinkyDancer.prototype.blink = function(){
+  this.moneyMaker.toggle();
+};
+  

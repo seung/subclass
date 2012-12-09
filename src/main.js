@@ -12,8 +12,8 @@ $(document).ready(function(){
   // * danceFloor.js will add to it when you click on stuff.
   // * When you're writing mixins that affect existing dancers, you'll use it.
   window.dancers = [];
-  PoleDancer.prototype = new BlinkyDancer();
-  ColoredDancer.prototype = new BlinkyDancer();
+  PoleDancer.prototype = Object.create(BlinkyDancer.prototype);
+  ColoredDancer.prototype = Object.create(BlinkyDancer.prototype);
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
