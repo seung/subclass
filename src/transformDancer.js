@@ -4,14 +4,15 @@ var TransformDancer = function(left, top) {
 
   this.moneyMaker.addClass("transFormDancer");
 
-  this.blink = function(){
-  	this.moneyMaker.css("transform", _randomTransform());
-    this.moneyMaker.toggle();
-  }
 };
 
-TransformDancer.prototype = new BlinkyDancer();
+TransformDancer.prototype = Object.create(BlinkyDancer.prototype);// creates a new object based upon BlinkyDancer.prototype into TransformDancer.prototype
 TransformDancer.prototype.constructor = TransformDancer;
+
+TransformDancer.prototype.blink = function(){
+  this.moneyMaker.css("transform", _randomTransform());
+  this.moneyMaker.toggle();
+};
 
 var _random = function(){
     var num = Math.random() * .5;
