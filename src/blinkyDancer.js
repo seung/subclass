@@ -1,38 +1,36 @@
 var BlinkyDancer = function(left, top, newClass){
-  newClass === undefined ? newClass = '' : newClass;
-  
-  var self = this;
   // we'll use top and left to set the position of this dancer
-  self.top = top;
-  self.left = left;
+  this.top = top;
+  this.left = left;
+  // used in setInterval below
+  this.frequency = Math.random() * 2000;
   // get dressed...
-  self.moneyMaker = $("<span class='dancer "+ newClass +"'></span>");
-  self.getInPosition();
+  this.moneyMaker = $("<span class='dancer "+ (newClass || '') +"'></span>");
+  this.getInPosition();
 };
 
 BlinkyDancer.prototype.blink = function(){
   this.moneyMaker.toggle();
 }; 
 
-// used in setInterval below
-BlinkyDancer.prototype.frequency = Math.random() * 2000;
-
 BlinkyDancer.prototype.getInPosition = function(){
-    var styleObj = {
-      top: this.top,
-      left: this.left
-    };
-    this.moneyMaker.css(styleObj);
+  var styleObj = {
+    top: this.top,
+    left: this.left
   };
+  this.moneyMaker.css(styleObj);
+};
 
 BlinkyDancer.prototype.dance = function(){
-    // go out...
-    this.moneyMaker.appendTo(".stage");
-    // ...and do those sexy moves
-    var self = this;
+  // go out...
+  this.moneyMaker.appendTo(".stage");
+  // ...and do those sexy moves
+  var self = this;
 
-    setInterval(function(){self.step();}, this.frequency);
-  };
+  setInterval(function(){
+    self.step();
+    }, this.frequency);
+};
 
 BlinkyDancer.prototype.step = function(){
   this.getInPosition();
