@@ -4,7 +4,7 @@ var PoleDancer = function(left, top) {
 	this.moneyMaker.css({"height": this.height, "border": "3px solid green"});
 };
 
-PoleDancer.prototype = new BlinkyDancer();
+PoleDancer.prototype = Object.create(BlinkyDancer.prototype);
 PoleDancer.prototype.constructor = PoleDancer;
 
 var ColoredDancer = function(left, top) {
@@ -15,6 +15,6 @@ var ColoredDancer = function(left, top) {
 	this.moneyMaker.css({"border-color": "rgb("+this.randomR+","+this.randomG+","+this.randomB+")"});
 };
 
-ColoredDancer.prototype = new BlinkyDancer();
+ColoredDancer.prototype = Object.create(BlinkyDancer.prototype);
 ColoredDancer.prototype.constructor = ColoredDancer;
 
