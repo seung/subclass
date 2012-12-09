@@ -5,7 +5,7 @@ describe("transformDancer", function(){
     transformDancer = new TransformDancer(20,20);
   });
 
-  it("The Blink Method should modify the css value to have a transform value of scale:(X,X", function () {
+  it("The Blink Method should modify the css value to have a transform value of scale:(X,X)", function () {
   	expect(transformDancer.moneyMaker.css('transform')).toBeFalsy();
     transformDancer.blink();
     expect(transformDancer.moneyMaker.css('transform')).toBeTruthy();

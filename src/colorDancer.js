@@ -4,14 +4,19 @@ var ColorDancer = function(left, top){
   //colorDancer.moneyMaker.css("{border: 40px solid goldenrod}");
   this.moneyMaker.addClass("colorDancer");
 
-  this.blink = function(){
+  /* this.blink = function(){
   	this.moneyMaker.css("border-color", _randomColor())
   	this.moneyMaker.toggle();
-  	}
+  	}*/
 };
 
 ColorDancer.prototype = new BlinkyDancer();
 ColorDancer.prototype.constructor = ColorDancer;
+
+ColorDancer.prototype.blink = function(){
+  this.moneyMaker.css("border-color", _randomColor())
+  this.moneyMaker.toggle();
+};
 
 var _randomColor = function(){
 
