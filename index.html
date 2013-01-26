@@ -6,6 +6,8 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="src/blinkyDancer.js"></script>
+  <script src="src/tinyDancer.js"></script>
+  <script src="src/privateDancer.js"></script>
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
@@ -14,7 +16,13 @@
   <div class="topbar">
     <span class="title">object dance party</span>
     <span class="clickable" data-dancer-creator="makeBlinkyDancer">
-      <a href="#">make a dancer</a>
+      <a href="#">make a blinky dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makeTinyDancer">
+      <a href="#">make a tiny dancer</a>
+    </span>
+    <span class="clickable" data-dancer-creator="makePrivateDancer">
+      <a href="#">make a private dancer</a>
     </span>
   </div>
   <div class="stage"></div>
