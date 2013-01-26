@@ -55,7 +55,9 @@ var makeBlinkyDancer = function(left, top){
 var makeMuffinDancer = function(left, top) {
   var muffinDancer = makeBlinkyDancer(left, top);
 
+  muffinDancer.frequency = 2000;
 
+  muffinDancer.$moneyMaker = $('<span class="muffin-dancer"></span>');
 
   muffinDancer.getInPosition();
 
