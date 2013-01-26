@@ -51,3 +51,19 @@ var makeBlinkyDancer = function(left, top){
 
   return dancer;
 };
+
+var makeMuffinDancer = function(left, top) {
+  var muffinDancer = makeBlinkyDancer(left, top);
+
+
+
+  muffinDancer.getInPosition();
+
+  return muffinDancer;
+}
+
+
+
+
+
+
