@@ -2,7 +2,10 @@ var makeColorDancer = function(left,top){
   /* Creates and returns a new dancer that inherits from makeBlinkyDancer
    * and changes color randomly
    */
+
   var colorDancer = makeBlinkyDancer(left, top);
+
+  colorDancer.$moneyMaker = $('<span class="color"></span>'),
 
   colorDancer.step = function(){
     colorDancer.getInPosition();
@@ -11,7 +14,7 @@ var makeColorDancer = function(left,top){
 
   colorDancer.blink = null;
 
-  colorDancer.$moneyMaker.addClass('color');
+  //colorDancer.$moneyMaker.addClass('color');
 
   colorDancer.changeColor = function(){
 
@@ -20,14 +23,15 @@ var makeColorDancer = function(left,top){
     var z = Math.floor(Math.random() * 255);
 
     var styleColor = {
-      border: 10px solid rbg(x,y,z);
+      //'border': '10px solid rgb(121,232,14)'
+      'border': '10px solid rgb(' + x.toString() + ',' + y.toString() + ',' + z.toString() + ')'
     };
 
-    dancer.$moneyMaker.css(styleColor);
+    colorDancer.$moneyMaker.css(styleColor);
   }
     
   return colorDancer;
 };
-￼￼
+
 // .css({'border': '10px solid rbg(x,y,z)'})￼￼￼
 // .css({'background-color': '#ffe', 'border-left': '5px solid #ccc'})
