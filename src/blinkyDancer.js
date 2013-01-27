@@ -57,7 +57,8 @@ var makeMuffinDancer = function(left, top) {
 
   muffinDancer.frequency = 2000;
 
-  muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
+  // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
+  muffinDancer.$moneyMaker = $('<span class="muffin-dancer"></span>');
 
   muffinDancer.getInPosition();
 
@@ -68,9 +69,20 @@ var makeMuffinDancer = function(left, top) {
 var makeRabiesDancer = function(left, top) {
   var rabiesDancer = makeBlinkyDancer(left, top);
 
+  rabiesDancer.canLineUp = true;
+
+  rabiesDancer.lineUp = function(direction) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      if (window.dancers[i].canLineUp) {
+        window.dancers[i].left = 0;
+      };
+    };
+  }
+
   rabiesDancer.frequency = 35;
 
-  rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
+  // rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
+  rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
 
   rabiesDancer.getInPosition();
 
@@ -82,8 +94,8 @@ var makeRabiesDancer = function(left, top) {
     var floorHeight = $("body").height();
 
     if (rabiesDancer.left < 0) dX *= -1;
-    if (rabiesDancer.left > floorWidth) dX *= -1;
-    if (rabiesDancer.top > floorHeight) dY *= -1;
+    if (rabiesDancer.left + 65 > floorWidth) dX *= -1;
+    if (rabiesDancer.top + 45 > floorHeight) dY *= -1;
     if (rabiesDancer.top < 0) dY *= -1;
 
     rabiesDancer.left += dX;
