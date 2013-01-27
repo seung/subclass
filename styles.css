@@ -10,38 +10,46 @@ body, a:link, a:visited, a:active{
   color: lightblue;
 }
 
-@-webkit-keyframes NAME-YOUR-ANIMATION {
+@-webkit-keyframes pulse {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
-@-moz-keyframes NAME-YOUR-ANIMATION {
+@-moz-keyframes pulse {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
-@-o-keyframes NAME-YOUR-ANIMATION {
+@-o-keyframes pulse {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
-@keyframes NAME-YOUR-ANIMATION {
+@keyframes pulse {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
 
 @-webkit-keyframes spin {
-  from   { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from   { -webkit-transform: rotate(0deg);
+           transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
 }
 @-moz-keyframes spin {
-  from   { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from   { -webkit-transform: rotate(0deg);
+          transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
 }
 @-o-keyframes spin {
-  from   { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from   { -webkit-transform: rotate(0deg);
+          transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
 }
 @keyframes spin {
-  from   { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from   { -webkit-transform: rotate(0deg)
+          transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
 }
 
 .topbar span{
@@ -64,7 +72,10 @@ span.square{
   border-radius: 0;
   background-color: yellow;
   border: 10px solid yellow;
-
+  -webkit-animation: spin 0.5s infinite; /* Safari 4+ */
+  -moz-animation:    spin 0.5s infinite; /* Fx 5+ */
+  -o-animation:      spin 0.5s infinite; /* Opera 12+ */
+  animation:         spin 0.5s infinite;
 }
 
 .test {
@@ -72,10 +83,6 @@ span.square{
   height: 50px;
   background-color: white;
   margin: 0 auto;
-  -webkit-animation: spin 0.5s infinite; /* Safari 4+ */
-  -moz-animation:    spin 0.5s infinite; /* Fx 5+ */
-  -o-animation:      spin 0.5s infinite; /* Opera 12+ */
-  animation:         spin 0.5s infinite;
 }
 
 .flame {
@@ -83,6 +90,10 @@ span.square{
   width: 75%;
   margin: 20% auto;
   text-align: center;
+  -webkit-animation: pulse 2s infinite; /* Safari 4+ */
+  -moz-animation:    pulse 2s infinite; /* Fx 5+ */
+  -o-animation:      pulse 2s infinite; /* Opera 12+ */
+  animation:         pulse 2s infinite;
 }
 
 .burn {
