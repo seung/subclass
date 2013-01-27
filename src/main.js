@@ -5,7 +5,8 @@ $(document).ready(function(){
    * to add their factory functions here. */
   var kindsOfDancers = {
     makeColorfulDancer: makeColorfulDancer,
-    makeBlinkyDancer: makeBlinkyDancer // found in blinkyDancer.js
+    makeBlinkyDancer: makeBlinkyDancer,
+    makeThrobbingDancer: makeThrobbingDancer // found in blinkyDancer.js
   };
 
   /* This is a list of all the dancers that have been created.
