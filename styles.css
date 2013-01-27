@@ -52,17 +52,18 @@ width:100px;
 height:100px;
 background:yellow;
 position:absolute;
--webkit-animation-name:myfirst;
+}
+/*-webkit-animation-name:grow;
 -webkit-animation-duration:5s;
 -webkit-animation-iteration-count:infinite;
 }
 
-@-webkit-keyframes myfirst
+@-webkit-keyframes grow
 {
   0%   {background:yellow; height:100px; width:100px;}
   50%  {background:blue; height:200px; width:200px;}
   100% {background:yellow; height:100px; width:100px;}
-}
+}*/
 
 @-webkit-keyframes rotate {
     from {
@@ -117,4 +118,12 @@ span
 50%  {background:blue; left:800px; top:800px;}
 75%  {background:green; left:0px; top:800px;}
 100% {background:red; left:0px; top:50px;}
+}
+
+
+.moveyDancer {
+  height:200px;
+  width: 200px;
+  background: url('http://catalystsf.staging.wpengine.com/wp-content/uploads/2012/10/Marcus.png');
+  position:absolute;
 }
