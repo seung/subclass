@@ -34,3 +34,15 @@ span.square{
   -webkit-transition-duration: 0.5s;
   -webkit-transition-delay: 0.5s;
 */}
+
+.flame {
+  font-size: 99px;
+  width: 75%;
+  margin: 20% auto;
+  text-align: center;
+}
+
+.burn {
+border: none;
+height: 100px;
+}

@@ -11,9 +11,13 @@ var makeSquareDancer = function (top, left){
 
     squareDancer.$moneyMaker.toggle(function(){
       $(this).animate({
-      height: '25%'
-      // -webkit-transform: rotate(135deg),
-      // transform: rotate(135deg)
+      height: '25%',
+      '-webkit-transform': 'rotate(135deg)',
+      '-moz-transform': 'rotate(135deg)',
+      '-ms-transform': 'rotate(135deg)',
+      '-o-transform': 'rotate(135deg)',
+      'transform': 'rotate(135deg)',
+      width: '1%'
     });
     });
   };

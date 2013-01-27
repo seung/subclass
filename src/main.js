@@ -5,7 +5,8 @@ $(document).ready(function(){
    * to add their factory functions here. */
   var kindsOfDancers = {
     makeBlinkyDancer: makeBlinkyDancer,
-    makeSquareDancer: makeSquareDancer
+    makeSquareDancer: makeSquareDancer,
+    makeFlameDancer: makeFlameDancer
     // found in blinkyDancer.js
   };
 
