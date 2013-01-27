@@ -68,9 +68,9 @@ var makeMuffinDancer = function(left, top) {
 var makeRabiesDancer = function(left, top) {
   var rabiesDancer = makeBlinkyDancer(left, top);
 
-  rabiesDancer.frequency = 300;
+  rabiesDancer.frequency = 30;
 
-  rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
+  rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
 
   rabiesDancer.getInPosition();
 
@@ -90,10 +90,10 @@ var makeRabiesDancer = function(left, top) {
     var rightBoundary = $("body").width();
     var bottomBoundary = $("body").height();
     
-    if (rabiesDancer.top > bottomBoundary) rabiesDancer.top = (vertVelocity * -1);
-    if (rabiesDancer.top < 0) rabiesDancer.top = (vertVelocity * -1);
-    if (rabiesDancer.left < 0) rabiesDancer.left = (horizVelocity * -1);
-    if (rabiesDancer.left > rightBoundary) rabiesDancer.left = (horizVelocity * -1)
+    if (rabiesDancer.top > bottomBoundary) vertVelocity *= -1;
+    if (rabiesDancer.top < 0) vertVelocity *= -1;
+    if (rabiesDancer.left < 0) horizVelocity *= -1;
+    if (rabiesDancer.left > rightBoundary) horizVelocity *= -1;
 
     rabiesDancer.top += vertVelocity;
     rabiesDancer.left += horizVelocity;
@@ -103,6 +103,17 @@ var makeRabiesDancer = function(left, top) {
     // return rabiesDancer.$moneyMaker;
     return true;
   };
+
+  // rabiesDancer.getInPosition = function(){
+  //    Use css top and left properties to position our <span> tag
+  //    * where it belongs on the page. See http://api.jquery.com/css/
+     
+  //   var styleObj = {
+  //     top: rabiesDancer.top,
+  //     left: rabiesDancer.left
+  //   };
+  //   rabiesDancer.$moneyMaker.css(styleObj);
+  // };
 
   rabiesDancer.step = function() {
     rabiesDancer.getInPosition();
