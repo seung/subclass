@@ -1,3 +1,53 @@
+var dance = function (){
+  this.$moneyMaker.appendTo('.stage');
+  // console.log(this);
+  var dancer = this;
+  setInterval(function(){
+    dancer.step();
+  }, dancer.frequency );
+};
+
+var step = function(){
+  this.getInPosition();
+  this.blink();
+};
+
+var getInPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.$moneyMaker.css(styleObj);
+};
+
+var blink = function(){
+  this.$moneyMaker.toggle();
+};
+
+var lineUp = function(direction) {
+  for (var i = 0; i < window.dancers.length; i++) {
+    if (window.dancers[i].canLineUp) {
+      window.dancers[i].left = 0;
+    };
+  };
+};
+
+var walk = function(top, left){
+  var floorWidth = $("body").width();
+  var floorHeight = $("body").height();
+
+  if (this.left < 0) this.dX *= -1;
+  if (this.left + 65 > floorWidth) this.dX *= -1;
+  if (this.top + 45 > floorHeight) this.dY *= -1;
+  if (this.top < 0) this.dY *= -1;
+
+  this.left += this.dX;
+  this.top += this.dY;
+
+  return true;
+};
+
+
 var makeBlinkyDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
@@ -8,42 +58,21 @@ var makeBlinkyDancer = function(left, top){
     top: top,
     left: left,
 
+    canLineUp: false,
+    
     // used in setInterval below
     frequency: Math.random() * 2000,
 
     // get dressed... (use jQuery to create an HTML <span> tag)
     $moneyMaker: $('<span class="dancer"></span>'),
 
-    dance: function(){
-      // go out...  (add our tag to the HTML page)
-      dancer.$moneyMaker.appendTo('.stage');
-      // ...and do those sexy moves
-      // (dancer.step will be called on a timer)
-      setInterval(dancer.step, dancer.frequency);
-    },
+    dance: dance,
 
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
+    step: step, 
 
-    getInPosition: function(){
-      /* Use css top and left properties to position our <span> tag
-       * where it belongs on the page. See http://api.jquery.com/css/
-       */
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.$moneyMaker.css(styleObj);
-    },
+    getInPosition: getInPosition,
 
-    blink: function(){
-      /* toggle() is a jQuery method to show/hide the <span> tag.
-       * See http://api.jquery.com/category/effects/ for this and
-       * other effects you can use on a jQuery-wrapped html tag. */
-      dancer.$moneyMaker.toggle();
-    }
+    blink: blink
 
   }; // end dancer
 
@@ -55,7 +84,9 @@ var makeBlinkyDancer = function(left, top){
 var makeMuffinDancer = function(left, top) {
   var muffinDancer = makeBlinkyDancer(left, top);
 
-  muffinDancer.frequency = 2000;
+  muffinDancer.frequency = 500;
+
+  muffinDancer.canLineUp = false;
 
   // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
   muffinDancer.$moneyMaker = $('<span class="muffin-dancer"></span>');
@@ -71,44 +102,21 @@ var makeRabiesDancer = function(left, top) {
 
   rabiesDancer.canLineUp = true;
 
-  rabiesDancer.lineUp = function(direction) {
-    for (var i = 0; i < window.dancers.length; i++) {
-      if (window.dancers[i].canLineUp) {
-        window.dancers[i].left = 0;
-      };
-    };
-  }
-
   rabiesDancer.frequency = 35;
 
   // rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
   rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
 
-  rabiesDancer.getInPosition();
-
-  var dX = 10;
-  var dY = 10;
-
-  rabiesDancer.walk = function(top, left){
-    var floorWidth = $("body").width();
-    var floorHeight = $("body").height();
-
-    if (rabiesDancer.left < 0) dX *= -1;
-    if (rabiesDancer.left + 65 > floorWidth) dX *= -1;
-    if (rabiesDancer.top + 45 > floorHeight) dY *= -1;
-    if (rabiesDancer.top < 0) dY *= -1;
-
-    rabiesDancer.left += dX;
-    rabiesDancer.top += dY;
-
-    return true;
-  };
+  rabiesDancer.dX = 10;
+  rabiesDancer.dY = 10;
+  rabiesDancer.walk = walk;
 
   rabiesDancer.step = function() {
     rabiesDancer.getInPosition();
     rabiesDancer.walk();
   };
 
+  rabiesDancer.getInPosition();
 
   return rabiesDancer;
 
