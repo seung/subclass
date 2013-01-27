@@ -1,15 +1,13 @@
 var dance = function() {
   this.$moneyMaker.appendTo('.stage');
   var that = this;
-  // debugger;
+
   var callStepFunction = function() {
-    console.log(that.step);
-    that.step;
+    that.step();
   };
   var callFreqFunction = function() {
-    return that.frequency;
+    that.frequency();
   };
-  // setInterval(this.step, this.frequency);
   setInterval(callStepFunction, callFreqFunction);
   
 };
