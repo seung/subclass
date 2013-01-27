@@ -1,7 +1,9 @@
 var makeBlinkyDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
+   * of top side (measured down from top of window). BlinkyDancer
+   * returns a dancer that blinks at a random frequency.
+   */
 
   var dancer = {
     // we'll use top and left to set the position of this dancer

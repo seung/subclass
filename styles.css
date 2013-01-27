@@ -21,7 +21,11 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  border:10px solid rgb(255,150,123);
   border-radius:10px;
   position:absolute;
+}
+
+.color{
+  border:10px solid blue;
 }
