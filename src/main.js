@@ -6,7 +6,8 @@ $(document).ready(function(){
   var kindsOfDancers = {
     makeBlinkyDancer: makeBlinkyDancer, // found in blinkyDancer.js
     makeSquareDancer: makeSquareDancer,  // found in squareDancer.js
-    makeGiantDancer: makeGiantDancer
+    makeGiantDancer: makeGiantDancer,
+    makeSmilingDancer: makeSmilingDancer
   };
 
   /* This is a list of all the dancers that have been created.

@@ -11,8 +11,4 @@ var setupControls = function(danceFloor){
     danceFloor.addDancer(dancerMakerFunctionName);
   });
 
-   $(".clickable").on("click", function(event){
-    var squareDancerMakerFunctionName = $(this).data("dancer-creator");
-    danceFloor.addDancer(squareDancerMakerFunctionName);
-  });
 }
