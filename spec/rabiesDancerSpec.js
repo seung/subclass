@@ -55,4 +55,16 @@ describe("rabiesDancer", function() {
       $('.stage').remove();
     });
   });
+
+  describe("walk", function(){
+
+    it("should change the left and top coordinate", function(){
+      rabiesDancer.walk();
+      expect(rabiesDancer.left).toBe(40);
+      expect(rabiesDancer.top).toBe(60);
+    });
+
+
+
+  });
 });
