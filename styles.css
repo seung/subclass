@@ -7,21 +7,114 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: #8Af;
 }
-.topbar span{
+.topbar button{
   padding:5px 12px;
   float:right;
+}
+.topbar button:hover{
+  padding:5px 12px;
+  float:right;
+  background:#777;
 }
 .topbar{
   height:32px;
   background-color: #555;
 }
 .title{
+  padding-top:5px;
+  padding-left:10px;
   background-color: #777;
+  float:right;
+  height:27px;
 }
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
+@-webkit-keyframes 'blink' {
+    0% { background: rgba(255,0,0,1); }
+    50% { background: rgba(255,0,0,0); }
+    100% { background: rgba(255,0,0,1); }
+}
+.blinkydancer{
+  border:10px solid black;
+  width:100px;
+  height:100px;
+  background:red;
+  border-radius:5px;
   position:absolute;
+  -webkit-animation-name:blink;
+  -webkit-animation-duration:1s;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.growydancer{
+border:10px solid black;
+width:100px;
+height:100px;
+background:yellow;
+position:absolute;
+-webkit-animation-name:myfirst;
+-webkit-animation-duration:5s;
+-webkit-animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes myfirst
+{
+  0%   {background:yellow; height:100px; width:100px;}
+  50%  {background:blue; height:200px; width:200px;}
+  100% {background:yellow; height:100px; width:100px;}
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+.spinnydancer{
+    border:5px solid black;
+    width:100px;
+    height:100px;
+    background:green;
+    border-radius:5px;
+    position:absolute;
+    -webkit-animation-name: rotate; 
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.spinnydancer:hover {
+    border:5px solid black;
+    width:100px;
+    height:100px;
+    background:purple;
+    border-radius:5px;
+    position:absolute;
+    -webkit-animation-name: rotate; 
+    -webkit-animation-duration: 0.5s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+span
+{
+
+/* Safari and Chrome: */
+-webkit-animation-name:myfirst;
+-webkit-animation-duration:5s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:normal;
+-webkit-animation-play-state:running;
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+0%   {background:red; left:0px; top:50px;}
+25%  {background:yellow; left:800px; top:50px;}
+50%  {background:blue; left:800px; top:800px;}
+75%  {background:green; left:0px; top:800px;}
+100% {background:red; left:0px; top:50px;}
 }
