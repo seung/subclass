@@ -10,4 +10,10 @@ var setupControls = function(danceFloor){
     var dancerMakerFunctionName = $(this).data("dancer-creator");
     danceFloor.addDancer(dancerMakerFunctionName);
   });
+
+  $(".lineUpButton").on("click", function(event){
+    for(i = 0; i <window.dancers.length; i++){
+      window.dancers[i].lineUp();
+    } 
+  });
 }

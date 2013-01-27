@@ -34,6 +34,7 @@ var makeThrobbingDancer = function(left, top) {
   dancer.step = throbStep;
 
   dancer.getInPosition = throbPosition;
+  
   dancer.getInPosition();
 
   return dancer;

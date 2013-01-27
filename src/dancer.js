@@ -32,6 +32,10 @@ var blink = function(){
   this.$moneyMaker.toggle();
 };
 
+var lineUp = function(){
+  this.left = 100;
+}
+
 var initDancer = function(left, top) {
   this.top = top;
   this.left = left;
@@ -44,7 +48,8 @@ var Dancer = {
   step: step,
   getInPosition: getInPosition,
   blink: blink,
-  init: initDancer
+  init: initDancer,
+  lineUp: lineUp
 }; // end dancer
 
 var makeDancer = function(left, top){
