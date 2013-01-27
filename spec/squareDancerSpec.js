@@ -25,9 +25,8 @@ describe("Square Dancer", function() {
     expect(squareDancer.$moneyMaker.toggle).toHaveBeenCalled();
   });
 
-  it("should have a square shape", function() {
+  it("should have a class of square_dancer", function() {
     expect(squareDancer.$moneyMaker.attr('class')).toBe('square_dancer');
-    // expect($('.square_dancer')).toHaveCSS({"border-radius: 0px"});
   });
 
   describe("Dance", function() {
