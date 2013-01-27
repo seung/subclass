@@ -65,7 +65,17 @@ var makeMuffinDancer = function(left, top) {
 }
 
 
+var makeRabiesDancer = function(left, top) {
+  var rabiesDancer = makeBlinkyDancer(left, top);
 
+  rabiesDancer.frequency = 2000;
 
+  rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
+
+  rabiesDancer.getInPosition();
+
+  return rabiesDancer;
+
+}
 
 
