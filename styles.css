@@ -26,10 +26,6 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 .square_dancer {
- /* border: yellow 1px solid;
-  border-radius:0px;
-  background-color: pink;
-  position:absolute;*/
   border:15px solid pink;
   border-radius:0px;
   position:absolute;
