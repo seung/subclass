@@ -2,7 +2,7 @@ describe("colorDancer", function() {
   var colorDancer;
 
   beforeEach(function() {
-    colorDancer = makecolorDancer(20, 10);
+    colorDancer = makeColorDancer(20, 10);
   });
 
   it("should have a left and top coordinate", function(){
@@ -20,10 +20,19 @@ describe("colorDancer", function() {
   });
 
   it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(colorDancer.$moneyMaker, 'toggle');
+    spyOn(colorDancer.$moneyMaker, 'css');
     colorDancer.step();
-    expect(colorDancer.$moneyMaker.toggle).toHaveBeenCalled();
+    expect(colorDancer.$moneyMaker.css).toHaveBeenCalled();
   });
+
+  // it("should have a changeColor function that re-paints its moneyMaker", function() {
+  //   spyOn(colorDancer.$moneyMaker, 'css');
+  //   colorDancer.changeColor();
+  //   var color1 = colorDancer.$moneyMaker.css('border');
+  //   colorDancer.changeColor();
+  //   var color2 = colorDancer.$moneyMaker.css('border');
+  //   expect(color1).not.toEqual(color2);
+  // });
 
   describe("dance", function(){
     beforeEach(function(){

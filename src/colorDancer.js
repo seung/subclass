@@ -5,16 +5,12 @@ var makeColorDancer = function(left,top){
 
   var colorDancer = makeBlinkyDancer(left, top);
 
-  colorDancer.$moneyMaker = $('<span class="random"></span>'),
+  colorDancer.$moneyMaker = $('<span class="random"></span>');
 
   colorDancer.step = function(){
     colorDancer.getInPosition();
     colorDancer.changeColor();
   },
-
-  colorDancer.blink = null;
-
-  //colorDancer.$moneyMaker.addClass('color');
 
   colorDancer.changeColor = function(){
 

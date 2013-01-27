@@ -27,9 +27,11 @@ body, a:link, a:visited, a:active{
 }
 
 .random {
-  /* border-radius:10px; */
   position:absolute;  
 }
 
+.groovy{
+  position:absolute;
+}
 
 
