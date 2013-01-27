@@ -39,4 +39,11 @@ describe("danceFloor", function() {
 
   });
 
+  // describe("makeSquareDancer", function() {
+  //   it("should make a dancer of the specified type", function() {
+  //     danceFloor.addDancer("makeFakeSquareDancer");
+  //     expect(makeFakeSquareDancer).toHaveBeenCalled();
+  //   });
+  // });
+
 });
