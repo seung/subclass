@@ -64,4 +64,21 @@ describe("ourDancer", function(){
     // console.log($('.stage'));
     expect($(".stage").html()).not.toEqual('');
   })
+
+describe("movingDancer", function(){
+
+  it("should add a movingDancer to the stage", function(){
+    $('.move').click();
+    expect($(".stage").html()).not.toEqual('');
+  });
+  
+  it("should move from its starting position", function(){
+    $('.move').click();
+    var currentPosition = $('.movingDancer').css(top);
+    console.log(currentPosition);
+    setTimeout(function(){},5000);
+    expect($('.movingDancer').css(top)).not.toEqual(currentPosition);
+  });
+})
+
 })

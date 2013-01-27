@@ -35,13 +35,24 @@ span {
   border:20px solid blue;
   border-radius:20px;
   position:absolute;
+  border-color: red;
 }
 .movingDancer {
-  width: 0; 
+ /* width: 0; 
   height: 0; 
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   
-  border-left: 30px solid rgb(204, 164, 164);  
+  border-left: 30px solid rgb(204, 164, 164);*/  
+  height:200px;
+  width: 200px;
+  background: url('http://catalystsf.staging.wpengine.com/wp-content/uploads/2012/10/Marcus.png');
   position:absolute;
+}
+
+.changingDancer {
+  border:40px solid blue;
+  border-radius:40px;
+  position: absolute;
+
 }

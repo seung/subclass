@@ -71,9 +71,13 @@ var movingDancer = function(left, top){
   mover.step = function(){
     mover.getInPosition();
     var move = function(){
+      var dirHor = 1;
+      var dirVer = 1;
+      if (Math.random()<0.5){dirHor=-1;};
+      if (Math.random()<0.5){dirVer=-1;};
       $('.movingDancer').animate({
-        left: '+=' + Math.random() * $("body").width(),
-        top: '+=' + Math.random() * $("body").height()
+        left: dirHor * Math.random() * $("body").width(),
+        top: dirVer * Math.random() * $("body").height()
         }, Math.random() * 6000, function() {
           move();
       });
@@ -81,9 +85,39 @@ var movingDancer = function(left, top){
     move();
   };
 
-mover.getInPosition();
-return mover;
+  mover.getInPosition();
+  return mover;
 };
+
+var changingDancer = function(left,top) {
+  var changer = makeBlinkyDancer(left, top);
+  changer.$moneyMaker = $('<span class="changingDancer"></span>');
+
+  changer.dance = function(){
+    changer.$moneyMaker.appendTo('.stage');
+    setTimeout(changer.step, Math.random() * 1000);
+  };
+
+  changer.step = function(){
+    changer.getInPosition();
+    var changeColour = function(){
+      $('.changingDancer').animate({
+        // border: "30px solid rgb(" + 'Math.floor(Math.random() *254)' + ','  + 'Math.floor(Math.random() *254)' + ',' + 'Math.floor(Math.random() *254)' + ')' ,
+        border : '30px solid red',
+        top: Math.random() * $("body").height()
+        }, Math.random() * 6000, function() {
+          changeColour();
+          console.log('30px solid rgb(' + Math.floor(Math.random() *256) + ','  + Math.floor(Math.random() *256) + ',' + Math.floor(Math.random() *256) + ')');
+      });
+    };
+    changeColour();
+  };
+
+  changer.getInPosition();
+  return changer;
+};
+
+
 
 
 
