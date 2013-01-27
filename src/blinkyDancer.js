@@ -68,52 +68,29 @@ var makeMuffinDancer = function(left, top) {
 var makeRabiesDancer = function(left, top) {
   var rabiesDancer = makeBlinkyDancer(left, top);
 
-  rabiesDancer.frequency = 30;
+  rabiesDancer.frequency = 35;
 
   rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
 
   rabiesDancer.getInPosition();
 
-  // rabiesDancer.bounce = function(top, left){
-
-  //   if (rabiesDancer.top <= 0) rabiesDancer.walk(10, 5);
-  //   if (rabiesDancer.top >= bottomBoundary) rabiesDancer.walk(-10, 5);
-  //   if (rabiesDancer.left <= 0) rabiesDancer.walk(5, 10);
-  //   if (rabiesDancer.left >= rightBoundary) rabiesDancer.walk(5, -10);
-
-  // }
-
-  var vertVelocity = 10;
-  var horizVelocity = 10;
+  var dX = 10;
+  var dY = 10;
 
   rabiesDancer.walk = function(top, left){
-    var rightBoundary = $("body").width();
-    var bottomBoundary = $("body").height();
-    
-    if (rabiesDancer.top > bottomBoundary) vertVelocity *= -1;
-    if (rabiesDancer.top < 0) vertVelocity *= -1;
-    if (rabiesDancer.left < 0) horizVelocity *= -1;
-    if (rabiesDancer.left > rightBoundary) horizVelocity *= -1;
+    var floorWidth = $("body").width();
+    var floorHeight = $("body").height();
 
-    rabiesDancer.top += vertVelocity;
-    rabiesDancer.left += horizVelocity;
+    if (rabiesDancer.left < 0) dX *= -1;
+    if (rabiesDancer.left > floorWidth) dX *= -1;
+    if (rabiesDancer.top > floorHeight) dY *= -1;
+    if (rabiesDancer.top < 0) dY *= -1;
 
+    rabiesDancer.left += dX;
+    rabiesDancer.top += dY;
 
-
-    // return rabiesDancer.$moneyMaker;
     return true;
   };
-
-  // rabiesDancer.getInPosition = function(){
-  //    Use css top and left properties to position our <span> tag
-  //    * where it belongs on the page. See http://api.jquery.com/css/
-     
-  //   var styleObj = {
-  //     top: rabiesDancer.top,
-  //     left: rabiesDancer.left
-  //   };
-  //   rabiesDancer.$moneyMaker.css(styleObj);
-  // };
 
   rabiesDancer.step = function() {
     rabiesDancer.getInPosition();
