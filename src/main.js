@@ -21,4 +21,19 @@ $(document).ready(function(){
 
   var danceFloor = makeDanceFloor(kindsOfDancers, dancers);
   setupControls(danceFloor);
+
+  $('body').delegate('input', 'click', function() {
+    for(var i=0;i < dancers.length;i++){
+      dancers[i].lineUp();
+    }
+  });
+
+  // for (var i = 0; i < dancers.length; i++) {
+  //   dancers[i].lineUp();
+  //   // console.log(dancers[i].$moneyMaker);
+  // }
+
+
 });
+
+

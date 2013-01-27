@@ -43,7 +43,12 @@ var makeBlinkyDancer = function(left, top){
        * See http://api.jquery.com/category/effects/ for this and
        * other effects you can use on a jQuery-wrapped html tag. */
       dancer.$moneyMaker.toggle();
+    },
+
+    lineUp: function(){
+      this.left = 0;
     }
+
 
   }; // end dancer
 
@@ -51,3 +56,4 @@ var makeBlinkyDancer = function(left, top){
 
   return dancer;
 };
+
