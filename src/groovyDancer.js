@@ -15,13 +15,15 @@ var makeGroovyDancer = function(left,top){
   
   groovyDancer.moveAcrossScreen = function(){
     var animateObj = {
-      'margin-left': 0,
-      'margin-top':  0
+      'margin-left': 100,
+      'margin-top':  250
     };
-    colorDancer.$moneyMaker.animate(animateObj,2000);
+    groovyDancer.$moneyMaker.animate({"left": "+=50px"}, "slow");
+    //groovyDancer.$moneyMaker.animate(animateObj,5000,'linear' );
   };
   
  
 return groovyDancer;
 };
 
+//specialEasing: {width: 'linear', height: 'easeOutBounce'}

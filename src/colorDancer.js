@@ -1,3 +1,6 @@
+
+
+
 var makeColorDancer = function(left,top){
   /* Creates and returns a new dancer that inherits from makeBlinkyDancer
    * and changes color randomly
