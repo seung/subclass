@@ -68,18 +68,47 @@ var makeMuffinDancer = function(left, top) {
 var makeRabiesDancer = function(left, top) {
   var rabiesDancer = makeBlinkyDancer(left, top);
 
-  rabiesDancer.frequency = 2000;
+  rabiesDancer.frequency = 300;
 
   rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
 
   rabiesDancer.getInPosition();
 
-  rabiesDancer.walk = function(){
-      rabiesDancer.top += 10;
-      rabiesDancer.left += 10;
-      // return rabiesDancer.$moneyMaker;
-      return true;
+  // rabiesDancer.bounce = function(top, left){
+
+  //   if (rabiesDancer.top <= 0) rabiesDancer.walk(10, 5);
+  //   if (rabiesDancer.top >= bottomBoundary) rabiesDancer.walk(-10, 5);
+  //   if (rabiesDancer.left <= 0) rabiesDancer.walk(5, 10);
+  //   if (rabiesDancer.left >= rightBoundary) rabiesDancer.walk(5, -10);
+
+  // }
+
+  var vertVelocity = 10;
+  var horizVelocity = 10;
+
+  rabiesDancer.walk = function(top, left){
+    var rightBoundary = $("body").width();
+    var bottomBoundary = $("body").height();
+    
+    if (rabiesDancer.top > bottomBoundary) rabiesDancer.top = (vertVelocity * -1);
+    if (rabiesDancer.top < 0) rabiesDancer.top = (vertVelocity * -1);
+    if (rabiesDancer.left < 0) rabiesDancer.left = (horizVelocity * -1);
+    if (rabiesDancer.left > rightBoundary) rabiesDancer.left = (horizVelocity * -1)
+
+    rabiesDancer.top += vertVelocity;
+    rabiesDancer.left += horizVelocity;
+
+
+
+    // return rabiesDancer.$moneyMaker;
+    return true;
   };
+
+  rabiesDancer.step = function() {
+    rabiesDancer.getInPosition();
+    rabiesDancer.walk();
+  };
+
 
   return rabiesDancer;
 
