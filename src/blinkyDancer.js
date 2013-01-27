@@ -51,3 +51,39 @@ var makeBlinkyDancer = function(left, top){
 
   return dancer;
 };
+
+var ourDancer = function(left, top){
+  var newDancer = makeBlinkyDancer(left, top);
+  newDancer.$moneyMaker = $('<span class="newDancer"></span>');
+  newDancer.getInPosition();
+  return newDancer;
+};
+
+var movingDancer = function(left, top){
+  var mover = makeBlinkyDancer(left, top);
+  mover.$moneyMaker = $('<span class="movingDancer"></span>');
+
+  mover.dance = function(){
+    mover.$moneyMaker.appendTo('.stage');
+    setTimeout(mover.step, Math.random() * 1000);
+  };
+
+  mover.step = function(){
+    mover.getInPosition();
+    var move = function(){
+      $('.movingDancer').animate({
+        left: '+=' + Math.random() * $("body").width(),
+        top: '+=' + Math.random() * $("body").height()
+        }, Math.random() * 6000, function() {
+          move();
+      });
+    };
+    move();
+  };
+
+mover.getInPosition();
+return mover;
+};
+
+
+

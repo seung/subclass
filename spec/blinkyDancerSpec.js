@@ -56,3 +56,12 @@ describe("blinkyDancer", function() {
     });
   });
 });
+
+describe("ourDancer", function(){
+
+  it("should add newDancer element into the DOM on button click", function(){
+    $('.blue').click();
+    // console.log($('.stage'));
+    expect($(".stage").html()).not.toEqual('');
+  })
+})

@@ -9,6 +9,12 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
+span {
+  display: block;
+
+}
+
 .topbar span{
   padding:5px 12px;
   float:right;
@@ -23,5 +29,19 @@ body, a:link, a:visited, a:active{
 .dancer{
   border:10px solid red;
   border-radius:10px;
+  position:absolute;
+}
+.newDancer{
+  border:20px solid blue;
+  border-radius:20px;
+  position:absolute;
+}
+.movingDancer {
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  
+  border-left: 30px solid rgb(204, 164, 164);  
   position:absolute;
 }
