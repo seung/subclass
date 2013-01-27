@@ -40,8 +40,12 @@ body, a:link, a:visited, a:active{
 }
 
 .smiling_dancer {
-  border:15px solid yellow;
+  border:15px solid green;
   border-radius:0px;
   position:absolute;
+  background-image: url('src/smiley-face.jpg');
+  display: block;
+  height: 320px;
+  width: 320px;
 
 }
