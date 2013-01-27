@@ -26,8 +26,10 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-.color {
-  border-radius:10px;
+.random {
+  /* border-radius:10px; */
   position:absolute;  
 }
+
+
 

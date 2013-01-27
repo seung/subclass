@@ -5,7 +5,7 @@ var makeColorDancer = function(left,top){
 
   var colorDancer = makeBlinkyDancer(left, top);
 
-  colorDancer.$moneyMaker = $('<span class="color"></span>'),
+  colorDancer.$moneyMaker = $('<span class="random"></span>'),
 
   colorDancer.step = function(){
     colorDancer.getInPosition();
@@ -18,13 +18,16 @@ var makeColorDancer = function(left,top){
 
   colorDancer.changeColor = function(){
 
+    var w = Math.floor(Math.random() * 100);
     var x = Math.floor(Math.random() * 255);
     var y = Math.floor(Math.random() * 255);
     var z = Math.floor(Math.random() * 255);
 
     var styleColor = {
       //'border': '10px solid rgb(121,232,14)'
-      'border': '10px solid rgb(' + x.toString() + ',' + y.toString() + ',' + z.toString() + ')'
+      'border':  w.toString() + 'px solid rgb(' + x.toString() + ',' + y.toString() + ',' + z.toString() + ')',
+      'border-radius': w.toString() + 'px'
+      //'border': w.toString() + 'px solid rgb(' + x.toString() + ',' + y.toString() + ',' + z.toString() + ')'
     };
 
     colorDancer.$moneyMaker.css(styleColor);
