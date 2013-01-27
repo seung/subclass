@@ -10,9 +10,10 @@ var dance = function(){
 }
 
 var step = function(){
-      this.getInPosition();
-      this.blink();
-    }
+  this.getInPosition();
+  this.blink();
+}
+
 var getInPosition = function(){
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/
@@ -31,11 +32,19 @@ var blink = function(){
   this.$moneyMaker.toggle();
 };
 
+var initDancer = function(left, top) {
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 2000;
+  this.$moneyMaker = $('<span class="dancer"></span>');
+}
+
 var Dancer = {
   dance: dance,
   step: step,
   getInPosition: getInPosition,
-  blink: blink
+  blink: blink,
+  init: initDancer
 }; // end dancer
 
 var makeDancer = function(left, top){
@@ -43,13 +52,12 @@ var makeDancer = function(left, top){
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
   var dancer = Object.create(Dancer);
-   // we'll use top and left to set the position of this dancer
-  dancer.top = top
-  dancer.left =  left;
-  // used in setInterval below
-  dancer.frequency = Math.random() * 2000;
-  // get dressed... (use jQuery to create an HTML <span> tag)
-  dancer.$moneyMaker = $('<span class="dancer"></span>');
+
+  dancer.init(left, top);
+  // dancer.top = top
+  // dancer.left =  left;
+  // dancer.frequency = Math.random() * 2000;
+  // dancer.$moneyMaker = $('<span class="dancer"></span>');
   dancer.getInPosition();
 
   return dancer;

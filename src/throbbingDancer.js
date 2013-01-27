@@ -1,31 +1,39 @@
+var throb = function(){
+  this.radius += 1;
+  if  (this.radius > 30) { this.radius = 5; }
+  this.radiusString = this.radius.toString() + "px";
+}
+
+var throbStep = function() {
+  this.getInPosition();
+  this.throb();
+}
+
+var throbPosition = function(){
+  var adjTop = this.top - this.radius;
+  var adjLeft = this.left - this.radius;
+  var styleObj = {
+    top: adjTop,
+    left: adjLeft,
+    "border-width": this.radiusString,
+    "border-radius": this.radiusString
+  };
+  this.$moneyMaker.css(styleObj);
+  
+  return true;
+}
+
 var makeThrobbingDancer = function(left, top) {
-  var dancer = makeBlinkyDancer(left, top);
+  var dancer = Object.create(Dancer);
+  dancer.init(left, top);
   dancer.throbRate = 0.5;
   dancer.radius = 10;
   dancer.radiusString;
 
-  dancer.throb = function(){
-    dancer.radius += 1;
-    if (dancer.radius > 30) { dancer.radius = 5; }
-    dancer.radiusString = dancer.radius.toString() + "px";
-  };
+  dancer.throb = throb;
+  dancer.step = throbStep;
 
-  dancer.step = function() {
-    dancer.getInPosition();
-    dancer.throb();
-  }
-
-  dancer.getInPosition = function(){
-    var styleObj = {
-      top: dancer.top,
-      left: dancer.left,
-      "border-width": dancer.radiusString,
-      "border-radius": dancer.radiusString
-    };
-    dancer.$moneyMaker.css(styleObj);
-    
-    return true;
-  };
+  dancer.getInPosition = throbPosition;
   dancer.getInPosition();
 
   return dancer;

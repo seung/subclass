@@ -1,39 +1,40 @@
+var colorfulStep = function(){
+  this.getInPosition();
+  this.shimmer();
+};
+
+var shimmer = function(){
+  this.blueness += 1;
+  if (this.blueness >= 255) {
+    this.blueness = 0;
+  }
+  this.color = "#ff00" + this.blueness.toString(16);
+};
+
+var colorfulPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left,
+    "border-color": this.color
+  };
+  this.$moneyMaker.css(styleObj);
+  return true;
+};
+
 var makeColorfulDancer = function(left, top){
-  var dancer = makeBlinkyDancer(left, top);
+  var dancer = Object.create(Dancer);
   dancer.color = "blue";
   dancer.blueness = 0;
   dancer.frequency = Math.random() * 200;
+  dancer.top = top;
+  dancer.left = left;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
 
-  dancer.step = function(){
-    dancer.getInPosition();
-    dancer.shimmer();
-  };
+  dancer.step = colorfulStep;
 
-  dancer.shimmer = function(){
-    dancer.blueness += 1;
-    if (dancer.blueness >= 255) {
-      dancer.blueness = 0;
-    }
-    dancer.color = "#ff00" + dancer.blueness.toString(16);
-    //console.log(dancer.color);
-  };
+  dancer.shimmer = shimmer;
 
-  dancer.getInPosition = function(){
-    var styleObj = {
-      top: dancer.top,
-      left: dancer.left,
-      "border-color": dancer.color
-    };
-    dancer.$moneyMaker.css(styleObj);
-    return true;
-  };
+  dancer.getInPosition = colorfulPosition;
   dancer.getInPosition();
   return dancer;
 };
-
-//Increase the blueness until it reaches a max, then set it to 10.
-//
-//
-//
-//
-//
