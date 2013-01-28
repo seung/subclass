@@ -5,28 +5,34 @@
   <link rel="stylesheet" type="text/css" href="styles.css" />
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="jquery-color/jquery.color.js"></script>
   <script src="src/blinkyDancer.js"></script>
   <script src="src/danceFloor.js"></script>
   <script src="src/controls.js"></script>
   <script src="src/main.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 </head>
 <body>
   <div class="topbar">
     <span class="title">object dance party</span>
-    <span class="clickable" data-dancer-creator="makeBlinkyDancer">
+    <span class="clickable" data-dancer-creator="makeRedBlinky">
       <a href="#">make a red dancer</a>
     </span>
-    <span class="clickable blue" data-dancer-creator="ourDancer">
+    <span class="clickable blue" data-dancer-creator="makeBlueBlinky">
       <a href="#">make blue dancer</a>
+    </span>    
+    <span class="clickable change" data-dancer-creator="changingDancer">
+      <a href="#">make a changing dancer</a>
     </span>
     <span class="clickable move" data-dancer-creator="movingDancer">
-      <a href="#">make a moving dancer</a>
+      <a href="#">let him loose!</a>
     </span>
-    <span class="clickable change" data-dancer-creator="changingDancer">
-      <a href="#">make a change dancer</a>
+    <span class="call lineup" data-dancer-creator="lineUp">
+      <a href="#">line 'em up!</a>
     </span>
+
   </div>
-  <div class="stage"></div>
+  <div class="stage"><h1>The Dancefloor</h1></div>
 </body>
 </html>

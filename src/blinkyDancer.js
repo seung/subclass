@@ -1,71 +1,85 @@
-var makeBlinkyDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
+var isMusicPlaying = false;
+var isLinedUp = false;
 
-  var dancer = {
-    // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
-
-    // used in setInterval below
-    frequency: Math.random() * 2000,
-
-    // get dressed... (use jQuery to create an HTML <span> tag)
-    $moneyMaker: $('<span class="dancer"></span>'),
-
-    dance: function(){
-      // go out...  (add our tag to the HTML page)
-      dancer.$moneyMaker.appendTo('.stage');
-      // ...and do those sexy moves
-      // (dancer.step will be called on a timer)
-      setInterval(dancer.step, dancer.frequency);
-    },
-
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
-
-    getInPosition: function(){
-      /* Use css top and left properties to position our <span> tag
-       * where it belongs on the page. See http://api.jquery.com/css/
-       */
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.$moneyMaker.css(styleObj);
-    },
-
-    blink: function(){
-      /* toggle() is a jQuery method to show/hide the <span> tag.
-       * See http://api.jquery.com/category/effects/ for this and
-       * other effects you can use on a jQuery-wrapped html tag. */
-      dancer.$moneyMaker.toggle();
-    }
-
-  }; // end dancer
-
-  dancer.getInPosition();
-
-  return dancer;
+var dance = function() {
+  this.$moneyMaker.appendTo('.stage');
+  setInterval(this.step, this.frequency());
 };
 
-var ourDancer = function(left, top){
-  var newDancer = makeBlinkyDancer(left, top);
-  newDancer.$moneyMaker = $('<span class="newDancer"></span>');
-  newDancer.getInPosition();
-  return newDancer;
+var getInPosition = function () {
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.$moneyMaker.css(styleObj);
+};
+
+var lineUp = function(){
+  this.$moneyMaker.animate({
+    left: 20
+  }, 6000);
+
+  // this.$moneyMaker.css('left', '20px');
+};
+
+
+var dancer = {
+    frequency: function(){return Math.random() * 2000;},
+    dance: dance,
+    lineUp: lineUp,
+    getInPosition: getInPosition,
+    };
+
+var makeBlinkyDancer = function(left, top){
+
+  var blinkyDancer = Object.create(dancer);
+  blinkyDancer.blink = function(){
+    blinkyDancer.$moneyMaker.toggle();
+  };
+    
+  blinkyDancer.step = function(){
+    // blinkyDancer.getInPosition();
+    blinkyDancer.blink()
+  };
+
+  // blinkyDancer.getInPosition();
+  return blinkyDancer;
+};
+
+var makeRedBlinky = function(left, top){
+  console.log('test');
+  var redBlinky = makeBlinkyDancer();
+  redBlinky.$moneyMaker = $('<span class="redBlinkyDancer"></span>');
+  redBlinky.top = top;
+  redBlinky.left = left;
+  redBlinky.getInPosition();
+  return redBlinky;
+};
+
+
+var makeBlueBlinky = function(left, top){
+  var blueBlinky = makeBlinkyDancer();
+  blueBlinky.$moneyMaker = $('<span class="blueBlinkyDancer"></span>');
+  blueBlinky.top = top;
+  blueBlinky.left = left;
+  blueBlinky.$moneyMaker.css('border-color', "rgb(" + Math.floor(Math.random() *256) + ','  + Math.floor(Math.random() *256) + ',' + Math.floor(Math.random() *256) + ')');
+  blueBlinky.getInPosition();
+  return blueBlinky;
 };
 
 var movingDancer = function(left, top){
-  var mover = makeBlinkyDancer(left, top);
+  var mover = Object.create(dancer);
   mover.$moneyMaker = $('<span class="movingDancer"></span>');
 
   mover.dance = function(){
     mover.$moneyMaker.appendTo('.stage');
     setTimeout(mover.step, Math.random() * 1000);
+    var disco = setInterval(function(){
+      mover.$moneyMaker.css("background-image","url('img/Marcus3.png')");
+      setTimeout(function(){mover.$moneyMaker.css("background-image","url('img/Marcus4.png')");},300);
+      },600);
+    
+    setTimeout(disco(), 1000);
   };
 
   mover.step = function(){
@@ -82,32 +96,44 @@ var movingDancer = function(left, top){
           move();
       });
     };
+    var disco = setInterval(function(){
+      mover.$moneyMaker.css("background-image","url('img/Marcus3.png')");
+      setTimeout(function(){mover.$moneyMaker.css("background-image","url('img/Marcus4.png')");},300);
+      },600);
     move();
   };
 
+  if(isMusicPlaying === false) {$('body').append('<audio src="theTune.mp3" autoplay loop> <p>Your browser does not support the audio element </p> </audio>');}
   mover.getInPosition();
+  isMusicPlaying = true;
   return mover;
 };
 
 var changingDancer = function(left,top) {
-  var changer = makeBlinkyDancer(left, top);
+  var changer = Object.create(dancer);
   changer.$moneyMaker = $('<span class="changingDancer"></span>');
+  changer.top = top;
+  changer.left = left;
 
-  changer.dance = function(){
-    changer.$moneyMaker.appendTo('.stage');
-    setTimeout(changer.step, Math.random() * 1000);
-  };
+  frequency = Math.random() * 1000;
+
+  changer.lineUp = function(){
+    changer.$moneyMaker.css('left', '20px');
+  }
 
   changer.step = function(){
-    changer.getInPosition();
     var changeColour = function(){
+      
+      var size = Math.random()*300;
       $('.changingDancer').animate({
-        // border: "30px solid rgb(" + 'Math.floor(Math.random() *254)' + ','  + 'Math.floor(Math.random() *254)' + ',' + 'Math.floor(Math.random() *254)' + ')' ,
-        border : '30px solid red',
-        top: Math.random() * $("body").height()
+        backgroundColor: "rgb(" + Math.floor(Math.random() *256) + ','  + Math.floor(Math.random() *256) + ',' + Math.floor(Math.random() *256) + ')' ,
+        'border-radius': size+'px',
+        height:size+'px',
+        width:size+'px',
+        top: this.top,
+        left: this.left
         }, Math.random() * 6000, function() {
           changeColour();
-          console.log('30px solid rgb(' + Math.floor(Math.random() *256) + ','  + Math.floor(Math.random() *256) + ',' + Math.floor(Math.random() *256) + ')');
       });
     };
     changeColour();
