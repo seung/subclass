@@ -65,8 +65,8 @@ var MuffinDancer = function(left, top) {
   this.left = left;
   this.top = top;
   this.frequency = 500;
-  // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
-  this.$moneyMaker = $('<span class="muffin-dancer"></span>');
+  this.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
+  // this.$moneyMaker = $('<span class="muffin-dancer"></span>');
   this.getInPosition();
 };
 
@@ -81,7 +81,8 @@ var WalkingDancer = function(left, top) {
   this.top = top;
   this.canLineUp = true;
   this.frequency = 35;
-  this.$moneyMaker = $('<span class="walking-dancer"></span>'); 
+  this.$moneyMaker = $('<img src="img/Toter.png" class="walking-dancer">');
+  // this.$moneyMaker = $('<span class="walking-dancer"></span>'); 
   this.getInPosition();
 };
 
@@ -92,10 +93,22 @@ WalkingDancer.prototype.step = function() {
   this.getInPosition();
   this.walk();
 };
+WalkingDancer.prototype.detectCollisions = function() {
+  var repulsionDistance = 30;
+  for(var i = 0; i < window.dancers.length; i++) {
+    if (this != window.dancers[i]){
+     if ((Math.abs(window.dancers[i].top - this.top) < repulsionDistance) && 
+        (Math.abs(window.dancers[i].left - this.left) < repulsionDistance))  {
+        this.dX *= -1;
+        this.dY *= -1;
+      };
+    }
+  }
+};
 WalkingDancer.prototype.walk = function(top, left){
   var floorWidth = $("body").width();
   var floorHeight = $("body").height();
-
+  this.detectCollisions();
   if (this.left < 0) this.dX *= -1;
   if (this.left + 65 > floorWidth) this.dX *= -1;
   if (this.top + 45 > floorHeight) this.dY *= -1;
