@@ -16,7 +16,7 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
-      var d = new Dancer(w, h);
+      var d = dancer(w, h);
 
       d.getInPosition();
       d.dance();

@@ -28,23 +28,19 @@ Dancer.prototype.blink = function (){
   this.$moneyMaker.toggle();
 };
 
-var BlinkyDancer;
-
-var BlueDancer;
-
 
 // BlueDancer.prototype = new Dancer();
 
-// var BlinkyDancer = function(left, top){
-//   var blinkyDancer = new Dancer(left, top);
-//   blinkyDancer.$moneyMaker = $('<span class="dancer"></span>');
-//   blinkyDancer.getInPosition();
-//   return blinkyDancer;
-// };
+var BlinkyDancer = function(left, top){
+  var blinkyDancer = new Dancer(left, top);
+  blinkyDancer.$moneyMaker = $('<span class="dancer"></span>');
+  blinkyDancer.getInPosition();
+  return blinkyDancer;
+};
 
-// var BlueDancer = function(left, top){
-//   var blueDancer = new Dancer(left, top);
-//   blueDancer.$moneyMaker = $('<span class="bluedancer"></span>');
-//   blueDancer.getInPosition();
-//   return blueDancer;
-// };
+var BlueDancer = function(left, top){
+  var blueDancer = new Dancer(left, top);
+  blueDancer.$moneyMaker = $('<span class="bluedancer"></span>');
+  blueDancer.getInPosition();
+  return blueDancer;
+};
