@@ -3,6 +3,7 @@ var dance = function(){
   this.$moneyMaker.appendTo('.stage');
   // ...and do those sexy moves
   // (dancer.step will be called on a timer)
+  this.getInPosition();
   var that = this;
   setInterval(function(){
     that.step();
@@ -58,11 +59,6 @@ var makeDancer = function(left, top){
   var dancer = Object.create(Dancer);
 
   dancer.init(left, top);
-  // dancer.top = top
-  // dancer.left =  left;
-  // dancer.frequency = Math.random() * 2000;
-  // dancer.$moneyMaker = $('<span class="dancer"></span>');
-  dancer.getInPosition();
 
   return dancer;
 };

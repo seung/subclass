@@ -30,6 +30,5 @@ var makeColorfulDancer = function(left, top){
   dancer.step = colorfulStep;
   dancer.shimmer = shimmer;
   dancer.getInPosition = colorfulPosition;
-  dancer.getInPosition();
   return dancer;
 };

@@ -21,7 +21,6 @@ var makeBlinkyDancer = function(left, top){
   dancer.step = blinkyStep;
   dancer.getInPosition = getInPosition;
   dancer.blink = blink;
-  dancer.getInPosition();
 
   return dancer;
 };
