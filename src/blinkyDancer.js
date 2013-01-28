@@ -1,57 +1,50 @@
-  var dance = function (){
-    this.$moneyMaker.appendTo('.stage');
-    var dancer = this;
-    setInterval(function(){dancer.step()}, dancer.frequency)
-  };
+var Dancer = function(left, top){
+  this.left = left;
+  this.top = top;
+  this.frequency = Math.random()*2000;
+  this.$moneyMaker = $('<span class="dancer"></span>');
+}
 
-  var step = function(){
-      this.getInPosition();
-      this.blink();
-  };
-
-  var getInPosition = function(){
-      var styleObj = {
-        top: this.top,
-        left: this.left
-      };
-      this.$moneyMaker.css(styleObj);
-  };
-
-  var blink = function (){
-      this.$moneyMaker.toggle();
-  };
-
-
-  var dancer = {};
-  dancer.dance = dance;
-  dancer.step = step;
-  dancer.getInPosition = getInPosition;
-  dancer.blink = blink;
-
-
-var makeBlinkyDancer = function(left, top){
-
-  newDancer = Object.create(dancer);
-
-  newDancer.top = top;
-  newDancer.left = left;
-  newDancer.frequency = Math.random()*2000;
-  newDancer.$moneyMaker = $('<span class="dancer"></span>');
-
-  newDancer.getInPosition();
-
-  return newDancer;
+Dancer.prototype.dance = function (){
+  this.$moneyMaker.appendTo('.stage');
+  var dancer = this;
+  setInterval(function(){dancer.step()}, dancer.frequency)
 };
 
-var makeBlueDancer = function(left, top){
-  newDancer = Object.create(dancer);
+Dancer.prototype.step = function(){
+  this.getInPosition();
+  this.blink();
+};
 
-  newDancer.top = top;
-  newDancer.left = left;
-  newDancer.frequency = Math.random()*2000;
-  newDancer.$moneyMaker = $('<span class="bluedancer"></span>');
+Dancer.prototype.getInPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.$moneyMaker.css(styleObj);
+};
 
-  newDancer.getInPosition();
+Dancer.prototype.blink = function (){
+  this.$moneyMaker.toggle();
+};
 
-  return newDancer;
-}
+var BlinkyDancer;
+
+var BlueDancer;
+
+
+// BlueDancer.prototype = new Dancer();
+
+// var BlinkyDancer = function(left, top){
+//   var blinkyDancer = new Dancer(left, top);
+//   blinkyDancer.$moneyMaker = $('<span class="dancer"></span>');
+//   blinkyDancer.getInPosition();
+//   return blinkyDancer;
+// };
+
+// var BlueDancer = function(left, top){
+//   var blueDancer = new Dancer(left, top);
+//   blueDancer.$moneyMaker = $('<span class="bluedancer"></span>');
+//   blueDancer.getInPosition();
+//   return blueDancer;
+// };
