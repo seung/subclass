@@ -29,7 +29,7 @@ Dancer.prototype.getInPosition = function() {
     left: this.left
   };
   this.$moneyMaker.css(styleObj);
-};
+}
 
 Dancer.prototype.blink = function(){
   this.$moneyMaker.toggle();

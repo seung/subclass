@@ -9,7 +9,7 @@ var makeTinyDancer = function(left, top){
   // Overwrite the step function from the Dancer prototype to eliminate blinking
   tinyDancer.step = function() {
     this.getInPosition();
-  }
+  };
   tinyDancer.getInPosition();
 
   return tinyDancer;

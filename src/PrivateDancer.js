@@ -4,24 +4,27 @@ var makePrivateDancer = function(left, top){
    * of top side (measured down from top of window). */
 
   $moneyMaker = $('<img class="privateDancer" src="img/privatedancer.jpeg" />');
-  privateDancer = new Dancer((Math.random() * 1000), top, left, $moneyMaker);
+  privateDancer = new Dancer(1000, top, left, $moneyMaker);
 
   // Overwrite the dancer classes functions with some new dance moves
   privateDancer.turnItAround = function() {
     // Toggle CSS class to flip image horizontally
-    privateDancer.$moneyMaker.toggleClass('privateDancerRight');
-    privateDancer.$moneyMaker.toggleClass('privateDancer');
+    this.$moneyMaker.toggleClass('privateDancerRight');
+    this.$moneyMaker.toggleClass('privateDancer');
   };
   privateDancer.step = function(){
-    privateDancer.turnItAround();
-    privateDancer.getInPosition();
+    this.turnItAround();
+    this.getInPosition();
   };
-  privateDancer.dance = function(){
+  this.dance = function(){
     // go out...  (add our tag to the HTML page)
-    privateDancer.$moneyMaker.appendTo('.stage');
+    this.$moneyMaker.appendTo('.stage');
     // ...and do those sexy moves
-    // (privateDancer.step will be called on a timer)
-    setInterval(privateDancer.step, privateDancer.frequency);
+    // (this.step will be called on a timer)
+
+    var wrapper = this;
+    //wrap wrapper (referring to the dancer object) in a wrapper to pass to setInterval
+    setInterval(function () {wrapper.step();}, wrapper.frequency);
   };
 
   // end dancer declaration
