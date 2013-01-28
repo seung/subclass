@@ -6,7 +6,8 @@ $(document).ready(function(){
     makeRedBlinky: makeRedBlinky,
     makeBlueBlinky: makeBlueBlinky,
     movingDancer: movingDancer,
-    changingDancer: changingDancer // found in blinkyDancer.js
+    changingDancer: changingDancer,
+    DancerPrototype: DancerPrototype// found in blinkyDancer.js
   };
 
   /* This is a list of all the dancers that have been created.

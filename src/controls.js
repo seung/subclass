@@ -15,8 +15,17 @@ var setupControls = function(danceFloor){
   $(".call").on("click", function(event){
     for (var i=0; i<window.dancers.length; i++) {
       window.dancers[i].lineUp();
-      isLinedUp = true;
     };
   });
+
+  // $(".movingDancer").on({
+  //   mouseenter: function(){
+  //     $(this).append('<div class="speech"><p>Hey guys!</p></div>');
+  //   },
+  //   mouseleave: function(){
+  //     console.log('test');
+  //     $('.speech').remove();
+  //   }
+  // });
 
 }

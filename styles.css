@@ -62,6 +62,9 @@ span {
   position:absolute;
 }
 
+.speech{
+  width: 230px;
+}
 .changingDancer {
   border:0px solid blue;
   width:40px;
