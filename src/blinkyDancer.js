@@ -1,12 +1,14 @@
-var extend = function(copyTo, copyFrom) {
-  for(var key in copyFrom) {
-    copyTo[key] = copyFrom[key];
-  }
+var makeDancer = function(left, top) {
+  var dancer = Object.create(dancerPrototype);
+  dancer.top = top;
+  dancer.left = left;
+  dancer.frequency = Math.random() * 2000;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
+  dancer.getInPosition();
+  return dancer;
 };
 
-
-
-var dancerMethods = {
+var dancerPrototype = {
   dance : function(){
     this.$moneyMaker.appendTo('.stage');
     var that = this;
@@ -28,42 +30,21 @@ var dancerMethods = {
   }
 };
 
-var makeDancer = function(left, top) {
-  
-  var dancer = {
-    top : top,
-    left : left,
-    frequency : Math.random() * 2000,
-    $moneyMaker : $('<span class="dancer"></span>'),
-  }; // end dancer
-
-  extend(dancer, dancerMethods);
-
-  dancer.getInPosition();
-  return dancer;
-};
-
-
 var makeBlinkyDancer = function(left, top){
-
-  var blinkyDancer = {
-    top : top,
-    left : left,
-    frequency : Math.random() * 2000,
-    $moneyMaker : $('<span class="blinky-dancer"></span>'),
-  }; // end blinkyDancer
-
-  extend(blinkyDancer, dancerMethods);
-
-  blinkyDancer.step = function(){
-    this.getInPosition();
-    this.blink();
-  };
-
-  blinkyDancer.blink = function(){
-    this.$moneyMaker.toggle();
-  };
-
+  var blinkyDancer = Object.create(blinkyDancerPrototype);
+  blinkyDancer.top = top;
+  blinkyDancer.left = left;
+  blinkyDancer.frequency = Math.random() * 2000;
+  blinkyDancer.$moneyMaker = $('<span class="blinky-dancer"></span>');
   blinkyDancer.getInPosition();
   return blinkyDancer;
+};
+
+var blinkyDancerPrototype = Object.create(dancerPrototype);
+blinkyDancerPrototype.step = function(){
+  this.getInPosition();
+  this.blink();
+};
+blinkyDancerPrototype.blink = function(){
+  this.$moneyMaker.toggle();
 };
