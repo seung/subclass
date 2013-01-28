@@ -1,6 +1,3 @@
-
-
-
 var makeColorDancer = function(left,top){
   /* Creates and returns a new dancer that inherits from makeBlinkyDancer
    * and changes color randomly
@@ -14,7 +11,6 @@ var makeColorDancer = function(left,top){
     colorDancer.getInPosition();
     colorDancer.changeColor();
   },
-
   colorDancer.changeColor = function(){
 
     var w = Math.floor(Math.random() * 100);
@@ -30,7 +26,7 @@ var makeColorDancer = function(left,top){
     };
 
     colorDancer.$moneyMaker.css(styleColor);
-  }
+  };
     
   return colorDancer;
 };

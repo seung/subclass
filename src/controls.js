@@ -7,7 +7,10 @@ var setupControls = function(danceFloor){
    * call the function to make the dancer. */
 
   $(".clickable").on("click", function(event){
-    var dancerMakerFunctionName = $(this).data("dancer-creator");
-    danceFloor.addDancer(dancerMakerFunctionName);
+    /*var dancerMakerFunctionName = $(this).data("dancer-creator");
+    danceFloor.addDancer(dancerMakerFunctionName);*/
+    var dancerConstructorName = $(this).data("dancer-creator");
+
+    danceFloor.addDancer(dancerConstructorName);
   });
 }
