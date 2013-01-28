@@ -23,15 +23,16 @@ var throbPosition = function(){
   return true;
 }
 
-var makeThrobbingDancer = function(left, top) {
-  var dancer = new Dancer(left, top);
-  dancer.throbRate = 0.5;
-  dancer.radius = 10;
-  dancer.radiusString;
+var ThrobbingDancer = function(left, top) {
 
-  dancer.throb = throb;
-  dancer.step = throbStep;
-  dancer.getInPosition = throbPosition;
-  
-  return dancer;
+  this.top = top;
+  this.left = left;
+  this.throbRate = 0.5;
+  this.radius = 10;
+  this.radiusString;
+
+  this.throb = throb;
+  this.step = throbStep;
+  this.getInPosition = throbPosition;
 };
+ThrobbingDancer.prototype = new Dancer(0,0);

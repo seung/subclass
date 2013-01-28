@@ -10,14 +10,9 @@ var blink = function(){
   this.$moneyMaker.toggle();
 };
 
-var makeBlinkyDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
-  var dancer = new Dancer(left, top); 
-
-  dancer.step = blinkyStep;
-  dancer.blink = blink;
-
-  return dancer;
+var BlinkyDancer = function(left, top){
+  Dancer.call(this, left, top);
+  this.step = blinkyStep;
+  this.blink = blink;
 };
+BlinkyDancer.prototype = Object.create(Dancer.prototype);

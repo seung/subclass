@@ -13,15 +13,10 @@ var ninjaChop = function(){
   this.$moneyMaker.css(styleObj);
 };
 
-var makeNinjaDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
-
-  var dancer = new Dancer(left, top);
-
+var NinjaDancer = function(left, top){
+  this.left = left;
+  this.top = top;
   dancer.step = ninjaStep;
   dancer.getInPosition = ninjaChop;
-
-  return dancer;
 };
+NinjaDancer.prototype = new Dancer(0,0);

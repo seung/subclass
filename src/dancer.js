@@ -29,17 +29,29 @@ var lineUp = function(){
   this.left = 100;
 }
 
+// var Dancer = function(left, top) {
+//   this.dance = dance;
+//   this.step = step;
+//   this.getInPosition = getInPosition;
+//   this.lineUp = lineUp;
+//   this.top = top;
+//   this.left = left;
+//   this.frequency = Math.random() * 2000;
+//   this.$moneyMaker = $('<span class="dancer"></span>');
+// }; // end dancer
+
 var Dancer = function(left, top) {
-  this.dance = dance;
-  this.step = step;
-  this.getInPosition = getInPosition;
-  this.lineUp = lineUp;
   this.top = top;
   this.left = left;
   this.frequency = Math.random() * 2000;
   this.$moneyMaker = $('<span class="dancer"></span>');
 }; // end dancer
 
-
+Dancer.prototype = {
+  dance: dance,
+  step: step,
+  getInPosition: getInPosition,
+  lineUp: lineUp
+}
 
 

@@ -21,13 +21,13 @@ var colorfulPosition = function(){
   return true;
 };
 
-var makeColorfulDancer = function(left, top){
-  var dancer = new Dancer(left, top);
-  dancer.color = "blue";
-  dancer.blueness = 0;
-  dancer.frequency = Math.random() * 200;
-  dancer.step = colorfulStep;
-  dancer.shimmer = shimmer;
-  dancer.getInPosition = colorfulPosition;
-  return dancer;
+var ColorfulDancer = function(left, top){
+  Dancer.call(this, left, top);
+  this.color = "blue";
+  this.blueness = 0;
+  this.frequency = Math.random() * 200;
+  this.step = colorfulStep;
+  this.shimmer = shimmer;
+  this.getInPosition = colorfulPosition;
 };
+ColorfulDancer.prototype = Object.create(Dancer.prototype);
