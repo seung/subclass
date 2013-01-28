@@ -12,7 +12,6 @@ var dance = function(){
 
 var step = function(){
   this.getInPosition();
-  this.blink();
 }
 
 var getInPosition = function(){
@@ -24,13 +23,6 @@ var styleObj = {
   left: this.left
   };
   this.$moneyMaker.css(styleObj);
-};
-
-var blink = function(){
-  /* toggle() is a jQuery method to show/hide the <span> tag.
-   * See http://api.jquery.com/category/effects/ for this and
-   * other effects you can use on a jQuery-wrapped html tag. */
-  this.$moneyMaker.toggle();
 };
 
 var lineUp = function(){
@@ -46,17 +38,8 @@ var Dancer = function(left, top) {
   this.left = left;
   this.frequency = Math.random() * 2000;
   this.$moneyMaker = $('<span class="dancer"></span>');
-
 }; // end dancer
 
-var makeDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
-  var dancer = new Dancer(left, top);
-
-  return dancer;
-};
 
 
 
