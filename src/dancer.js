@@ -37,28 +37,26 @@ var lineUp = function(){
   this.left = 100;
 }
 
-var initDancer = function(left, top) {
+var Dancer = function(left, top) {
+  this.dance = dance;
+  this.step = step;
+  this.getInPosition = getInPosition;
+  this.lineUp = lineUp;
   this.top = top;
   this.left = left;
   this.frequency = Math.random() * 2000;
   this.$moneyMaker = $('<span class="dancer"></span>');
-}
 
-var Dancer = {
-  dance: dance,
-  step: step,
-  getInPosition: getInPosition,
-  init: initDancer,
-  lineUp: lineUp
 }; // end dancer
 
 var makeDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
-  var dancer = Object.create(Dancer);
-
-  dancer.init(left, top);
+  var dancer = new Dancer(left, top);
 
   return dancer;
 };
+
+
+

@@ -18,8 +18,7 @@ var makeNinjaDancer = function(left, top){
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
 
-  var dancer = Object.create(Dancer);
-  dancer.init(left, top);
+  var dancer = new Dancer(left, top);
 
   dancer.step = ninjaStep;
   dancer.getInPosition = ninjaChop;

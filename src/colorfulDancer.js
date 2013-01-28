@@ -22,10 +22,9 @@ var colorfulPosition = function(){
 };
 
 var makeColorfulDancer = function(left, top){
-  var dancer = Object.create(Dancer);
+  var dancer = new Dancer(left, top);
   dancer.color = "blue";
   dancer.blueness = 0;
-  dancer.init(left, top);
   dancer.frequency = Math.random() * 200;
   dancer.step = colorfulStep;
   dancer.shimmer = shimmer;

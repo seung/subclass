@@ -14,12 +14,9 @@ var makeBlinkyDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
-
-  var dancer = Object.create(Dancer);
-  dancer.init(left, top);
+  var dancer = new Dancer(left, top); 
 
   dancer.step = blinkyStep;
-  dancer.getInPosition = getInPosition;
   dancer.blink = blink;
 
   return dancer;

@@ -24,8 +24,7 @@ var throbPosition = function(){
 }
 
 var makeThrobbingDancer = function(left, top) {
-  var dancer = Object.create(Dancer);
-  dancer.init(left, top);
+  var dancer = new Dancer(left, top);
   dancer.throbRate = 0.5;
   dancer.radius = 10;
   dancer.radiusString;
