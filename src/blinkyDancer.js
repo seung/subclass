@@ -1,9 +1,5 @@
-var Dancer = function(left, top, dancer_name) {
-  this.left = left;
-  this.top = top;
-  this.frequency = Math.random() * 2000;
-  this.$moneyMaker = $("<span class='" + dancer_name + "'></span>");
-
+var Dancer = function() {
+  this.frequency = Math.random() * 4000;
 };
 
 Dancer.prototype.getInPosition = function() {
@@ -13,10 +9,6 @@ Dancer.prototype.getInPosition = function() {
   };
   this.$moneyMaker.css(styleObj);
 
-};
-
-Dancer.prototype.blink = function() {
-  this.$moneyMaker.toggle();
 };
 
 Dancer.prototype.dance = function() {
@@ -35,8 +27,23 @@ Dancer.prototype.step = function() {
   this.blink();
 };
 
+//Constructor for Blinky Dancer
+var BlinkyDancer = function(left, top) {
+  this.left = left;
+  this.top = top;
+  this.$moneyMaker = $("<span class='dancer'></span>");
+  Dancer.apply(this);
+}
+
+BlinkyDancer.prototype = new Dancer();
+
+BlinkyDancer.prototype.blink = function() {
+  this.$moneyMaker.toggle();
+};
+
+
 var makeBlinkyDancer = function(left, top){
-  var new_dancer = new Dancer(left, top, "dancer");
-  new_dancer.getInPosition();
-  return new_dancer;
+  var new_blinkyDancer = new BlinkyDancer(left, top);
+  new_blinkyDancer.getInPosition();
+  return new_blinkyDancer;
 };
