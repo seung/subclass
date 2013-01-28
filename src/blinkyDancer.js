@@ -1,4 +1,6 @@
-var dance = function(){
+var prototypalDancer = {};
+
+prototypalDancer.dance = function(){
   
   // go out...  (add our tag to the HTML page)
   this.$moneyMaker.appendTo('.stage');
@@ -12,13 +14,13 @@ var dance = function(){
 };
 
 
-var step = function(){
+prototypalDancer.step = function(){
   // this === dance
   this.getInPosition();
   this.blink();
 };
 
-var getInPosition = function(){
+prototypalDancer.getInPosition = function(){
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/
    */
@@ -31,7 +33,7 @@ var getInPosition = function(){
   this.$moneyMaker.css(styleObj);
 };
 
-var blink = function(){
+prototypalDancer.blink = function(){
   /* toggle() is a jQuery method to show/hide the <span> tag.
    * See http://api.jquery.com/category/effects/ for this and
    * other effects you can use on a jQuery-wrapped html tag. */
@@ -46,23 +48,11 @@ var makeBlinkyDancer = function(left, top){
    * returns a dancer that blinks at a random frequency.
    */
 
-  var dancer = {
-    // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
-
-    dance: dance,
-    step: step,
-    getInPosition: getInPosition,
-    blink: blink,
-
-    // used in setInterval below
-    frequency: Math.random() * 2000,
-
-    // get dressed... (use jQuery to create an HTML <span> tag)
-    $moneyMaker: $('<span class="dancer"></span>'),
-    
-  }; // end dancer
+  var dancer = Object.create(prototypalDancer);
+    dancer.top = top;
+    dancer.left = left;
+    dancer.frequency = Math.random() * 2000;
+    dancer.$moneyMaker = $('<span class="dancer"></span>');
 
   dancer.getInPosition();
 
