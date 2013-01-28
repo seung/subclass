@@ -2,7 +2,6 @@ var Dancer = function(left, top){
   this.left = left;
   this.top = top;
   this.frequency = Math.random()*2000;
-  this.$moneyMaker = $('<span class="dancer"></span>');
 }
 
 Dancer.prototype.dance = function (){
@@ -28,8 +27,6 @@ Dancer.prototype.blink = function (){
   this.$moneyMaker.toggle();
 };
 
-
-// BlueDancer.prototype = new Dancer();
 
 var BlinkyDancer = function(left, top){
   var blinkyDancer = new Dancer(left, top);
