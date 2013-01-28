@@ -4,10 +4,10 @@ $(document).ready(function(){
    * there's just one, but as you create more types, you'll need
    * to add their factory functions here. */
   var kindsOfDancers = {
-    blinkyMaker: blinkyMaker, // found in blinkyDancer.js
-    muffinMaker: muffinMaker,
-    walkingMaker: walkingMaker
-    // makeTinyDancer: makeTinyDancer
+    Blinky: BlinkyDancer, // found in blinkyDancer.js
+    Muffin: MuffinDancer,
+    Walking: WalkingDancer,
+    Dancer: Dancer
   };
 
   /* This is a list of all the dancers that have been created.

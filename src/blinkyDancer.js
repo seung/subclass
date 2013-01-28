@@ -7,107 +7,92 @@ var lineUp = function(direction) {
 };
 
 /*
-Dancer Maker & Prototype
+Dancer Constructor & Prototype (using Pseudoclassical Instantiation)
 */
 
-var dancerMaker = function(left, top) {
-  var dancer = Object.create(dancerPrototype);
-  dancer.left = left;
-  dancer.top = top;
-  dancer.frequency = Math.random() * 2000;
-  dancer.$moneyMaker = $('<span class="dancer"></span>');
-  dancer.getInPosition();
-  return dancer;
+var Dancer = function(left, top) {
+  this.left = left;
+  this.top = top;
+  this.frequency = Math.random() * 2000;
+  this.$moneyMaker = $('<span class="dancer"></span>');
+  this.getInPosition();
 };
-
-var dancerPrototype = {
-  dance: function (){
-    this.$moneyMaker.appendTo('.stage');
-    // console.log(this);
-    var dancer = this;
-    setInterval(function(){
-      dancer.step();
-    }, dancer.frequency );
-  },
-  getInPosition: function(){
-    var styleObj = {
-      top: this.top,
-      left: this.left
-    };
-    this.$moneyMaker.css(styleObj);
-  },
-  step: function(){
-    this.getInPosition();
-  },
-  canLineUp: false
+Dancer.prototype.dance = function (){
+  this.$moneyMaker.appendTo('.stage');
+  // console.log(this);
+  var dancer = this;
+  setInterval(function(){
+    dancer.step();
+  }, dancer.frequency );
 };
-
+Dancer.prototype.getInPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.$moneyMaker.css(styleObj);
+};
+Dancer.prototype.step = function(){
+  this.getInPosition();
+};
+Dancer.prototype.canLineUp = false;
 
 /*
-blinky Maker & Prototype
+blinky Constructor & Prototype
 */
 
-var blinkyMaker = function(left, top){
-  var blinky = Object.create(blinkyPrototype);
-  blinky.left = left;
-  blinky.top = top;
-  blinky.frequency = Math.random() * 1000;
-  blinky.$moneyMaker = $('<span class="blinky-dancer"></span>');
-  blinky.getInPosition();
-  return blinky;
+var BlinkyDancer = function(left, top){
+  this.left = left;
+  this.top = top;
+  this.frequency = Math.random() * 1000;
+  this.$moneyMaker = $('<span class="blinky-dancer"></span>');
+  this.getInPosition();
 };
-
-var blinkyPrototype = Object.create(dancerPrototype);  // on a failed lookup, bP delegates to dancerPrototype
-blinkyPrototype.blink = function(){
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.blink = function(){
   this.$moneyMaker.toggle();
 };
-blinkyPrototype.step = function() {
+BlinkyDancer.prototype.step = function() {
   this.getInPosition();
   this.blink();
 };
 
-
 /*
-muffin Maker & Prototype
+muffin Constructor & Prototype
 */
 
-var muffinMaker = function(left, top) {
-  var muffin = Object.create(muffinPrototype);
-  muffin.left = left;
-  muffin.top = top;
-  muffin.frequency = 500;
+var MuffinDancer = function(left, top) {
+  this.left = left;
+  this.top = top;
+  this.frequency = 500;
   // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
-  muffin.$moneyMaker = $('<span class="muffin-dancer"></span>');
-  muffin.getInPosition();
-  return muffin;
-}
-
-var muffinPrototype = Object.create(dancerPrototype);
-
-
-/*
-walking Maker & Prototype
-*/
-
-var walkingMaker = function(left, top) {
-  var walking = Object.create(walkingPrototype);
-  walking.left = left;
-  walking.top = top;
-  walking.canLineUp = true;
-  walking.frequency = 35;
-  walking.$moneyMaker = $('<span class="rabies-dancer"></span>'); 
-  walking.getInPosition();
-  return walking;
+  this.$moneyMaker = $('<span class="muffin-dancer"></span>');
+  this.getInPosition();
 };
 
-var walkingPrototype = Object.create(dancerPrototype);
-walkingPrototype.dX = 10;
-walkingPrototype.dY = 10;
-walkingPrototype.step = function() {
+MuffinDancer.prototype = Object.create(Dancer.prototype);
+
+/*
+walking Constructor & Prototype
+*/
+
+var WalkingDancer = function(left, top) {
+  this.left = left;
+  this.top = top;
+  this.canLineUp = true;
+  this.frequency = 35;
+  this.$moneyMaker = $('<span class="walking-dancer"></span>'); 
+  this.getInPosition();
+};
+
+WalkingDancer.prototype = Object.create(Dancer.prototype);
+WalkingDancer.prototype.dX = 10;
+WalkingDancer.prototype.dY = 10;
+WalkingDancer.prototype.step = function() {
   this.getInPosition();
   this.walk();
 };
-walkingPrototype.walk = function(top, left){
+WalkingDancer.prototype.walk = function(top, left){
   var floorWidth = $("body").width();
   var floorHeight = $("body").height();
 
