@@ -3,15 +3,18 @@ var colorfulStep = function(){
   this.shimmer();
 };
 
-var shimmer = function(){
-  this.blueness += 1;
-  if (this.blueness >= 255) {
-    this.blueness = 0;
-  }
-  this.color = "#8800" + this.blueness.toString(16);
+var ColorfulDancer = function(left, top){
+  Dancer.call(this, left, top);
+  this.frequency = Math.random() * 50;
+  this.step = colorfulStep;
 };
 
-var colorfulPosition = function(){
+ColorfulDancer.prototype = Object.create(Dancer.prototype);
+ColorfulDancer.prototype.color = "#800";
+ColorfulDancer.prototype.blueness = 0;
+ColorfulDancer.prototype.changeRate = 1;
+
+ColorfulDancer.prototype.getInPosition = function(){
   var styleObj = {
     top: this.top,
     left: this.left,
@@ -21,13 +24,13 @@ var colorfulPosition = function(){
   return true;
 };
 
-var ColorfulDancer = function(left, top){
-  Dancer.call(this, left, top);
-  this.frequency = Math.random() * 50;
-  this.step = colorfulStep;
-  this.shimmer = shimmer;
-};
-ColorfulDancer.prototype = Object.create(Dancer.prototype);
-ColorfulDancer.prototype.color = "#800";
-ColorfulDancer.prototype.blueness = 0;
-ColorfulDancer.prototype.getInPosition = colorfulPosition;
+ColorfulDancer.prototype.shimmer = function() {
+  this.blueness += this.changeRate;
+  if (this.blueness >= 252) {
+    this.changeRate = -1;
+  }
+  if (this.blueness < 3) {
+    this.changeRate = 1;
+  }
+  this.color = "#8800" + this.blueness.toString(16);
+}
