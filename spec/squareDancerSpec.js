@@ -6,8 +6,8 @@ describe("squareDancers", function () {
   });
 
   it("should have a left and top coordinate", function(){
-    expect(squareDancer.left).toBe(15);
-    expect(squareDancer.top).toBe(35);
+    expect(squareDancer.top).toBe(15);
+    expect(squareDancer.left).toBe(35);
   });
 
   it("should have a frequency", function(){

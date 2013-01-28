@@ -28,9 +28,8 @@ var lineUp = function(){
 var globalDancer = {
     // we'll use top and left to set the position of this dancer
     // used in setInterval below
-    frequency: Math.random() * 2000,
+
     // get dressed... (use jQuery to create an HTML <span> tag)
-    $moneyMaker: $('<span class="dancer"></span>'),
     step: step,
     getInPosition: getInPosition,
     blink: blink,
@@ -45,6 +44,8 @@ var makeBlinkyDancer = function(left, top){
   var dancer = Object.create(globalDancer);
   dancer.top = top;
   dancer.left = left;
+  dancer.frequency = Math.random() * 2000;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
   dancer.getInPosition();
   return dancer;
 };

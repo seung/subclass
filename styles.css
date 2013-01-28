@@ -76,6 +76,7 @@ span.square{
   -moz-animation:    spin 0.5s infinite; /* Fx 5+ */
   -o-animation:      spin 0.5s infinite; /* Opera 12+ */
   animation:         spin 0.5s infinite;
+  position:absolute;
 }
 
 .test {
@@ -99,6 +100,7 @@ span.square{
 .burn {
 border: none;
 height: 100px;
+position:absolute;
 }
 
 .left {
