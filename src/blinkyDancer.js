@@ -1,15 +1,19 @@
 var dance = function(){
+  
   // go out...  (add our tag to the HTML page)
   this.$moneyMaker.appendTo('.stage');
   // ...and do those sexy moves
   // (dancer.step will be called on a timer)
+  
   var dancer = this;
   setInterval(function(){
     dancer.step();
   }, this.frequency);
 };
 
+
 var step = function(){
+  // this === dance
   this.getInPosition();
   this.blink();
 };
