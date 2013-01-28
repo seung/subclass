@@ -8,10 +8,7 @@ dancerPrototype.dance = function() {
   var callStepFunction = function() {
     that.step();
   };
-  var callFreqFunction = function() {
-    that.frequency();
-  };
-  setInterval(callStepFunction, callFreqFunction);
+  setInterval(callStepFunction, this.frequency);
   
 };
 
@@ -28,16 +25,16 @@ dancerPrototype.getInPosition = function() {
   this.$moneyMaker.css(styleObj);
 };
 
-dancerPrototype.blink = function() {this.$moneyMaker.toggle();
+dancerPrototype.blink = function() {
+  this.$moneyMaker.toggle();
 };
 
 var makeBlinkyDancer = function(left, top){
   var dancer = Object.create(dancerPrototype);
   dancer.left = left;
   dancer.top = top;
-  dancer.frequency = Math.random() * 2000,
+  dancer.frequency = Math.random() * 2000;
   dancer.$moneyMaker = $('<span class="dancer"></span>');
-
   dancer.getInPosition();
   return dancer;
 };
