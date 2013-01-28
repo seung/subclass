@@ -24,7 +24,6 @@ Dancer.prototype.dance = function() {
 
 Dancer.prototype.step = function() {
   this.getInPosition();
-  this.blink();
 };
 
 //Constructor for Blinky Dancer
@@ -36,6 +35,11 @@ var BlinkyDancer = function(left, top) {
 }
 
 BlinkyDancer.prototype = new Dancer();
+
+BlinkyDancer.prototype.step = function() {
+  this.getInPosition();
+  this.blink();
+};
 
 BlinkyDancer.prototype.blink = function() {
   this.$moneyMaker.toggle();
