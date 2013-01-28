@@ -4,14 +4,14 @@ var makeSquareDancer = function (top, left){
   squareDancer.left = left;
   squareDancer.frequency = Math.random() * 2000;
   squareDancer.$moneyMaker = $('<span class="square"></span>');
-  console.log("square left position " + squareDancer.left);
 
   squareDancer.blink = function() {
     squareDancer.$moneyMaker.toggle(function(){
       $(this).animate({
-        height: '25%',
-        width: '1%'
-      });
+        height: '+=1%',
+        width: '5%',
+        left: '+=275px'
+      }, 500);
     });
   };
   squareDancer.getInPosition();

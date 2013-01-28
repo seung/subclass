@@ -36,7 +36,7 @@ var makeBlinkyDancer = function(left, top){
   dancer.top = top;
   dancer.left = left;
   dancer.frequency = Math.random() * 2000;
-  dancer.$moneyMaker = $('<span class="dancer"></span>');
+  dancer.$moneyMaker = $('<span class="dancer animated flip"></span>');
   dancer.getInPosition();
   return dancer;
 };
