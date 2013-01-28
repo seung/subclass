@@ -1,15 +1,19 @@
 var ColorDancer = function(left, top){
 
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 2000;
   this.$moneyMaker = $('<span class="random"></span>');
+  this.getInPosition();
 };
 
 ColorDancer.prototype = Object.create(Dancer.prototype);
 
-this.step = function(){
+ColorDancer.prototype.step = function(){
   this.getInPosition();
   this.changeColor();
 },
-this.changeColor = function(){
+ColorDancer.prototype.changeColor = function(){
   var w = Math.floor(Math.random() * 100);
   var x = Math.floor(Math.random() * 255);
   var y = Math.floor(Math.random() * 255);

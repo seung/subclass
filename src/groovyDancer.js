@@ -1,29 +1,27 @@
-var makeGroovyDancer = function(left,top){
+var GroovyDancer = function(left,top){
   /* Creates and returns a new dancer that inherits from makeBlinkyDancer
    * and changes color randomly
    */
-  var n = null; 
-  var groovyDancer = makeBlinkyDancer(left, top);
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 2000;
+  this.$moneyMaker = $('<span class="groovy"><img src="austin.gif" /></span>');
+  this.getInPosition();
+};  
 
-  groovyDancer.$moneyMaker = $('<span class="groovy"><img src="austin.gif" /></span>');
+//var n = null; 
 
-  groovyDancer.step = function(){
-      groovyDancer.getInPosition();
-      groovyDancer.moveAcrossScreen();
-    };
-
+GroovyDancer.prototype = Object.create(Dancer.prototype);
   
-  groovyDancer.moveAcrossScreen = function(){
-    var animateObj = {
-      'margin-left': 100,
-      'margin-top':  250
-    };
-    groovyDancer.$moneyMaker.animate({"left": "+=50px"}, "slow");
-    //groovyDancer.$moneyMaker.animate(animateObj,5000,'linear' );
-  };
-  
- 
-return groovyDancer;
+GroovyDancer.step = function(){
+  this.getInPosition();
+  this.moveAcrossScreen();
 };
-
-//specialEasing: {width: 'linear', height: 'easeOutBounce'}
+  
+GroovyDancer.moveAcrossScreen = function(){
+  var animateObj = {
+    'margin-left': 100,
+    'margin-top':  250
+  };
+  //this.$moneyMaker.animate({"left": "+=50px"}, "slow");
+};

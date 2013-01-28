@@ -5,7 +5,6 @@ var BlinkyDancer = function(left, top){
    * returns a dancer that blinks at a random frequency.
    */
 
-  //var dancer = Object.create(prototypalDancer);
     this.top = top;
     this.left = left;
     this.frequency = Math.random() * 2000;
@@ -16,12 +15,12 @@ var BlinkyDancer = function(left, top){
   BlinkyDancer.prototype = Object.create(Dancer.prototype);
 
 
-  Dancer.prototype.step = function(){
+  BlinkyDancer.prototype.step = function(){
     this.getInPosition();
     this.blink();
   };
 
-  Dancer.prototype.blink = function(){
+  BlinkyDancer.prototype.blink = function(){
     /* toggle() is a jQuery method to show/hide the <span> tag.
      * See http://api.jquery.com/category/effects/ for this and
      * other effects you can use on a jQuery-wrapped html tag. */
