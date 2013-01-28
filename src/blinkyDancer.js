@@ -1,43 +1,45 @@
-var Dancer = function() {
-  this.blink = function(){
-    this.$moneyMaker.toggle();
-  };
+var GlobalDancerConstructor = function(top, left, move) {
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 2000;
+  this.$moneyMaker = $('<span class=""></span>');
+  this.move = move;
+};
 
-  this.dance = function(){
-    this.$moneyMaker.appendTo('.stage');
-    var that = this;
-    setInterval(function(){ that.step(); }, that.frequency);
-  };
+GlobalDancerConstructor.prototype.blink = function(){
+  this.$moneyMaker.toggle();
+};
 
-  this.step = function(){
-    this.getInPosition();
-    this.blink();
-  };
+GlobalDancerConstructor.prototype.dance = function(){
+  this.$moneyMaker.appendTo('.stage');
+  var that = this;
+  setInterval(function(){ that.step(); }, that.frequency);
+};
 
-  this.getInPosition = function(){
-    var styleObj = {
+GlobalDancerConstructor.prototype.lineUp = function(){
+  this.left = 0;
+};
+
+GlobalDancerConstructor.prototype.getInPosition = function(){
+  var styleObj = {
       top: this.top,
       left: this.left
     };
-    this.$moneyMaker.css(styleObj);
-  };
-
-  this.lineUp = function(){
-    this.left = 0;
-  };
-
+  this.$moneyMaker.css(styleObj);
 };
 
-var makeBlinkyDancer = function(left, top){
+GlobalDancerConstructor.prototype.step = function(){
+  this.getInPosition();
+  this.blink();
+  this.move();
+};
+
+var makeBlinkyDancer = function(top, left){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
-  var dancer = new Dancer();
-  dancer.top = top;
-  dancer.left = left;
-  dancer.frequency = Math.random() * 2000;
-  dancer.$moneyMaker = $('<span class="dancer animated flip"></span>');
-  dancer.getInPosition();
+  var dancer = new GlobalDancerConstructor(top, left);
+  dancer.$moneyMaker.addClass('dancer animated flip');
   return dancer;
 };
 

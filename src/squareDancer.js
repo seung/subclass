@@ -1,11 +1,6 @@
 var makeSquareDancer = function (top, left){
-  var squareDancer = new Dancer();
-  squareDancer.top = top;
-  squareDancer.left = left;
-  squareDancer.frequency = Math.random() * 2000;
-  squareDancer.$moneyMaker = $('<span class="square"></span>');
 
-  squareDancer.blink = function() {
+  rotate = function() {
     squareDancer.$moneyMaker.toggle(function(){
       $(this).animate({
         height: '+=1%',
@@ -14,6 +9,8 @@ var makeSquareDancer = function (top, left){
       }, 500);
     });
   };
-  squareDancer.getInPosition();
+
+  var squareDancer = new GlobalDancerConstructor(top, left, rotate);
+  squareDancer.$moneyMaker.addClass('square');
   return squareDancer;
 };
