@@ -50,9 +50,16 @@ describe("blinkyDancer", function() {
       jasmine.Clock.tick(blinkyDancer.frequency + 10);
       expect(blinkyDancer.step.callCount).toBe(2);
     });
+  afterEach(function(){
+    $('.stage').remove();
+  });
 
-    afterEach(function(){
-      $('.stage').remove();
+  describe("lineUp", function() {
+    it("should respond to the lineUp by setting left to 0", function(){
+      blinkyDancer.left = 0;
+      blinkyDancer.getInPosition();
+      expect(blinkyDancer.left).toEqual(0);
     });
   });
+ });
 });

@@ -16,11 +16,11 @@ var makePrivateDancer = function(left, top){
     this.turnItAround();
     this.getInPosition();
   };
-  this.dance = function(){
+  privateDancer.dance = function(){
     // go out...  (add our tag to the HTML page)
     this.$moneyMaker.appendTo('.stage');
     // ...and do those sexy moves
-    // (this.step will be called on a timer)
+    // (privateDancer.step will be called on a timer)
 
     var wrapper = this;
     //wrap wrapper (referring to the dancer object) in a wrapper to pass to setInterval
