@@ -1,12 +1,10 @@
 var makeSquareDancer = function (top, left){
-  var squareDancer = Object.create(globalDancer);
+  var squareDancer = new Dancer();
   squareDancer.top = top;
   squareDancer.left = left;
   squareDancer.frequency = Math.random() * 2000;
   squareDancer.$moneyMaker = $('<span class="square"></span>');
   console.log("square left position " + squareDancer.left);
-
-  // squareDancer.$moneyMaker.addClass('square');
 
   squareDancer.blink = function() {
     squareDancer.$moneyMaker.toggle(function(){
