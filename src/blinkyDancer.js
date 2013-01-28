@@ -6,33 +6,108 @@ var lineUp = function(direction) {
   };
 };
 
-var dance = function (){
-  this.$moneyMaker.appendTo('.stage');
-  // console.log(this);
-  var dancer = this;
-  setInterval(function(){
-    dancer.step();
-  }, dancer.frequency );
+/*
+Dancer Maker & Prototype
+*/
+
+var dancerMaker = function(left, top) {
+  var dancer = Object.create(dancerPrototype);
+  dancer.left = left;
+  dancer.top = top;
+  dancer.frequency = Math.random() * 2000;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
+  dancer.getInPosition();
+  return dancer;
 };
 
-var step = function(){
+var dancerPrototype = {
+  dance: function (){
+    this.$moneyMaker.appendTo('.stage');
+    // console.log(this);
+    var dancer = this;
+    setInterval(function(){
+      dancer.step();
+    }, dancer.frequency );
+  },
+  getInPosition: function(){
+    var styleObj = {
+      top: this.top,
+      left: this.left
+    };
+    this.$moneyMaker.css(styleObj);
+  },
+  step: function(){
+    this.getInPosition();
+  },
+  canLineUp: false
+};
+
+
+/*
+blinky Maker & Prototype
+*/
+
+var blinkyMaker = function(left, top){
+  var blinky = Object.create(blinkyPrototype);
+  blinky.left = left;
+  blinky.top = top;
+  blinky.frequency = Math.random() * 1000;
+  blinky.$moneyMaker = $('<span class="blinky-dancer"></span>');
+  blinky.getInPosition();
+  return blinky;
+};
+
+var blinkyPrototype = Object.create(dancerPrototype);  // on a failed lookup, bP delegates to dancerPrototype
+blinkyPrototype.blink = function(){
+  this.$moneyMaker.toggle();
+};
+blinkyPrototype.step = function() {
   this.getInPosition();
   this.blink();
 };
 
-var getInPosition = function(){
-  var styleObj = {
-    top: this.top,
-    left: this.left
-  };
-  this.$moneyMaker.css(styleObj);
+
+/*
+muffin Maker & Prototype
+*/
+
+var muffinMaker = function(left, top) {
+  var muffin = Object.create(muffinPrototype);
+  muffin.left = left;
+  muffin.top = top;
+  muffin.frequency = 500;
+  // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
+  muffin.$moneyMaker = $('<span class="muffin-dancer"></span>');
+  muffin.getInPosition();
+  return muffin;
+}
+
+var muffinPrototype = Object.create(dancerPrototype);
+
+
+/*
+walking Maker & Prototype
+*/
+
+var walkingMaker = function(left, top) {
+  var walking = Object.create(walkingPrototype);
+  walking.left = left;
+  walking.top = top;
+  walking.canLineUp = true;
+  walking.frequency = 35;
+  walking.$moneyMaker = $('<span class="rabies-dancer"></span>'); 
+  walking.getInPosition();
+  return walking;
 };
 
-var blink = function(){
-  this.$moneyMaker.toggle();
+var walkingPrototype = Object.create(dancerPrototype);
+walkingPrototype.dX = 10;
+walkingPrototype.dY = 10;
+walkingPrototype.step = function() {
+  this.getInPosition();
+  this.walk();
 };
-
-var walk = function(top, left){
+walkingPrototype.walk = function(top, left){
   var floorWidth = $("body").width();
   var floorHeight = $("body").height();
 
@@ -46,62 +121,3 @@ var walk = function(top, left){
 
   return true;
 };
-
-var metaDancer = {};
-metaDancer.dance = dance;
-metaDancer.step = step;
-metaDancer.getInPosition = getInPosition;
-metaDancer.blink = blink;
-metaDancer.walk = walk;
-metaDancer.canLineUp = false;
-metaDancer.frequency = Math.random() * 2000;
-metaDancer.$moneyMaker = $('<span class="dancer"></span>');
-
-var makeBlinkyDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
-
-  var dancer = Object.create(metaDancer);
-  dancer.top = top;
-  dancer.left = left;
-  dancer.getInPosition();
-
-  return dancer;
-};
-
-var makeMuffinDancer = function(left, top) {
-
-  var muffinDancer = makeBlinkyDancer(left, top);
-  muffinDancer.frequency = 500;
-
-  // muffinDancer.$moneyMaker = $('<img src="img/MrCupcake.png" class="muffin-dancer">');
-  muffinDancer.$moneyMaker = $('<span class="muffin-dancer"></span>');
-  muffinDancer.getInPosition();
-  return muffinDancer;
-}
-
-
-var makeRabiesDancer = function(left, top) {
-
-  var rabiesDancer = makeBlinkyDancer(left, top);
-  rabiesDancer.canLineUp = true;
-  rabiesDancer.frequency = 35;
-  // rabiesDancer.$moneyMaker = $('<img src="img/Toter.png" class="rabies-dancer">');
-  rabiesDancer.$moneyMaker = $('<span class="rabies-dancer"></span>');
-  
-  rabiesDancer.dX = 10;
-  rabiesDancer.dY = 10;
-
-  rabiesDancer.step = function() {
-    rabiesDancer.getInPosition();
-    rabiesDancer.walk();
-  };
-
-  rabiesDancer.getInPosition();
-
-  return rabiesDancer;
-
-}
-
-
