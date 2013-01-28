@@ -1,7 +1,7 @@
 var blinkyStep = function(){
-      this.getInPosition();
-      this.blink();
-    }
+  this.getInPosition();
+  this.blink();
+}
 
 var blink = function(){
   /* toggle() is a jQuery method to show/hide the <span> tag.

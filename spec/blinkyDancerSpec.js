@@ -6,8 +6,8 @@ describe("blinkyDancer", function() {
   });
 
   it("should have a left and top coordinate", function(){
-    expect(blinkyDancer.left).toBe(20);
-    expect(blinkyDancer.top).toBe(10);
+    expect(blinkyDancer.left).toEqual(20);
+    expect(blinkyDancer.top).toEqual(10);
   });
 
   it("should have a jQuery node object", function(){

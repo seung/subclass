@@ -8,7 +8,7 @@ var shimmer = function(){
   if (this.blueness >= 255) {
     this.blueness = 0;
   }
-  this.color = "#ff00" + this.blueness.toString(16);
+  this.color = "#8800" + this.blueness.toString(16);
 };
 
 var colorfulPosition = function(){
