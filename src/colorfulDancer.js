@@ -23,11 +23,11 @@ var colorfulPosition = function(){
 
 var ColorfulDancer = function(left, top){
   Dancer.call(this, left, top);
-  this.color = "blue";
-  this.blueness = 0;
-  this.frequency = Math.random() * 200;
+  this.frequency = Math.random() * 50;
   this.step = colorfulStep;
   this.shimmer = shimmer;
-  this.getInPosition = colorfulPosition;
 };
 ColorfulDancer.prototype = Object.create(Dancer.prototype);
+ColorfulDancer.prototype.color = "#800";
+ColorfulDancer.prototype.blueness = 0;
+ColorfulDancer.prototype.getInPosition = colorfulPosition;

@@ -1,6 +1,11 @@
 var throb = function(){
-  this.radius += 1;
-  if  (this.radius > 30) { this.radius = 5; }
+  this.radius += this.growthRate;
+  if  (this.radius > this.maxSize) { 
+    this.growthRate = -1; 
+  }
+  if (this.radius < 5) {
+    this.growthRate = 1;
+  }
   this.radiusString = this.radius.toString() + "px";
 }
 
@@ -24,15 +29,13 @@ var throbPosition = function(){
 }
 
 var ThrobbingDancer = function(left, top) {
-
-  this.top = top;
-  this.left = left;
-  this.throbRate = 0.5;
-  this.radius = 10;
-  this.radiusString;
-
-  this.throb = throb;
+  Dancer.call(this, left, top);
   this.step = throbStep;
-  this.getInPosition = throbPosition;
+  this.growthRate = 1;
+  this.maxSize = Math.abs( 5 + (Math.random() * 30) );
 };
-ThrobbingDancer.prototype = new Dancer(0,0);
+ThrobbingDancer.prototype = Object.create(Dancer.prototype);
+ThrobbingDancer.prototype.throbRate = 1;
+ThrobbingDancer.prototype.radius = 10;
+ThrobbingDancer.prototype.getInPosition = throbPosition;
+ThrobbingDancer.prototype.throb = throb;

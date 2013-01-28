@@ -43,7 +43,7 @@ var lineUp = function(){
 var Dancer = function(left, top) {
   this.top = top;
   this.left = left;
-  this.frequency = Math.random() * 2000;
+  this.frequency = Math.random() * 200;
   this.$moneyMaker = $('<span class="dancer"></span>');
 }; // end dancer
 

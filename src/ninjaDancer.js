@@ -14,9 +14,8 @@ var ninjaChop = function(){
 };
 
 var NinjaDancer = function(left, top){
-  this.left = left;
-  this.top = top;
-  dancer.step = ninjaStep;
-  dancer.getInPosition = ninjaChop;
+  Dancer.call(this, left, top);
+  this.step = ninjaStep;
+  this.getInPosition = ninjaChop;
 };
-NinjaDancer.prototype = new Dancer(0,0);
+NinjaDancer.prototype = Object.create(Dancer.prototype);
