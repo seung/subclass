@@ -1,20 +1,26 @@
-var globalDance = function(){
+var Dancer = function(frequency, top, left, $moneyMaker) {
+  this.frequency = frequency;
+  this.top = top;
+  this.left = left;
+  this.$moneyMaker = $moneyMaker;
+}; // end dancer
+
+Dancer.prototype.dance = function(){
   // go out...  (add our tag to the HTML page)
-  
   this.$moneyMaker.appendTo('.stage');
   // ...and do those sexy moves
   // (dancer.step will be called on a timer)
-  var x = this;
-  //wrap x (referring to the dancer object) in a wrapper to pass to setInterval
-  setInterval(function () {x.step();}, x.frequency);
+  var wrapper = this;
+  //wrap wrapper (referring to the dancer object) in a wrapper to pass to setInterval
+  setInterval(function () {wrapper.step();}, wrapper.frequency);
 };
 
-var globalStep = function(){
+Dancer.prototype.step = function(){
   this.getInPosition();
   this.blink();
 };
 
-var globalGetInPosition = function() {
+Dancer.prototype.getInPosition = function() {
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/
    */
@@ -23,8 +29,8 @@ var globalGetInPosition = function() {
     left: this.left
   };
   this.$moneyMaker.css(styleObj);
-}
+};
 
-var globalBlink = function(){
+Dancer.prototype.blink = function(){
   this.$moneyMaker.toggle();
 };

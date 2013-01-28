@@ -3,30 +3,30 @@ var makePrivateDancer = function(left, top){
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
 
-  var dancer = makeBlinkyDancer(left, top);
-  dancer.$moneyMaker = $('<img class="privateDancer" src="img/privatedancer.jpeg" />');
-  dancer.frequency = 1000;
-  dancer.turnItAround = function() {
+  $moneyMaker = $('<img class="privateDancer" src="img/privatedancer.jpeg" />');
+  privateDancer = new Dancer((Math.random() * 1000), top, left, $moneyMaker);
+
+  // Overwrite the dancer classes functions with some new dance moves
+  privateDancer.turnItAround = function() {
     // Toggle CSS class to flip image horizontally
-    dancer.$moneyMaker.toggleClass('privateDancerRight');
-    dancer.$moneyMaker.toggleClass('privateDancer');
+    privateDancer.$moneyMaker.toggleClass('privateDancerRight');
+    privateDancer.$moneyMaker.toggleClass('privateDancer');
   };
-  dancer.step = function(){
-    dancer.turnItAround();
-    dancer.getInPosition();
+  privateDancer.step = function(){
+    privateDancer.turnItAround();
+    privateDancer.getInPosition();
   };
-  dancer.dance = function(){
-    // debugger;
+  privateDancer.dance = function(){
     // go out...  (add our tag to the HTML page)
-    dancer.$moneyMaker.appendTo('.stage');
+    privateDancer.$moneyMaker.appendTo('.stage');
     // ...and do those sexy moves
-    // (dancer.step will be called on a timer)
-    setInterval(dancer.step, dancer.frequency);
+    // (privateDancer.step will be called on a timer)
+    setInterval(privateDancer.step, privateDancer.frequency);
   };
 
   // end dancer declaration
 
-  dancer.getInPosition();
+  privateDancer.getInPosition();
 
-  return dancer;
+  return privateDancer;
 };
