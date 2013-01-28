@@ -23,8 +23,8 @@ NinjaDancer.prototype.ninjaChop = function() {
     height: "225px",
     width: "225px",
     top: this.top,
-    left: this.left,
-    transform: scaleStr
+    //transform: scaleStr
+    left: this.left
   };
   this.$moneyMaker.css(styleObj);
 }
@@ -40,19 +40,19 @@ NinjaDancer.prototype.height = function() {
 NinjaDancer.prototype.move = function(){
 
   if ((this.top + this.y_speed + this.height() ) >= $('body').height() ) {
-    this.y_speed *= -1;
+    this.y_speed = Math.abs(this.y_speed) * -1;
   }
 
   if ((this.left + this.x_speed + this.width() ) >= $('body').width()) {
-    this.x_speed *= -1;
+    this.x_speed = Math.abs(this.x_speed) * -1;
   }
 
-  if ((this.top + this.y_speed - this.height() ) <= 0) {
-    this.y_speed *= -1;
+  if ((this.top + this.y_speed ) <= 0) {
+    this.y_speed = Math.abs(this.y_speed);
   }
 
   if ((this.left + this.x_speed - this.width() ) <= 0) {
-    this.x_speed *= -1;
+    this.x_speed = Math.abs(this.x_speed);
   }
   this.top += this.y_speed;
   this.left += this.x_speed;
