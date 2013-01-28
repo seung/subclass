@@ -1,17 +1,21 @@
 //use object called blinkyDancer and whateverobect.create
+var blinkyDancerConstructor = function(left, top){
+  // var blinkyDancer = makeDancer(frequency, left, top, $moneyMaker);
+  var $moneyMaker = $('<span class="dancer"></span>');
+  var frequency = Math.random() * 2000;
+  this.left = left;
+  //blinkyDancerConstructor.prototype = new dancerConstructor(frequency, left, top, $moneyMaker);
+};
 
-var makeBlinkyDancer = function(left, top){
-  /* Creates and returns a new dancer object at the given position,
-   * where left is x-coordinate of left side and top is y-coordinate
-   * of top side (measured down from top of window). */
-  
-  // get dressed... (use jQuery to create an HTML <span> tag)
-  $moneyMaker = $('<span class="dancer"></span>');
-  // we'll use top and left to set the position of this dancer
-  // and (Math.random() * 2000) to set the frequency
-  blinkyDancer = new Dancer((Math.random() * 2000), top, left, $moneyMaker);
+// STILL WORKING IN THIS FILE: need to update how the above constructor works so it sets the appropriate parameters (left, right, etc.)
 
-  blinkyDancer.getInPosition();
+blinkyDancerConstructor.protoype = Object.create(dancerConstructor.prototype);
 
-  return blinkyDancer;
+blinkyDancerConstructor.prototype.blink = function(){
+  this.$moneyMaker.toggle();
+};
+
+blinkyDancerConstructor.prototype.step = function(){
+  this.getInPosition();
+  this.blink();
 };

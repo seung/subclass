@@ -1,11 +1,11 @@
-var Dancer = function(frequency, top, left, $moneyMaker) {
+var dancerConstructor = function(frequency, left, top, $moneyMaker) {
   this.frequency = frequency;
   this.top = top;
   this.left = left;
   this.$moneyMaker = $moneyMaker;
 }; // end dancer
 
-Dancer.prototype.dance = function(){
+dancerConstructor.prototype.dance = function(){
   // go out...  (add our tag to the HTML page)
   this.$moneyMaker.appendTo('.stage');
   // ...and do those sexy moves
@@ -15,12 +15,12 @@ Dancer.prototype.dance = function(){
   setInterval(function () {wrapper.step();}, wrapper.frequency);
 };
 
-Dancer.prototype.step = function(){
+dancerConstructor.prototype.step = function(){
   this.getInPosition();
-  this.blink();
+  console.log("got here");
 };
 
-Dancer.prototype.getInPosition = function() {
+dancerConstructor.prototype.getInPosition = function() {
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/
    */
@@ -29,8 +29,5 @@ Dancer.prototype.getInPosition = function() {
     left: this.left
   };
   this.$moneyMaker.css(styleObj);
-}
-
-Dancer.prototype.blink = function(){
-  this.$moneyMaker.toggle();
 };
+

@@ -11,13 +11,14 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
 
     addDancer: function(dancerMakerName){
       // get the kind of dancer we're supposed to make
-      var dancerMaker = kindsOfDancers[dancerMakerName];
+      var dancerConstructor = kindsOfDancers[dancerMakerName];
 
       // make a dancer with a random position
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
-      var d = dancerMaker(w, h);
+      var d = new dancerConstructor(w, h);
 
+      d.getInPosition();
       d.dance();
       dancers.push(d);
     }
@@ -25,3 +26,7 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
 
   return danceFloor;
 }
+
+//need to be added
+//blinkyDancer = new BlinkyDancerConstructor((Math.random() * 2000), top, left, $moneyMaker);
+// blinkyDancer.getInPosition();
