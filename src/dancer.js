@@ -47,7 +47,6 @@ var Dancer = {
   dance: dance,
   step: step,
   getInPosition: getInPosition,
-  blink: blink,
   init: initDancer,
   lineUp: lineUp
 }; // end dancer

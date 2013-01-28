@@ -25,15 +25,10 @@ var makeColorfulDancer = function(left, top){
   var dancer = Object.create(Dancer);
   dancer.color = "blue";
   dancer.blueness = 0;
+  dancer.init(left, top);
   dancer.frequency = Math.random() * 200;
-  dancer.top = top;
-  dancer.left = left;
-  dancer.$moneyMaker = $('<span class="dancer"></span>');
-
   dancer.step = colorfulStep;
-
   dancer.shimmer = shimmer;
-
   dancer.getInPosition = colorfulPosition;
   dancer.getInPosition();
   return dancer;
