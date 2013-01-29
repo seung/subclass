@@ -1,27 +1,23 @@
-// Dancer Maker and Prototype
+// Dancer Constructor and Prototype
 
-var makeDancer = function(left, top) {
-  var dancer = Object.create(dancerPrototype);
-  dancer.top = top;
-  dancer.left = left;
-  dancer.frequency = Math.random() * 150;
-  dancer.$moneyMaker = $('<span class="dancer"></span>');
-
-  dancer.getInPosition();
-  return dancer;
+var Dancer = function(left, top) {
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 150;
+  this.$moneyMaker = $('<span class="dancer"></span>');
+  this.getInPosition();
 };
-var dancerPrototype = {};
-dancerPrototype.dance = function(){
+Dancer.prototype.dance = function(){
   this.$moneyMaker.appendTo('.stage');
   var that = this;
   setInterval(function() {
     that.step();
   }, this.frequency);
 };
-dancerPrototype.step = function(){
+Dancer.prototype.step = function(){
   this.getInPosition();
 };
-dancerPrototype.getInPosition = function(){
+Dancer.prototype.getInPosition = function(){
   var styleObj = {
     top: this.top,
     left: this.left
@@ -29,23 +25,20 @@ dancerPrototype.getInPosition = function(){
   this.$moneyMaker.css(styleObj);
 };
 
-// blinkyDancer maker and Prototype
+// blinkyDancer Constructor and Prototype
 
-var makeBlinkyDancer = function(left, top){
-  var blinky = Object.create(blinkyPrototype);
-  blinky.top = top;
-  blinky.left = left;
-  blinky.frequency = Math.random() * 2000;
-  blinky.$moneyMaker = $('<span class="blinky-dancer"></span>');
-
-  blinky.getInPosition();
-  return blinky;
+var BlinkyDancer = function(left, top){
+  this.top = top;
+  this.left = left;
+  this.frequency = Math.random() * 2000;
+  this.$moneyMaker = $('<span class="blinky-dancer"></span>');
+  this.getInPosition();
 };
-var blinkyPrototype = Object.create(dancerPrototype);
-blinkyPrototype.blink = function(){
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.blink = function(){
   this.$moneyMaker.toggle();
 };
-blinkyPrototype.step = function(){
+BlinkyDancer.prototype.step = function(){
   this.getInPosition();
   this.blink();
 };
