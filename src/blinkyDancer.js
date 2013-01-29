@@ -1,66 +1,51 @@
-var extend = function(copyTo, copyFrom) {
-  for(var key in copyFrom) {
-    copyTo[key] = copyFrom[key];
-  }
-};
-
-var dancerMethods = {
-  dance: function(){
-    // go out...  (add our tag to the HTML page)
-    this.$moneyMaker.appendTo('.stage');
-    var that = this;
-    setInterval(function() {
-      that.step();
-    }, this.frequency);
-  },
-
-  step: function(){
-    this.getInPosition();
-    this.blink();
-  },
-
-  getInPosition: function(){
-    /* Use css top and left properties to position our <span> tag
-     * where it belongs on the page. See http://api.jquery.com/css/
-     */
-    var styleObj = {
-      top: this.top,
-      left: this.left
-    };
-    this.$moneyMaker.css(styleObj);
-  },
-
-  blink: function(){
-    this.$moneyMaker.toggle();
-  }
-};
-
-// makers
+// Dancer Maker and Prototype
 
 var makeDancer = function(left, top) {
-  var dancer = {
-    top: top,
-    left: left,
-    frequency: Math.random() * 150,
-    $moneyMaker: $('<span class="dancer"></span>')
-  }
-
-  extend(dancer, dancerMethods);
+  var dancer = Object.create(dancerPrototype);
+  dancer.top = top;
+  dancer.left = left;
+  dancer.frequency = Math.random() * 150;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
 
   dancer.getInPosition();
   return dancer;
 };
+var dancerPrototype = {};
+dancerPrototype.dance = function(){
+  this.$moneyMaker.appendTo('.stage');
+  var that = this;
+  setInterval(function() {
+    that.step();
+  }, this.frequency);
+};
+dancerPrototype.step = function(){
+  this.getInPosition();
+};
+dancerPrototype.getInPosition = function(){
+  var styleObj = {
+    top: this.top,
+    left: this.left
+  };
+  this.$moneyMaker.css(styleObj);
+};
+
+// blinkyDancer maker and Prototype
 
 var makeBlinkyDancer = function(left, top){
-  var blinkyDancer = {
-    top: top,
-    left: left,
-    frequency: Math.random() * 2000,
-    $moneyMaker: $('<span class="blinky-dancer"></span>')
-  }; // end dancer
+  var blinky = Object.create(blinkyPrototype);
+  blinky.top = top;
+  blinky.left = left;
+  blinky.frequency = Math.random() * 2000;
+  blinky.$moneyMaker = $('<span class="blinky-dancer"></span>');
 
-  extend(blinkyDancer, dancerMethods);
-
-  blinkyDancer.getInPosition();
-  return blinkyDancer;
+  blinky.getInPosition();
+  return blinky;
+};
+var blinkyPrototype = Object.create(dancerPrototype);
+blinkyPrototype.blink = function(){
+  this.$moneyMaker.toggle();
+};
+blinkyPrototype.step = function(){
+  this.getInPosition();
+  this.blink();
 };
