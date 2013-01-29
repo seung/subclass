@@ -14,8 +14,10 @@ body, a:link, a:visited, a:active{
   float:right;
 }
 .topbar{
+  position: relative;
   height:32px;
   background-color: #555;
+  z-index: 1;
 }
 .title{
   background-color: #777;

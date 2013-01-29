@@ -32,6 +32,16 @@ Dancer.prototype = {
   },
   lineUp: function(){
     this.left = 100;
+  },
+  perish: function(){
+    var list = window.dancers;
+    for (var i = window.dancers.length-1; i >= 0; i--) {
+      if (list[i] === this) {
+        console.log("found");
+        list.splice(i,1);
+        this.$moneyMaker.remove();
+      }
+    }
   }
 }
 
