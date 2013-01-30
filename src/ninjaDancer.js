@@ -20,7 +20,7 @@ NinjaDancer.prototype.ninjaChop = function() {
   var borderStr = this.border + "px";
   var styleObj = {
     "border-width": borderStr,
-    // "border-radius": "10px",
+    "border-radius": sizeStr,
     "border-color": "red",
     "background-image": "url('img/littleNinja.jpeg')",
     "background-size": "125px 125px",
@@ -68,6 +68,9 @@ NinjaDancer.prototype.slay = function() {
   var enemyRadius = 10;
   var list = window.dancers;
   for (var i = 0; i < list.length; i++) {
+    if (list[i].radius) { enemyRadius = list[i].radius; }
+    var topDist = list[i].top - this.top;
+    var leftDist = list[i].left - this.left;
     if ((Math.abs(list[i].top - this.top) < this.size+enemyRadius) && 
         (Math.abs(list[i].left - this.left) < this.size+enemyRadius) &&
         (list[i] !== this)) 
