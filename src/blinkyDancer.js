@@ -13,31 +13,6 @@ var makeBlinkyDancer = function(left, top){
 
     // get dressed... (use jQuery to create an HTML <span> tag)
     $moneyMaker: $('<span class="dancer"></span>'),
-
-    dance: function(){
-      // go out...  (add our tag to the HTML page)
-      dancer.$moneyMaker.appendTo('.stage');
-      // ...and do those sexy moves
-      // (dancer.step will be called on a timer)
-      setInterval(dancer.step, dancer.frequency);
-    },
-
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
-
-    getInPosition: function(){
-      /* Use css top and left properties to position our <span> tag
-       * where it belongs on the page. See http://api.jquery.com/css/
-       */
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.$moneyMaker.css(styleObj);
-    },
-
     blink: function(){
       /* toggle() is a jQuery method to show/hide the <span> tag.
        * See http://api.jquery.com/category/effects/ for this and
@@ -46,7 +21,7 @@ var makeBlinkyDancer = function(left, top){
     }
 
   }; // end dancer
-
+  $.extend(dancer, sharedDancerFunctions);
   dancer.getInPosition();
 
   return dancer;
