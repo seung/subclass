@@ -1,11 +1,12 @@
-
-var dance= function(){
-  // go out...  (add our tag to the HTML page)
-  this.$moneyMaker.appendTo('.stage');
-  // ...and do those sexy moves
-  // (dancer.step will be called on a timer)
-  var that = this;
-  setInterval(that.step, that.frequency);
+var blinkyPrototype = {
+  dance: function(){
+    // go out...  (add our tag to the HTML page)
+    this.$moneyMaker.appendTo('.stage');
+    // ...and do those sexy moves
+    // (dancer.step will be called on a timer)
+    var that = this;
+    setInterval(that.step, that.frequency);
+  }
 };
 
 var blink = function(){
@@ -13,45 +14,44 @@ var blink = function(){
    * See http://api.jquery.com/category/effects/ for this and
    * other effects you can use on a jQuery-wrapped html tag. */
   this.$moneyMaker.toggle();
-}
+};
 
 var makeBlinkyDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
    * of top side (measured down from top of window). */
 
-  var dancer = {
-    // we'll use top and left to set the position of this dancer
-    top: top,
-    left: left,
+  var dancer = Object.create(blinkyPrototype);
 
-    // used in setInterval below
-    frequency: Math.random() * 2000,
+  // we'll use top and left to set the position of this dancer
+  dancer.top = top;
+  dancer.left = left;
 
-    // get dressed... (use jQuery to create an HTML <span> tag)
-    $moneyMaker: $('<span class="dancer"></span>'),
+  // used in setInterval below
+  dancer.frequency = Math.random() * 2000;
 
-    dance: dance,
+  // get dressed... (use jQuery to create an HTML <span> tag)
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
 
-    step: function(){
-      dancer.getInPosition();
-      dancer.blink();
-    },
+  dancer.dance = dance;
 
-    getInPosition: function(){
-      /* Use css top and left properties to position our <span> tag
-       * where it belongs on the page. See http://api.jquery.com/css/
-       */
-      var styleObj = {
-        top: dancer.top,
-        left: dancer.left
-      };
-      dancer.$moneyMaker.css(styleObj);
-    },
+  dancer.step = function(){
+    dancer.getInPosition();
+    dancer.blink();
+  };
 
-    blink: blink,
+  dancer.getInPosition = function(){
+    /* Use css top and left properties to position our <span> tag
+     * where it belongs on the page. See http://api.jquery.com/css/
+     */
+    var styleObj = {
+      top: dancer.top,
+      left: dancer.left
+    };
+    dancer.$moneyMaker.css(styleObj);
+  };
 
-  }; // end dancer
+  dancer.blink = blink;
 
   dancer.getInPosition();
 
