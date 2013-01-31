@@ -1,3 +1,20 @@
+
+var dance= function(){
+  // go out...  (add our tag to the HTML page)
+  this.$moneyMaker.appendTo('.stage');
+  // ...and do those sexy moves
+  // (dancer.step will be called on a timer)
+  var that = this;
+  setInterval(that.step, that.frequency);
+};
+
+var blink = function(){
+  /* toggle() is a jQuery method to show/hide the <span> tag.
+   * See http://api.jquery.com/category/effects/ for this and
+   * other effects you can use on a jQuery-wrapped html tag. */
+  this.$moneyMaker.toggle();
+}
+
 var makeBlinkyDancer = function(left, top){
   /* Creates and returns a new dancer object at the given position,
    * where left is x-coordinate of left side and top is y-coordinate
@@ -14,13 +31,7 @@ var makeBlinkyDancer = function(left, top){
     // get dressed... (use jQuery to create an HTML <span> tag)
     $moneyMaker: $('<span class="dancer"></span>'),
 
-    dance: function(){
-      // go out...  (add our tag to the HTML page)
-      dancer.$moneyMaker.appendTo('.stage');
-      // ...and do those sexy moves
-      // (dancer.step will be called on a timer)
-      setInterval(dancer.step, dancer.frequency);
-    },
+    dance: dance,
 
     step: function(){
       dancer.getInPosition();
@@ -38,12 +49,7 @@ var makeBlinkyDancer = function(left, top){
       dancer.$moneyMaker.css(styleObj);
     },
 
-    blink: function(){
-      /* toggle() is a jQuery method to show/hide the <span> tag.
-       * See http://api.jquery.com/category/effects/ for this and
-       * other effects you can use on a jQuery-wrapped html tag. */
-      dancer.$moneyMaker.toggle();
-    }
+    blink: blink,
 
   }; // end dancer
 
