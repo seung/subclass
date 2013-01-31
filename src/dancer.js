@@ -1,4 +1,14 @@
-var sharedDancerFunctions = {
+var makeDancer = function(left, top) {
+  dancer = Object.create(dancerPrototype);
+  dancer.left = left;
+  dancer.top = top;
+  dancer.frequency = Math.random() * 2000;
+  dancer.$moneyMaker = $('<span class="dancer"></span>');
+  blinkyDancer.getInPosition();
+  return dancer;
+}
+
+var dancerPrototype = {
 	dance: function(){
     // go out...  (add our tag to the HTML page)
     this.$moneyMaker.appendTo('.stage');
@@ -10,7 +20,6 @@ var sharedDancerFunctions = {
 
   step: function(){
     this.getInPosition();
-    this.blink();
   },
 
   getInPosition: function(){
@@ -23,4 +32,4 @@ var sharedDancerFunctions = {
     };
     this.$moneyMaker.css(styleObj);
   }
-}
+};

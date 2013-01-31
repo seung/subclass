@@ -17,7 +17,6 @@ var makeDanceFloor = function(kindsOfDancers, dancers){
       var w = Math.random() * danceFloor.width;
       var h = Math.random() * danceFloor.height;
       var d = dancerMaker(w, h);
-
       d.dance();
       dancers.push(d);
     }
