@@ -34,8 +34,6 @@ var makeBlinkyDancer = function(left, top){
   // get dressed... (use jQuery to create an HTML <span> tag)
   dancer.$moneyMaker = $('<span class="dancer"></span>');
 
-  dancer.dance = dance;
-
   dancer.step = function(){
     dancer.getInPosition();
     dancer.blink();
@@ -51,8 +49,6 @@ var makeBlinkyDancer = function(left, top){
     };
     dancer.$moneyMaker.css(styleObj);
   };
-
-  dancer.blink = blink;
 
   dancer.getInPosition();
 
