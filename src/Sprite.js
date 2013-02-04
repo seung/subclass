@@ -5,7 +5,7 @@ var Sprite = function(left, top){
 
     var self = this;
     // used in setInterval below
-    this.frequency = Math.random() * 2000;
+    this.frequency = Math.random() * 2500;
     // get dressed...
     this.moneyMaker = $("<span class='blinkyDancer'></span>");
     this.dance = function(){
