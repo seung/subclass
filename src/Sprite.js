@@ -3,7 +3,6 @@ var Sprite = function(left, top){
     this.top = top;
     this.left = left;
 
-    var self = this;
     // used in setInterval below
     this.frequency = Math.random() * 2500;
     // get dressed...
@@ -12,29 +11,28 @@ var Sprite = function(left, top){
       // go out...
       this.moneyMaker.appendTo(".stage");
       // ...and do those sexy moves
-      setInterval(function(){self.step();}, this.frequency);
+      setInterval(function(){this.step();}, this.frequency);
     };
     this.step = function(){
-    // self = this;
-      self.width = self.moneyMaker.width();
+      this.width = this.moneyMaker.width();
 
-      self.top = Math.random() * 900;
-      self.left = Math.random() * 900;
-      self.setStyles();
+      this.top = Math.random() * 900;
+      this.left = Math.random() * 900;
+      this.setStyles();
 
-      self.blink();
+      this.blink();
     };
     this.setStyles = function(){
       var styleObj = {
-        width: self.width,
-        top: self.top,
-        left: self.left
+        width: this.width,
+        top: this.top,
+        left: this.left
       };
       this.moneyMaker.css(styleObj);
     };
     this.blink = function(){
-      // self = this;
-      self.moneyMaker.toggle();
+      // this = this;
+      this.moneyMaker.toggle();
     }
   
     this.setStyles();
