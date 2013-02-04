@@ -16,6 +16,8 @@ var Sprite = function(left, top){
     };
     this.step = function(){
     // self = this;
+      var oldWidth = self.moneyMaker.width();
+      self.moneyMaker.css({width: oldWidth + 1});
       self.getInPosition();
       self.blink();
     };
