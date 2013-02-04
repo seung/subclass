@@ -6,7 +6,7 @@ var Sprite = function(left, top){
     // used in setInterval below
     this.frequency = Math.random() * 2500;
     // get dressed...
-    this.moneyMaker = $("<span class='blinkyDancer'></span>");
+    this.node = $("<span class='blinkyDancer'></span>");
 
     this.setStyles();
 };
@@ -14,12 +14,12 @@ var Sprite = function(left, top){
 Sprite.prototype = {
   dance: function(){
     // go out...
-    this.moneyMaker.appendTo(".stage");
+    this.node.appendTo(".stage");
     // ...and do those sexy moves
     setInterval(function(){this.step();}, this.frequency);
   },
   step: function(){
-    this.width = this.moneyMaker.width();
+    this.width = this.node.width();
 
     this.top = Math.random() * 900;
     this.left = Math.random() * 900;
@@ -33,10 +33,10 @@ Sprite.prototype = {
       top: this.top,
       left: this.left
     };
-    this.moneyMaker.css(styleObj);
+    this.node.css(styleObj);
   },
   blink: function(){
     // this = this;
-    this.moneyMaker.toggle();
+    this.node.toggle();
   }
 };

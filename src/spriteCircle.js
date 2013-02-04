@@ -9,11 +9,11 @@ spriteCircle.prototype = new Sprite();
 // 	Sprite.apply(this, [left, top]);
 // 	var self = this;
 // 	this.blink = function() {
-//       self.moneyMaker.fadeToggle()
+//       self.node.fadeToggle()
 // 	};
 // 	this.frequency = 1000;
-// 	this.moneyMaker.addClass('moonwalk');
-// 	this.moneyMaker.css({border: "10px solid goldenrod"});	
+// 	this.node.addClass('moonwalk');
+// 	this.node.css({border: "10px solid goldenrod"});	
 // };
 
 // GoldenDancer.prototype = new Sprite();

@@ -6,9 +6,9 @@ describe("goldenDancer", function() {
   });
 
   it("should call fadeToggle", function() {
-    spyOn(goldenDancer.moneyMaker, 'fadeToggle');
+    spyOn(goldenDancer.node, 'fadeToggle');
     goldenDancer.blink();   
-    expect(goldenDancer.moneyMaker.fadeToggle).toHaveBeenCalled();
+    expect(goldenDancer.node.fadeToggle).toHaveBeenCalled();
   });
 
   it("should set frequency to 1000 milliseconds", function() {
@@ -27,9 +27,9 @@ describe("goldenDancer", function() {
     });
 
     it("should be called", function() {
-      spyOn(goldenDancer.moneyMaker, "addClass");
-      goldenDancer.moneyMaker.addClass();
-      expect(goldenDancer.moneyMaker.addClass).toHaveBeenCalled();
+      spyOn(goldenDancer.node, "addClass");
+      goldenDancer.node.addClass();
+      expect(goldenDancer.node.addClass).toHaveBeenCalled();
     });
 
     it("should create a moonwalk class", function() {

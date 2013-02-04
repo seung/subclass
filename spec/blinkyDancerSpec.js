@@ -11,7 +11,7 @@ describe("blinkyDancer", function() {
   });
 
   it("should have a jQuery node object", function(){
-    expect(blinkyDancer.moneyMaker).toEqual(jasmine.any(jQuery));
+    expect(blinkyDancer.node).toEqual(jasmine.any(jQuery));
   });
 
   it("should have a frequency", function(){
@@ -19,10 +19,10 @@ describe("blinkyDancer", function() {
     expect(blinkyDancer.frequency).toBeGreaterThan(0);
   });
 
-  it("should have a step function that shakes its moneyMaker", function() {
-    spyOn(blinkyDancer.moneyMaker, 'toggle');
+  it("should have a step function that shakes its node", function() {
+    spyOn(blinkyDancer.node, 'toggle');
     blinkyDancer.blink();   
-    expect(blinkyDancer.moneyMaker.toggle).toHaveBeenCalled();
+    expect(blinkyDancer.node.toggle).toHaveBeenCalled();
   });
 
   describe("dance", function(){
