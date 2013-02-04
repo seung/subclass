@@ -16,13 +16,17 @@ var Sprite = function(left, top){
     };
     this.step = function(){
     // self = this;
-      var oldWidth = self.moneyMaker.width();
-      self.moneyMaker.css({width: oldWidth + 1});
-      self.getInPosition();
+      self.width = self.moneyMaker.width();
+
+      self.top = Math.random() * 900;
+      self.left = Math.random() * 900;
+      self.setStyles();
+
       self.blink();
     };
-    this.getInPosition = function(){
+    this.setStyles = function(){
       var styleObj = {
+        width: self.width,
         top: self.top,
         left: self.left
       };
@@ -33,5 +37,5 @@ var Sprite = function(left, top){
       self.moneyMaker.toggle();
     }
   
-    this.getInPosition();
+    this.setStyles();
 };
