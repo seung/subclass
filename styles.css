@@ -21,7 +21,6 @@ span {
   line-height: 800px;
 }
 
-
 .topbar span{
   padding:5px 12px;
   float:right;
@@ -38,7 +37,7 @@ span {
   border-radius:10px;
   position:absolute;
 }
-.blueBlinkyDancer{
+.donutBlinkyDancer{
   border:20px solid blue;
   width:40px;
   height:40px;
