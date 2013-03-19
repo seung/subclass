@@ -6,14 +6,19 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/movingDancer.js"></script>
+    <script src="src/turningDancer.js"></script>
   </head>
   <body>
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">blinky</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="MovingDancer">moving</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="TurningDancer">turning</a>
     </div>
 
+    <div class="stage"></div>
     <script>
       $(document).ready(function(){
         window.dancers = [];
@@ -38,12 +43,12 @@
 
           // make a dancer with a random position
           var dancer = new dancerMakerFunction(
-            $("body").height() * Math.random(),
-            $("body").width() * Math.random(),
+            $('.stage').height() * Math.random(),
+            $('.stage').width() * Math.random(),
             Math.random() * 1000
           );
 
-          $('body').append(dancer.$node);
+          $('.stage').append(dancer.$node);
         });
       });
     </script>

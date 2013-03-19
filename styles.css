@@ -18,10 +18,15 @@ body, a:link, a:visited, a:active{
   background-color: #555;
 }
 .title{
+  padding:5px 12px;
+  float:left;
   background-color: #777;
 }
 .dancer{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.stage{
+  height:100%;
 }
