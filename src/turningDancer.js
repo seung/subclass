@@ -5,18 +5,17 @@ var TurningDancer = function (top, left, timeBetweenSteps) {
 };
 
 TurningDancer.prototype = Object.create(Dancer.prototype);
-TurningDancer.prototype.constructor = Dancer;
+TurningDancer.prototype.constructor = TurningDancer;
 
 TurningDancer.prototype.step = function() {
     Dancer.prototype.step.call(this);
-    /* toggle() is a jQuery method to show/hide the <span> tag.
-     * See http://api.jquery.com/category/effects/ for this and
+    /* See http://api.jquery.com/category/effects/ for this and
      * other effects you can use on a jQuery-wrapped html tag. */
     this.setPosition(this.top, this.left);
 };
 
 TurningDancer.prototype.setPosition = function(top, left) {
-    this.angle = ((this.angle + 10) % 360);
+    this.angle = ((this.angle + 15) % 360);
     var styleSettings = {
     'height': '62px',
     'width': '98px',

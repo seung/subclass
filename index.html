@@ -16,12 +16,14 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">blinky</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MovingDancer">moving</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="TurningDancer">turning</a>
+      <a href="#" class="alignButton" data-dancer-maker-function-name="TurningDancer">align dancers!</a>
     </div>
 
     <div class="stage"></div>
     <script>
       $(document).ready(function(){
-        window.dancers = [];
+        // window.dancers = [];
+        $('.stage').dancers = [];
 
         $(".addDancerButton").on("click", function(event){
           /* This function sets up the click handlers for the create-dancer
@@ -49,6 +51,10 @@
           );
 
           $('.stage').append(dancer.$node);
+        });
+
+        $('.alignButton').on('click', function(event) {
+          $('.dancer').css('left','20px');
         });
       });
     </script>
