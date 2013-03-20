@@ -7,7 +7,7 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
 }
 .title, .addDancerButton{
   padding:5px 12px;
@@ -23,8 +23,9 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border:15px solid red;
+  border-radius:15px;
+  opacity: 0.8;
   position:absolute;
 }
 .stage{

@@ -14,14 +14,6 @@ Dancer.prototype.step = function() {
     }, that.timeBetweenSteps);
 };
 
-/*
-// Why doesn't this work?
-Dancer.prototype.step = function() {
-    var that = this;
-    setTimeout(that.step(), that.timeBetweenSteps);
-};
-*/
-
 Dancer.prototype.setPosition = function(top, left) {
   this.top = top;
   this.left = left;
