@@ -5,7 +5,7 @@ var MovingDancer = function (top, left, timeBetweenSteps) {
 MovingDancer.prototype = Object.create(Dancer.prototype);
 MovingDancer.prototype.constructor = MovingDancer;
 
-MovingDancer.prototype.step = function(stopped) {
+MovingDancer.prototype.step = function() {
     // call the old version of step at the beginning of any call to this new version of step
     Dancer.prototype.step.call(this);
     /* toggle() is a jQuery method to show/hide the <span> tag.
@@ -13,9 +13,7 @@ MovingDancer.prototype.step = function(stopped) {
      * other effects you can use on a jQuery-wrapped html tag. */
     var vSpeed = (Math.random()-0.5) * 20;
     var hSpeed = (Math.random()-0.5) * 20;
-    if(!stopped) {
-      this.setPosition(this.top + vSpeed, this.left + hSpeed);
-    }
+    this.setPosition(this.top + vSpeed, this.left + hSpeed);
 };
 
 MovingDancer.prototype.setPosition = function(top, left) {

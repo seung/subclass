@@ -16,23 +16,16 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">blinky</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MovingDancer">moving</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="TurningDancer">turning</a>
-      <a href="#" class="alignButton" data-dancer-maker-function-name="TurningDancer">align dancers!</a>
+      <a href="#" class="alignButton">align dancers!</a>
     </div>
 
     <div class="stage"></div>
     <script>
       $(document).ready(function(){
-        // window.dancers = [];
+        
         $('.stage').dancers = [];
 
         $(".addDancerButton").on("click", function(event){
-          /* This function sets up the click handlers for the create-dancer
-           * buttons on index.html. You should not need to alter it.
-           * As long as the "data-dancer-maker-function-name" attribute of a
-           * class="addDancerButton" DOM node matches one of the names of the
-           * maker functions available in the global scope, clicking that node
-           * will call the function to make the dancer. */
-
           /* dancerMakerFunctionName is a string which must match
            * one of the dancer maker functions available in global scope.
            * A new object of the given type will be created and added
@@ -53,9 +46,15 @@
           $('.stage').append(dancer.$node);
         });
 
-        $('.alignButton').on('click', function(event) {
+        var scheduleLineup = function(){
           $('.dancer').css('left','20px');
+          setTimeout(scheduleLineup, 5);            
+        };
+
+        $('.alignButton').on('click', function(event){
+          scheduleLineup();
         });
+
       });
     </script>
 
