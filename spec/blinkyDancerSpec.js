@@ -3,7 +3,6 @@ describe("blinkyDancer", function() {
   var timeBetweenSteps = 100;
 
   beforeEach(function() {
-    // sets up a way to delay this test -- used below
     jasmine.Clock.useMock();
 
     blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
@@ -23,8 +22,8 @@ describe("blinkyDancer", function() {
 
     it("should call step periodically", function(){
       spyOn(blinkyDancer, "step").andCallThrough();
-      // for crazy reasons, we need to let some time pass
-      // specifically, the spied-upon step function will not be called the first time around
+      // need to let some time pass
+      // the spied-upon step function will not be called the first time around
       jasmine.Clock.tick(timeBetweenSteps);
 
       expect(blinkyDancer.step.callCount).toBe(0);
