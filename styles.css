@@ -4,37 +4,24 @@ body, html{
 body{
   margin: 0px;
   background-color:#444;
-  // background-image:url('http://cdn.uproxx.com/wp-content/uploads/2012/04/starwars-kinect-dancing-33.gif');
-  background-repeat:no-repeat;
-  background-size': '100%';
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: white;
+  color: lightblue;
 }
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
-}
-.alignButton{
-  padding:5px 12px;
-  float:right; 
 }
 .topbar{
   height:32px;
   background-color: #555;
 }
 .title{
-  padding:5px 12px;
-  float:left;
   background-color: #777;
 }
 .dancer{
-  border:15px solid red;
-  border-radius:15px;
-  opacity: 0.8;
+  border:10px solid red;
+  border-radius:10px;
   position:absolute;
-}
-.stage{
-  height:100%;
 }

@@ -1,25 +1,48 @@
-// Creates and returns a new dancer object that can step
+// Functional inheritance pattern
+var makeDancer = function(top, left, timeBetweenSteps){
+  var dancer = {};
+
+  dancer.$node = $('<span class="dancer"></span>');
+
+  dancer.step = function() {
+    setTimeout(dancer.step, timeBetweenSteps);
+  };
+  dancer.step();
+
+  dancer.setPosition = function(top, left){
+    var styleSettings = {
+      top: top,
+      left: left
+    };
+    dancer.$node.css(styleSettings);
+  };
+
+  dancer.setPosition(top, left);
+  return dancer;
+};
+
+// Pseudoclassical pattern
 var Dancer = function(top, left, timeBetweenSteps) {
-  // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
-}
-
-Dancer.prototype.step = function() {
-    var that = this;
-    setTimeout(function() {
-      that.step();
-    }, that.timeBetweenSteps);
 };
 
-Dancer.prototype.setPosition = function(top, left) {
-  this.top = top;
-  this.left = left;
-  var styleSettings = {
-    top: top,
-    left: left
-  };
-  this.$node.css(styleSettings);
+// Superclass method
+Dancer.prototype = {
+
+  step: function() {
+      var that = this;
+      setTimeout(function() {
+        that.step();
+      }, that.timeBetweenSteps)
+  },
+  setPosition: function(top, left) {
+      var styleSettings = {
+        'top': top,
+        'left': left
+      };
+      this.$node.css(styleSettings);
+  }
 };
